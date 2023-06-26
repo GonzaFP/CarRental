@@ -1,0 +1,19 @@
+.carCard {
+	background-color: white;
+	width: 200px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+.carCard > img {
+	width: 200px;
+	height: 110px;
+	object-fit: cover;
+}
+
+.model {
+	margin: 50px 20px 20px 50px;
+}
+.model > h3 {
+	text-align: start;
+	margin-left: 60px;
+}

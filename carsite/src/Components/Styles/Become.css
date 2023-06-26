@@ -1,0 +1,39 @@
+.choice {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+	margin: 100px 50px 50px 200px;
+	text-align: center;
+}
+
+.choice #icon {
+	font-size: 200px;
+	color: blueviolet;
+	background-color: lightgray;
+	border-radius: 50%;
+	align-self: center;
+}
+.guest {
+	margin-left: auto;
+	margin-top: 0px;
+}
+
+.host {
+	align-self: center;
+	margin-top: 100px;
+	margin-left: 0px;
+}
+.guest,
+.host {
+	text-align: left;
+}
+
+.guest > h2,
+.host > h2 {
+	color: blueviolet;
+}
+
+.greater {
+	font-weight: bold;
+	font-size: 30px;
+}

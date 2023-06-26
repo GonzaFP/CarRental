@@ -1,0 +1,92 @@
+.navbar {
+	display: flex;
+	column-gap: 30px;
+}
+
+.navbar .host {
+	margin-left: auto;
+	margin-top: 20px;
+}
+
+.navbar .host button {
+	background-color: white;
+	padding: 5px 10px;
+}
+
+.navbar .host button:hover {
+	background-color: rgb(231, 231, 231);
+}
+
+.menu {
+	margin-top: 20px;
+	margin-right: 30px;
+}
+.menu:hover {
+	border: 1px solid white;
+	background-color: rgb(245, 241, 241);
+	border-radius: 10px;
+	padding: 8px;
+}
+
+.menu .menuitem {
+	margin-left: 5px;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdownmenu {
+	position: absolute;
+	border: 1px solid lightgray;
+	background-color: white;
+	right: 40px;
+	border-radius: 20px;
+	width: 300px;
+	text-align: left;
+	padding: 10px 30px;
+	box-shadow: 2px 2px 10px 2px #ffff;
+	z-index: 3;
+	margin-top: 20px;
+}
+.dropdownmenu > h3 {
+	font-weight: 350;
+}
+
+.flex {
+	display: flex;
+}
+.flex > h3 {
+	font-weight: 350;
+	margin-top: 0px;
+	margin-left: 10px;
+}
+.flex:hover,
+.dropdownmenu > h3:hover {
+	background-color: rgb(236, 236, 236);
+	border: 1px solid gainsboro;
+	border-radius: 10px;
+}
+.flex .icon {
+	font-size: 30px;
+}
+
+.border {
+	border-top: 1px solid lightgray;
+	padding: 0px;
+}
+.border > h3 {
+	font-weight: 350;
+}
+.border .top {
+	margin-top: 20px;
+}

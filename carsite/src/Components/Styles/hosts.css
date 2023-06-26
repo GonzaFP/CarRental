@@ -1,0 +1,61 @@
+.hosts {
+	background-color: white;
+	border: 1px solid lightgray;
+	width: 300px;
+	height: 250px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 2px 2px 3px 1px lightgray;
+	border-radius: 10px;
+}
+
+.hosts .profile {
+	display: flex;
+}
+
+.hosts .profile > img {
+	width: 100px;
+	border-radius: 50%;
+	margin-right: 40px;
+}
+
+.hosts .profile .trips {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.hosts .profile .trips .name {
+	font-weight: bold;
+}
+
+.hosts .profile .trips .trip {
+	font-size: 13px;
+}
+
+.hosts > p {
+	text-align: left;
+	font-size: 15px;
+}
+
+.hosts .customer {
+	font-size: 13px;
+	text-align: left;
+	font-weight: 500;
+}
+
+.hosts .customer span {
+	color: black;
+	margin-left: 5px;
+}
+
+@media screen and (max-width: 800px) {
+	.hosts {
+		width: 250px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.hosts {
+		width: 200px;
+	}
+}

@@ -1,0 +1,30 @@
+.browse {
+	margin: 100px 100px 50px 100px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	gap: 15px;
+}
+.browse > img {
+	width: 500px;
+}
+.browse .right {
+	margin-top: 20px;
+	text-align: left;
+	width: 400px;
+}
+.span {
+	color: blueviolet;
+}
+
+.browse .right > button {
+	background-color: blueviolet;
+	border-color: blueviolet;
+	color: white;
+	padding: 15px 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.browse .right > button:hover {
+	background-color: purple;
+	border-color: purple;
+}

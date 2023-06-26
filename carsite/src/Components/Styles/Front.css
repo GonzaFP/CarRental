@@ -1,0 +1,16 @@
+.front {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+	gap: 10px;
+}
+
+.front .left {
+	margin-top: 100px;
+}
+.left > h2 {
+	font-size: 60px;
+	color: rgb(24, 70, 24);
+}
+.left > h4 {
+	font-size: 25px;
+}
