@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Styles/HeaderStyles.css";
@@ -9,13 +10,24 @@ import ConstructionOutlinedIcon from "@mui/icons-material/ConstructionOutlined";
 import CalculateOutlinedIcon from "@mui/icons-material/CalculateOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+
 function Header() {
+	const navigate = useNavigate();
 	const [className, setClassName] = useState("hide");
+	const [clearClass, setClearClass] = useState("clear");
+	const [profileClass, setProfileClass] = useState("display");
 	const [toggle, setToggle] = useState(false);
 
 	const handleDisplay = () => {
 		setClassName(() => {
 			return toggle ? "show" : "hide";
+		});
+		setClearClass(() => {
+			return toggle ? "display" : "clear";
+		});
+		setProfileClass(() => {
+			return toggle ? "clear" : "display";
 		});
 		setToggle(!toggle);
 	};
@@ -23,14 +35,19 @@ function Header() {
 	return (
 		<>
 			<div className="navbar">
-				<h3 className="logo">Car Rental </h3>
+				<h3 className="logo" onClick={() => navigate("/")}>
+					Car Rental{" "}
+				</h3>
 
 				<div className="host">
-					<button>Become a host</button>
+					<button onClick={() => navigate("/host")}>
+						Become a host
+					</button>
 				</div>
 
 				<div className="dropdown" onClick={handleDisplay}>
-					<div className="menu">
+					<ClearOutlinedIcon className={`${clearClass} clearIcon`} />
+					<div className={`${profileClass} menu`}>
 						<MenuIcon className="menuitem" />
 						<AccountCircleOutlinedIcon className="menuitem account" />
 					</div>

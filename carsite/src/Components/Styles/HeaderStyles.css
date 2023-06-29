@@ -1,11 +1,19 @@
 .navbar {
 	display: flex;
 	column-gap: 30px;
+	margin-top: 20px;
 }
 
+.navbar .logo {
+	color: blueviolet;
+	margin-left: 120px;
+	font-size: 20px;
+	font-style: italic;
+	cursor: pointer;
+}
 .navbar .host {
 	margin-left: auto;
-	margin-top: 20px;
+	margin-top: 5px;
 }
 
 .navbar .host button {
@@ -14,7 +22,9 @@
 }
 
 .navbar .host button:hover {
-	background-color: rgb(231, 231, 231);
+	background-color: blueviolet;
+	border: 1px solid blueviolet;
+	color: white;
 }
 
 .menu {
@@ -36,10 +46,15 @@
 	display: block;
 }
 
-.hide {
+.hide,
+.dropdown .clearIcon {
 	display: none;
 }
 
+.dropdown .clearIcon {
+	margin-top: 20px;
+	margin-right: 30px;
+}
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -54,20 +69,23 @@
 	width: 300px;
 	text-align: left;
 	padding: 10px 30px;
-	box-shadow: 2px 2px 10px 2px #ffff;
+	box-shadow: 2px 2px 3px 2px #ffff;
 	z-index: 3;
 	margin-top: 20px;
 }
+
 .dropdownmenu > h3 {
 	font-weight: 350;
+	font-size: 17px;
 }
 
 .flex {
 	display: flex;
 }
 .flex > h3 {
-	font-weight: 350;
-	margin-top: 0px;
+	font-weight: 300;
+	font-size: 17px;
+	margin-top: 5px;
 	margin-left: 10px;
 }
 .flex:hover,
@@ -89,4 +107,18 @@
 }
 .border .top {
 	margin-top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+	.dropdown .display {
+		display: block;
+	}
+	.dropdown .clear,
+	.navbar .host button {
+		display: none;
+	}
+	.dropdownmenu {
+		width: 400px;
+		right: 10px;
+	}
 }

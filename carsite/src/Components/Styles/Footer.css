@@ -1,0 +1,80 @@
+.footer {
+	background-color: rgb(36, 3, 66);
+	color: white;
+}
+
+.first {
+	/* display: flex;
+	gap: 100px; */
+	margin: 50px 50px 50px 200px;
+	padding-top: 100px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.sec {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 100px 100px 50px 200px;
+}
+.sec .types,
+.sec .makes {
+	margin-right: 60px;
+}
+
+.sec .city {
+	margin-left: 20px;
+}
+.flexitems {
+	text-align: left;
+}
+.flexitems > p {
+	font-size: 13px;
+}
+.social {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+.socialicons {
+	display: flex;
+	margin-bottom: 40px;
+}
+.socialicons .icons {
+	margin-right: 20px;
+	font-size: 25px;
+}
+
+.cities {
+	display: flex;
+}
+.cities .group1 {
+	margin-right: 100px;
+}
+
+.cities .group2 {
+	margin-left: 20px;
+}
+
+.cities .group1 > p,
+.cities .group2 > p {
+	font-size: 13px;
+}
+
+#copy {
+	font-size: 13px;
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	.first {
+		margin: 50px;
+	}
+	.sec {
+		margin: 50px;
+	}
+
+	.sec .city {
+		margin-left: 2px;
+	}
+}

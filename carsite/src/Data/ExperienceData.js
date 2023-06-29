@@ -23,7 +23,7 @@ export const ExperienceData = [
 	},
 
 	{
-		name: "Deluxe and super deluxe",
+		name: "Deluxe",
 		image: "deluxe.jpg",
 		icon: <AutoAwesomeOutlinedIcon color="secondary" />,
 	},

@@ -10,7 +10,7 @@ function Hosts() {
 		return <HostCard host={item} key={index} />;
 	});
 	return (
-		<div>
+		<div className="hostcontainer">
 			<h2>Meet the hosts</h2>
 			<Carousel responsive={responsiveHost}>{Host}</Carousel>
 		</div>

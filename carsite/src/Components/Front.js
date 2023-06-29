@@ -9,7 +9,7 @@ function Front() {
 			</div>
 
 			<div className="right">
-				<img src="black.jpg" />
+				<img src="black.png" />
 			</div>
 		</div>
 	);

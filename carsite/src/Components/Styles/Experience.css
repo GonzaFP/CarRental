@@ -1,6 +1,5 @@
 .Card {
 	width: 500px;
-	margin-right: 20px;
 }
 
 .Card > img {
@@ -19,7 +18,8 @@
 }
 .main > h3 {
 	text-align: left;
-	margin-left: 70px;
+	margin-left: 130px;
+	color: blueviolet;
 }
 .rec-dot {
 	display: none;
@@ -29,17 +29,17 @@
 	.Card > img {
 		width: 250px;
 	}
-	.main > h3 {
-		margin-left: 50px;
-		font-size: 15px;
-	}
 }
 @media screen and (max-width: 500px) {
 	.Card > img {
 		width: 200px;
 	}
+	.main {
+		text-align: left;
+		margin: 100px 20px;
+	}
 
-	.main > h3 {
-		margin-left: 20px;
+	.Card .sub {
+		justify-content: start;
 	}
 }

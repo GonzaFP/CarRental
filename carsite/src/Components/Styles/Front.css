@@ -1,16 +1,41 @@
 .front {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-	gap: 10px;
+	gap: 5px;
 }
 
 .front .left {
 	margin-top: 100px;
+	text-align: left;
+	width: 500px;
+	margin-left: 120px;
 }
 .left > h2 {
 	font-size: 60px;
-	color: rgb(24, 70, 24);
+	color: blueviolet;
 }
 .left > h4 {
 	font-size: 25px;
+}
+.front .right > img {
+	width: 700px;
+}
+
+@media screen and (max-width: 600px) {
+	.front .right > img {
+		width: 400px;
+	}
+
+	.left > h2 {
+		font-size: 40px;
+	}
+	.left > h4 {
+		font-size: 15px;
+	}
+
+	.front .left {
+		margin-top: 50px;
+		text-align: center;
+		margin-left: 20px;
+	}
 }

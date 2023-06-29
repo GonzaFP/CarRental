@@ -1,12 +1,41 @@
+.container {
+	margin-top: 150px;
+}
+
+.container > h2 {
+	color: blueviolet;
+}
+
 .works {
+	margin-left: 300px;
 	margin-top: 50px;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	gap: 15px;
 }
 
-.icon {
+.works .icon {
 	border: 1px solid lightgray;
 	border-radius: 50%;
 	padding: 20px;
+	background-color: blueviolet;
+	color: white;
+}
+
+.works .icon:hover {
+	background-color: purple;
+}
+.works .workIcon {
+	text-align: center;
+	width: 200px;
+}
+
+@media screen and (max-width: 900px) {
+	.works {
+		margin-left: 150px;
+		text-align: center;
+	}
+	.container {
+		margin-top: 50px;
+	}
 }

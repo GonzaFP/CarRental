@@ -1,0 +1,26 @@
+.sharingContainer {
+	margin: 10px 50px 50px 100px;
+}
+.sharingContainer > h2 {
+	color: blueviolet;
+	font-size: 40px;
+}
+.sharing {
+	display: flex;
+	gap: 20px;
+}
+.sharing > img {
+	width: 500px;
+}
+.sharing .instruct {
+	width: 500px;
+}
+
+@media screen and (max-width: 900px) {
+	.sharing > img {
+		width: 300px;
+	}
+	.sharingContainer {
+		margin: 10px;
+	}
+}

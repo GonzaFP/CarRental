@@ -1,8 +1,10 @@
 .browse {
-	margin: 100px 100px 50px 100px;
+	display: flex;
+	margin: 40px;
+	/* 
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-	gap: 15px;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	column-gap: 150px; */
 }
 .browse > img {
 	width: 500px;
@@ -10,12 +12,15 @@
 .browse .right {
 	margin-top: 20px;
 	text-align: left;
-	width: 400px;
+	width: 600px;
 }
 .span {
 	color: blueviolet;
 }
 
+.browse .right > h3 {
+	font-size: 35px;
+}
 .browse .right > button {
 	background-color: blueviolet;
 	border-color: blueviolet;
@@ -27,4 +32,35 @@
 .browse .right > button:hover {
 	background-color: purple;
 	border-color: purple;
+}
+
+@media screen and (max-width: 800px) {
+	.browse {
+		margin-left: 0px;
+		margin-top: 50px;
+		flex-wrap: wrap;
+	}
+	.browse > img {
+		margin: 0 auto;
+	}
+
+	.browse .right {
+		margin: 0 auto;
+		width: 400px;
+	}
+
+	.browse .right > h3 {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	/* .browse .right {
+		margin-top: 10px;
+		width: 400px;
+	} */
+
+	.browse .right > h3 {
+		font-size: 25px;
+	}
 }

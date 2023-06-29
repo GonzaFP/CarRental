@@ -4,6 +4,7 @@
 
 .sustain .carbon {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .sustain .carbon .left {
@@ -11,7 +12,10 @@
 	margin-left: 50px;
 	text-align: left;
 }
-
+.sustain .carbon span {
+	color: blueviolet;
+	font-weight: bold;
+}
 .sustain .carbon .right {
 	margin-left: auto;
 	margin-right: 50px;
@@ -31,4 +35,18 @@
 .sustain .carbon .right > button:hover {
 	background-color: purple;
 	border: 1px solid purple;
+}
+
+@media screen and (max-width: 800px) {
+	.sustain .carbon .left {
+		margin-left: 20px;
+	}
+	/* .sustain {
+		margin-right: 50px;
+	}
+	.sustain {
+	} */
+	.sustain .carbon .right > button {
+		margin: 50px 100px 50px 50px;
+	}
 }

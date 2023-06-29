@@ -1,0 +1,42 @@
+.ListContainer {
+	margin: 50px 100px;
+}
+
+.ListContainer > h2 {
+	font-size: 30px;
+}
+.ListContainer > img {
+	width: 100%;
+}
+
+.started {
+	margin-bottom: 100px;
+}
+.started > button {
+	background-color: blueviolet;
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 15px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.started > button:hover {
+	background-color: purple;
+}
+.Typewriter__cursor {
+	color: white;
+}
+.Typewriter__wrapper {
+	color: blueviolet;
+}
+
+.type {
+	display: flex;
+	gap: 5px;
+}
+.type > span {
+	font-size: 40px;
+	font-weight: bold;
+}

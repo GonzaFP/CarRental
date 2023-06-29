@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import Front from "./Front";
 import Works from "./Works";
 import BrowseMake from "./BrowseMake";
@@ -8,12 +7,13 @@ import Experience from "./Experience";
 import Sustain from "./Sustain";
 import Hosts from "./Hosts";
 import Become from "./Become";
+import Hero from "./Hero";
 
 function Home() {
 	return (
 		<div>
-			<Header />
 			<Front />
+			<Hero />
 			<Works />
 			<BrowseMake />
 			<PerfectCars />

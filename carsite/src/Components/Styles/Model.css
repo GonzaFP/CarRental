@@ -16,4 +16,12 @@
 .model > h3 {
 	text-align: start;
 	margin-left: 60px;
+	color: blueviolet;
+}
+
+@media screen and (max-width: 900px) {
+	.model > h3 {
+		text-align: center;
+		margin-right: 100px;
+	}
 }

@@ -6,10 +6,10 @@ import LocalAtmOutlinedIcon from "@mui/icons-material/LocalAtmOutlined";
 import "./Styles/Works.css";
 function Works() {
 	return (
-		<div>
-			<h3>How it works</h3>
+		<div className="container">
+			<h2>How it works</h2>
 			<div className="works">
-				<div>
+				<div className="workIcon">
 					<SearchOutlinedIcon className="icon" />
 					<h4> 01. Select your car</h4>
 					<p>
@@ -18,7 +18,7 @@ function Works() {
 					</p>
 				</div>
 
-				<div>
+				<div className="workIcon">
 					<MedicalInformationOutlinedIcon className="icon" />
 					<h4>02. Define your booking</h4>
 					<p>
@@ -27,7 +27,7 @@ function Works() {
 					</p>
 				</div>
 
-				<div>
+				<div className="workIcon">
 					<LocalAtmOutlinedIcon className="icon" />
 					<h4>03. Payment</h4>
 					<p>
