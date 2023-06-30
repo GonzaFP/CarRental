@@ -1,0 +1,104 @@
+.signupContainer > h2 {
+	text-align: center;
+}
+
+.signupForm {
+	display: table;
+	margin: 0 auto;
+}
+.name {
+	display: flex;
+	gap: 5px;
+}
+.name .firstname,
+.name .lastname {
+	display: flex;
+	flex-direction: column;
+}
+.firstname > input,
+.lastname > input {
+	width: 200px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	outline-color: blueviolet;
+	height: 30px;
+	border: 1px solid lightgray;
+	box-sizing: border-box;
+}
+
+.signupForm {
+	position: relative;
+}
+.signupForm .driverName {
+	position: absolute;
+	font-size: 12px;
+	top: 59px;
+}
+
+.signupForm .mail,
+.signupForm .password {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.signupForm .mail > input,
+.signupForm .password > input {
+	width: 400px;
+	margin-top: 2px;
+	outline-color: blueviolet;
+	height: 30px;
+	border: 1px solid lightgray;
+	box-sizing: border-box;
+}
+
+.signupForm .checkbox {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.check > input {
+	margin-bottom: 10px;
+}
+.check > span {
+	font-size: 13px;
+}
+.check .terms {
+	color: blue;
+}
+
+.signupForm > button {
+	background-color: blueviolet;
+	color: white;
+	font-weight: bold;
+	border: 1px solid white;
+	border-radius: 2px;
+	padding: 10px;
+	width: 400px;
+}
+
+.signupForm > button:hover {
+	background-color: purple;
+}
+
+.signupContainer .login {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.login > button {
+	background-color: white;
+	font-weight: bold;
+	border: 1px solid black;
+	border-radius: 2px;
+	padding: 10px;
+	width: 400px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.login > button:hover {
+	background-color: rgb(230, 217, 243);
+	border: 1px solid blueviolet;
+}

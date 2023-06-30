@@ -48,3 +48,21 @@ export const carData = [
 		image: "jag.avif",
 	},
 ];
+
+export const CarouselData = [
+	{
+		image: "ben.jpg",
+	},
+
+	{
+		image: "benz.jpg",
+	},
+
+	{
+		image: "bmw.jpg",
+	},
+
+	{
+		image: "ford.jpg",
+	},
+];

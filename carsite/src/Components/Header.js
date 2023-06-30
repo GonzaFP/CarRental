@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Styles/HeaderStyles.css";
@@ -36,7 +36,7 @@ function Header() {
 		<>
 			<div className="navbar">
 				<h3 className="logo" onClick={() => navigate("/")}>
-					Car Rental{" "}
+					CarRental{" "}
 				</h3>
 
 				<div className="host">
@@ -53,18 +53,18 @@ function Header() {
 					</div>
 
 					<div className={`${className} dropdownmenu`}>
-						<h3>Log in</h3>
-						<h3>Sign up</h3>
+						<Link to="/signin">Log in</Link>
+						<Link to="/signup">Sign up</Link>
 
 						<div className="flex">
 							<DirectionsCarOutlinedIcon className="icon" />
-							<h3>Become a host</h3>
+							<Link to="/host">Become a host</Link>
 						</div>
 
 						<div className="border">
 							<div className="flex top">
 								<VpnKeyOutlinedIcon className="icon" />
-								<h3>How Turo works</h3>
+								<Link to="/howworks">How Turo works</Link>
 							</div>
 
 							<div className="flex">

@@ -40,3 +40,23 @@
 	font-size: 40px;
 	font-weight: bold;
 }
+
+@media screen and (max-width: 700px) {
+	.type {
+		flex-wrap: wrap;
+	}
+
+	.ListContainer {
+		margin: 10px;
+	}
+
+	.started > button {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.type {
+		flex-wrap: wrap;
+	}
+}

@@ -12,6 +12,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "dayjs": "^1.11.8",
+    "firebase": "^9.23.0",
+    "firebaseui": "^6.0.2",
     "react": "^18.2.0",
     "react-calendar": "^4.3.0",
     "react-datetime-picker": "^5.2.0",

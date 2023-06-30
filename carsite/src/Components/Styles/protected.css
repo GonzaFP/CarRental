@@ -1,0 +1,34 @@
+.protectedContainer {
+	display: flex;
+	gap: 100px;
+	margin: 100px;
+}
+
+.protectedContainer > img {
+	width: 500px;
+	object-fit: contain;
+}
+
+.protect .shield {
+	font-size: 50px;
+	color: blueviolet;
+}
+.protect > h2 {
+	font-size: 40px;
+	color: blueviolet;
+}
+
+@media screen and (max-width: 1200px) {
+	.protectedContainer {
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 50px;
+	}
+
+	.protect {
+		text-align: center;
+	}
+	.protect .shield {
+		align-self: center;
+	}
+}

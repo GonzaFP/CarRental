@@ -1,0 +1,62 @@
+.getstart {
+	text-align: center;
+}
+.options {
+	display: flex;
+	justify-content: center;
+}
+
+.getstart > h2 {
+	color: blueviolet;
+	font-size: 40px;
+}
+
+.getstart > button {
+	background-color: blueviolet;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.getstart > button:hover {
+	background-color: purple;
+}
+.starticon {
+	color: blueviolet;
+	font-size: 40px;
+}
+
+@media screen and (max-width: 800px) {
+	.getstart {
+		margin: 20px;
+		text-align: center;
+	}
+
+	.options {
+		flex-wrap: wrap;
+	}
+	.options > div {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.getstart {
+		flex-wrap: wrap;
+		margin-left: 20px;
+	}
+	.getstart > h2 {
+		text-align: center;
+	}
+
+	.options {
+		flex-wrap: wrap;
+	}
+	.getstart > button {
+		display: block;
+		margin: 0 auto;
+	}
+}

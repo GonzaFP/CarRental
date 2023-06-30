@@ -1,5 +1,6 @@
 import React from "react";
 import "./Styles/Sharing.css";
+
 function Sharing() {
 	return (
 		<div className="sharingContainer">
@@ -31,7 +32,7 @@ function Sharing() {
 						<p>
 							When a guest books your car, you’ll confirm where
 							and how to hand over the keys before the trip. Check
-							your guest in with the Car Rental app, then sit back
+							your guest in with the CarRental app, then sit back
 							and relax until the trip is over.
 						</p>
 					</div>

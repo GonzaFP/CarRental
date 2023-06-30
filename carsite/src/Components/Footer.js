@@ -15,7 +15,7 @@ function Footer() {
 		<div className="footer">
 			<div className="first">
 				<div className="company flexitems">
-					<h4>Car Rental</h4>
+					<h4>CarRental</h4>
 					<p>About</p>
 					<p>Team</p>
 					<p>Policies</p>
@@ -122,7 +122,7 @@ function Footer() {
 				</div>
 			</div>
 
-			<p id="copy">&copy; 2023 Car Rental All Rights Reserved</p>
+			<p id="copy">&copy; 2023 CarRental All Rights Reserved</p>
 		</div>
 	);
 }

@@ -9,7 +9,7 @@ function Sustain() {
 				<div className="left">
 					Drive and share cars knowing your carbon footprint is
 					balanced out by greenhouse-gas-reduction projects.
-					Carbon-neutral travel on <span>Car Rental</span> is now
+					Carbon-neutral travel on <span>CarRental</span> is now
 					verified with a carbon neutral certification!
 				</div>
 				<div className="right">

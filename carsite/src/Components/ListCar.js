@@ -1,8 +1,10 @@
 import React from "react";
 import "./Styles/List.css";
 import Typewriter from "typewriter-effect";
+import { useNavigate } from "react-router-dom";
 
 function ListCar() {
+	const navigate = useNavigate();
 	return (
 		<div className="ListContainer">
 			<div className="type">
@@ -29,11 +31,11 @@ function ListCar() {
 			</div>
 			<h3>
 				Share your car whenever you're not using it and earn over £400
-				per month per car on Car Rental, the world's largest car sharing
+				per month per car on CarRental, the world's largest car sharing
 				marketplace.
 			</h3>
 			<div className="started">
-				<button>Get started</button>
+				<button onClick={() => navigate("/signin")}>Get started</button>
 			</div>
 
 			<img src="safari.jpg" alt="" />

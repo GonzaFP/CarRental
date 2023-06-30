@@ -1,0 +1,87 @@
+.signin > h1 {
+	text-align: center;
+}
+
+.signinForm {
+	display: table;
+	margin: 0 auto;
+}
+.signinForm .email,
+.signinForm .pwd {
+	display: flex;
+	flex-direction: column;
+}
+
+.signinForm > button {
+	background-color: blueviolet;
+	color: white;
+	font-weight: bold;
+	border: 1px solid white;
+	border-radius: 2px;
+	padding: 10px;
+	width: 400px;
+}
+
+.signinForm > button:hover {
+	background-color: purple;
+}
+.pwd {
+	position: relative;
+}
+.email > input,
+.pwd > input {
+	width: 400px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	outline-color: blueviolet;
+	height: 30px;
+	border: 1px solid lightgray;
+}
+
+.email > span,
+.pwd > span {
+	font-size: 13px;
+	font-weight: 300;
+}
+.pwd .forgotPwd {
+	color: blueviolet;
+	font-size: 12px;
+	font-weight: bold;
+	position: absolute;
+	left: 268px;
+	text-decoration: none;
+}
+.pwd .forgotPwd:hover {
+	color: brown;
+}
+.other {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+.other > div > button {
+	background-color: white;
+	font-weight: bold;
+	border: 1px solid black;
+	border-radius: 2px;
+	padding: 10px;
+	width: 400px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.other > div > button:hover {
+	background-color: rgb(230, 217, 243);
+	border: 1px solid blueviolet;
+}
+
+#fb {
+	color: mediumblue;
+}
+.socials {
+	font-size: 20px;
+	margin-right: 10px;
+	vertical-align: bottom;
+}
