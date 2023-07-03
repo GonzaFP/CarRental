@@ -1,0 +1,23 @@
+.carrental .sharingContainer > h2 {
+	text-align: center;
+}
+
+.carrental .sharing > img {
+	margin-top: 0px;
+}
+
+.number {
+	border: 1px solid black;
+	border-radius: 50%;
+	padding: 6px;
+}
+
+@media screen and (max-width: 500px) {
+	.carrental .sharingContainer > h2 {
+		font-size: 25px;
+	}
+
+	.carrental .instruct > div > h3 {
+		font-size: 17px;
+	}
+}

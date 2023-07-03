@@ -30,12 +30,11 @@
 	position: relative;
 }
 .signupForm .driverName {
-	position: absolute;
 	font-size: 12px;
-	top: 59px;
 }
 
 .signupForm .mail,
+.signupForm .highlights,
 .signupForm .password {
 	display: flex;
 	flex-direction: column;
@@ -101,4 +100,33 @@
 .login > button:hover {
 	background-color: rgb(230, 217, 243);
 	border: 1px solid blueviolet;
+}
+
+.error {
+	color: red;
+	font-size: 13px;
+}
+.name .highlight > input {
+	width: 200px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	outline-color: blueviolet;
+	height: 30px;
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+.name .highlight {
+	display: flex;
+	flex-direction: column;
+}
+.signupForm .highlights > input {
+	width: 400px;
+	margin-top: 2px;
+	outline-color: blueviolet;
+	height: 30px;
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+.redterms {
+	color: red;
 }

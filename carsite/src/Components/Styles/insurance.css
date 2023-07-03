@@ -1,0 +1,28 @@
+.insurance {
+	text-align: center;
+	margin-top: 100px;
+}
+
+.insurance > img {
+	width: 400px;
+}
+.insurance > h2 {
+	font-size: 40px;
+	margin-bottom: 50px;
+	color: blueviolet;
+}
+.insurance > div {
+	text-align: left;
+	width: 600px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+	.insurance > h2 {
+		font-size: 30px;
+	}
+	.insurance > div {
+		width: 400px;
+		margin: 20px auto 20px auto;
+	}
+}

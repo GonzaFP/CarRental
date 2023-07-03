@@ -9,7 +9,9 @@
 	height: 110px;
 	object-fit: cover;
 }
-
+.carCard > h4 {
+	text-align: center;
+}
 .model {
 	margin: 50px 20px 20px 50px;
 }

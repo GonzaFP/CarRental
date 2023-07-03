@@ -49,20 +49,44 @@ export const carData = [
 	},
 ];
 
-export const CarouselData = [
+export const categoryData = [
 	{
-		image: "ben.jpg",
+		name: "Convertibles",
+		image: "convert.avif",
 	},
 
 	{
-		image: "benz.jpg",
+		name: "Luxury",
+		image: "exotic.jpeg",
 	},
 
 	{
-		image: "bmw.jpg",
+		name: "Minivans",
+		image: "van.jpeg",
 	},
 
 	{
-		image: "ford.jpg",
+		name: "SUV",
+		image: "suv.webp",
+	},
+
+	{
+		name: "Trucks",
+		image: "truck.avif",
+	},
+
+	{
+		name: "Classics",
+		image: "classic.jpg",
+	},
+
+	{
+		name: "Sports",
+		image: "sports.jpg",
+	},
+
+	{
+		name: "Electric",
+		image: "tesla.jpg",
 	},
 ];

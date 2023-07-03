@@ -32,7 +32,7 @@
 	margin-right: 30px;
 }
 .menu:hover {
-	border: 1px solid white;
+	border: 1px solid beige;
 	background-color: rgb(245, 241, 241);
 	border-radius: 10px;
 	padding: 8px;
@@ -69,7 +69,7 @@
 	width: 300px;
 	text-align: left;
 	padding: 10px 30px;
-	box-shadow: 2px 2px 3px 2px #ffff;
+	box-shadow: 2px 2px 3px 2px beige;
 	z-index: 3;
 	margin-top: 20px;
 }
@@ -101,17 +101,7 @@
 }
 .flex .icon {
 	font-size: 30px;
-}
-
-.border {
-	border-top: 1px solid lightgray;
-	padding: 0px;
-}
-.border > h3 {
-	font-weight: 350;
-}
-.border .top {
-	margin-top: 20px;
+	font-weight: 200;
 }
 
 @media screen and (max-width: 500px) {

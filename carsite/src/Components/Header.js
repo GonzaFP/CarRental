@@ -5,12 +5,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Styles/HeaderStyles.css";
 import DirectionsCarOutlinedIcon from "@mui/icons-material/DirectionsCarOutlined";
 import VpnKeyOutlinedIcon from "@mui/icons-material/VpnKeyOutlined";
-import ContactPhoneOutlinedIcon from "@mui/icons-material/ContactPhoneOutlined";
-import ConstructionOutlinedIcon from "@mui/icons-material/ConstructionOutlined";
-import CalculateOutlinedIcon from "@mui/icons-material/CalculateOutlined";
-import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
-import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import { GrLogout } from "react-icons/gr";
+import {
+	MdOutlineManageAccounts,
+	MdOutlineFavoriteBorder,
+	MdOutlineForwardToInbox,
+} from "react-icons/md";
+import { PiRoadHorizonLight } from "react-icons/pi";
 
 function Header() {
 	const navigate = useNavigate();
@@ -54,43 +56,46 @@ function Header() {
 
 					<div className={`${className} dropdownmenu`}>
 						<Link to="/signin">Log in</Link>
-						<Link to="/signup">Sign up</Link>
+						<Link to="/firstsignup">Sign up</Link>
 
+						<div>
+							<div className="flex">
+								<MdOutlineFavoriteBorder className="icon" />
+								<Link to="/signin">Favorites</Link>
+							</div>
+
+							<div className="flex">
+								<PiRoadHorizonLight className="icon" />
+								<Link to="/signin">Trips</Link>
+							</div>
+
+							<div className="flex">
+								<MdOutlineForwardToInbox className="icon" />
+								<Link to="/signin">Inbox</Link>
+							</div>
+
+							<div className="flex">
+								<AccountCircleOutlinedIcon className="icon" />
+								<Link to="/host">Profile</Link>
+							</div>
+
+							<div className="flex">
+								<MdOutlineManageAccounts className="icon" />
+								<Link to="/host">Account</Link>
+							</div>
+						</div>
 						<div className="flex">
 							<DirectionsCarOutlinedIcon className="icon" />
 							<Link to="/host">Become a host</Link>
 						</div>
 
-						<div className="border">
-							<div className="flex top">
-								<VpnKeyOutlinedIcon className="icon" />
-								<Link to="/howworks">How Turo works</Link>
-							</div>
-
-							<div className="flex">
-								<ContactPhoneOutlinedIcon className="icon" />
-								<h3>Contact support</h3>
-							</div>
-
-							<div className="flex">
-								<ArticleOutlinedIcon className="icon" />
-								<h3>Legal</h3>
-							</div>
-
-							<div className="flex">
-								<ShieldOutlinedIcon className="icon" />
-								<h3>Insurance and protections</h3>
-							</div>
-
-							<div className="flex">
-								<ConstructionOutlinedIcon className="icon" />
-								<h3>Host tools</h3>
-							</div>
-
-							<div className="flex">
-								<CalculateOutlinedIcon className="icon" />
-								<h3>Calculator</h3>
-							</div>
+						<div className="flex top">
+							<VpnKeyOutlinedIcon className="icon" />
+							<Link to="/howworks">How Turo works</Link>
+						</div>
+						<div className="flex top">
+							<GrLogout className="icon" />
+							<Link to="/howworks">Log out</Link>
 						</div>
 					</div>
 				</div>

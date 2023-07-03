@@ -1,17 +1,20 @@
 import React from "react";
+import "./Styles/carrenttal.css";
 
 function HowCarRentalWorks() {
 	return (
-		<div>
+		<div className="carrental">
 			<div className="sharingContainer">
 				<h2>How CarRental works</h2>
 
 				<div className="sharing">
+					<img src="hand.jpg" alt="" />
 					<div className="instruct">
 						<div>
 							<h3>
 								{" "}
-								<span>1</span> Find the perfect car
+								<span className="number">1</span>&nbsp; Find the
+								perfect car
 							</h3>
 							<p>
 								Enter a location and date and browse thousands
@@ -21,7 +24,8 @@ function HowCarRentalWorks() {
 
 						<div>
 							<h3>
-								<span>2</span> Book your trip
+								<span className="number">2</span>&nbsp; Book
+								your trip
 							</h3>
 							<p>
 								Book on the CarRental app or online, choose a
@@ -33,7 +37,8 @@ function HowCarRentalWorks() {
 						<div>
 							<h3>
 								{" "}
-								<span>3</span> Hit the road
+								<span className="number">3</span>&nbsp; Hit the
+								road
 							</h3>
 							<p>
 								Have the car delivered or pick it up from your
@@ -42,7 +47,6 @@ function HowCarRentalWorks() {
 							</p>
 						</div>
 					</div>
-					<img src="hand.jpg" alt="" />
 				</div>
 			</div>
 		</div>
