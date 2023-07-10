@@ -1,13 +1,18 @@
 import React from "react";
 import "./Styles/Model.css";
+import { Link } from "react-router-dom";
 
 function ModelCard(props) {
-	const { name, image } = props.car;
+	const { title, image, id } = props.car;
 
 	return (
-		<div className="carCard">
-			<img src={image} />
-			<h4>{name}</h4>
+		<div className="card">
+			<Link to={`model/${id}`}>
+				<div className="carCard">
+					<img src={image} />
+					<h4>{title}</h4>
+				</div>
+			</Link>
 		</div>
 	);
 }

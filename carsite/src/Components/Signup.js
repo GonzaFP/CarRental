@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Styles/signup.css";
 import { auth } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -6,9 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { schema } from "../Features/Schema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../Store/ReducerFunction";
 
 function SignUp() {
+	const dispatch = useDispatch();
+	// const { User } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
+	const { errorMessage, setErrorMessage } = useState();
+
 	const {
 		register,
 		handleSubmit,
@@ -16,20 +22,35 @@ function SignUp() {
 	} = useForm({
 		resolver: yupResolver(schema),
 	});
+
 	const onSubmit = async (data) => {
 		const { email, password, firstName, lastName, notify, terms } = data;
-		const { user } = await createUserWithEmailAndPassword(
-			auth,
-			email,
-			password
-		);
-		updateProfile(user, { displayName: `${firstName} ${lastName}` });
-		console.log(user);
-		navigate(-1);
+		try {
+			const { user } = await createUserWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
+			updateProfile(user, { displayName: `${firstName} ${lastName}` });
+			dispatch(
+				login({
+					name: `${firstName} ${lastName}`,
+					email: user.email,
+					id: user.uid,
+					sendNotification: notify,
+					agreedToTerms: terms,
+					photo: null,
+				})
+			);
+			navigate(-1);
+		} catch (error) {
+			setErrorMessage(error.message);
+		}
 	};
 	return (
 		<div className="signupContainer">
 			<h2>Create an account</h2>
+			{errorMessage && <p className="error">{errorMessage}</p>}
 			<form className="signupForm" onSubmit={handleSubmit(onSubmit)}>
 				<div className="name">
 					<div

@@ -1,0 +1,127 @@
+.Account {
+	margin: 50px 150px;
+}
+.Account p {
+	font-size: 18px;
+	font-weight: 100px;
+}
+.accountLeft > h1 {
+	font-size: 40px;
+}
+
+.contactinfo h5 {
+	margin-bottom: 5px;
+	color: gray;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+}
+.titles {
+	font-size: 17px;
+}
+.contactinfo .input {
+	border: 1px solid lightgray;
+	outline-color: blueviolet;
+	padding: 10px;
+	width: 350px;
+}
+.contactinfo .verified {
+	color: blueviolet;
+	margin-left: 10px;
+	font-size: 18px;
+}
+.verified .icon {
+	vertical-align: middle;
+}
+
+.whiteBtns {
+	background-color: white;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 10px 15px;
+	margin-top: 10px;
+}
+.whiteBtns:hover {
+	background-color: blueviolet;
+	color: white;
+}
+.checkbox {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.contactinfo span {
+	margin-left: 10px;
+	font-size: 17px;
+	font-weight: 100px;
+}
+
+.purpleBtn {
+	border: 1px solid lightgray;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 10px 15px;
+	margin-top: 10px;
+	background-color: blueviolet;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.purpleBtn:hover {
+	background-color: white;
+	color: black;
+	border: 1px solid lightgray;
+}
+
+.sections {
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 15px;
+}
+.transmission .radio {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.transmission .radio > span {
+	margin-left: 10px;
+	vertical-align: middle;
+}
+.transmission .radio > input {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.approval > a {
+	text-decoration: none;
+	font-size: 18px;
+	color: blueviolet;
+}
+.approval > a:hover {
+	color: purple;
+	text-decoration: underline;
+}
+
+.travelcredit h5 {
+	margin-bottom: 5px;
+	color: gray;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.travelcredit input {
+	border: 1px solid lightgray;
+	outline-color: blueviolet;
+	padding: 10px;
+	width: 350px;
+}
+
+@media screen and (max-width: 700px) {
+	.Account {
+		margin: 20px;
+	}
+}

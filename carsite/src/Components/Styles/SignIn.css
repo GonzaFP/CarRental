@@ -1,7 +1,10 @@
 .signin > h1 {
 	text-align: center;
 }
-
+.signin .error {
+	display: block;
+	text-align: center;
+}
 .signinForm {
 	display: table;
 	margin: 0 auto;

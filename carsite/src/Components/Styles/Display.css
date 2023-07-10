@@ -1,0 +1,22 @@
+.Display > h2 {
+	margin-left: 200px;
+}
+
+.Display .info {
+	text-align: center;
+	margin-top: 100px;
+}
+.info #car {
+	font-size: 150px;
+	color: blueviolet;
+}
+@media screen and (max-width: 500px) {
+	.Display > h2 {
+		margin-left: 40px;
+	}
+	.info > h3,
+	.info > p {
+		text-align: left;
+		margin-left: 40px;
+	}
+}

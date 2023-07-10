@@ -1,8 +1,9 @@
-import createSlice from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = [
 	{
-		user: null,
+		User: null,
+		profile: null,
 	},
 ];
 
@@ -14,17 +15,33 @@ export const ReducerFunction = createSlice({
 		login: (state, action) => {
 			return {
 				...state,
-				user: action.payload,
+				User: action.payload,
 			};
 		},
 		logout: (state) => {
+			return {};
+		},
+		notify: (state, action) => {
 			return {
 				...state,
-				user: null,
+				User: {
+					...state.User,
+					sendNotification: action.payload.sendNotification,
+				},
+			};
+		},
+		uploadProfilePhoto: (state, action) => {
+			return {
+				...state,
+				User: {
+					...state.User,
+					photo: action.payload.profilePhoto,
+				},
 			};
 		},
 	},
 });
 
-export const { login, logout } = ReducerFunction.actions;
+export const { login, logout, notify, uploadProfilePhoto } =
+	ReducerFunction.actions;
 export default ReducerFunction.reducer;

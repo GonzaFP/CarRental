@@ -1,0 +1,21 @@
+.phone {
+	margin-left: 150px;
+}
+.phone > p {
+	width: 500px;
+	word-wrap: break-word;
+}
+
+.inputcheck {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.PhoneInput {
+	width: 500px;
+}
+.PhoneInputInput {
+	border: 1px solid lightgray;
+	outline-color: blueviolet;
+	padding: 10px;
+	background: transparent;
+}

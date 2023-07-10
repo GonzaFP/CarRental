@@ -3,7 +3,7 @@ import "./Styles/ForgotPassword.css";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/Firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
-import ResetPasswordModal from "./ResetPasswordModal";
+import SentEmailModal from "./SentEmailModal";
 
 function ForgotPassword() {
 	const [className, setClassName] = useState("inactive");
@@ -11,7 +11,7 @@ function ForgotPassword() {
 	const [resetModal, setResetModal] = useState(false);
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
-
+	const message = "Check your email for a link to reset the password.";
 	const handleChange = (event) => {
 		if (event.target.value.trim() !== "") {
 			setDisabled(false);
@@ -38,7 +38,7 @@ function ForgotPassword() {
 	return (
 		<>
 			{resetModal ? (
-				<ResetPasswordModal closeModal={setResetModal} />
+				<SentEmailModal closeModal={setResetModal} message={message} />
 			) : (
 				<div className="resetContainer">
 					<h1>Reset Password</h1>

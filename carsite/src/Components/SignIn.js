@@ -14,13 +14,17 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../Features/Schema";
 import SignModal from "./SignModal";
+import { login } from "../Store/ReducerFunction";
+import { useDispatch } from "react-redux";
 
 function SignIn() {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [openModal, setOpenModal] = useState(false);
 	const [isNewUser, setNewUser] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
 
 	const {
 		register,
@@ -38,9 +42,19 @@ function SignIn() {
 				email,
 				password
 			);
-			console.log(user);
+			dispatch(
+				login({
+					name: user.name,
+					email: user.email,
+					id: user.uid,
+					// !get name, notify status from db
+					sendNotification: true,
+					agreedToTerms: true,
+				})
+			);
 			navigate(-1);
 		} catch (error) {
+			setErrorMessage(error.code);
 			console.log("signin error", error);
 		}
 	};
@@ -55,7 +69,7 @@ function SignIn() {
 					setNewUser(isNewUser);
 				} else {
 					setNewUser(false);
-					navigate("/");
+					// throw an error. Account exists.
 				}
 			});
 		} catch (error) {
@@ -66,10 +80,17 @@ function SignIn() {
 	return (
 		<div className="signin">
 			{openModal ? (
-				<SignModal closeModal={setOpenModal} user={isNewUser} />
+				<SignModal
+					closeModal={setOpenModal}
+					user={isNewUser}
+					openModal={openModal}
+				/>
 			) : (
 				<>
 					<h1>Welcome back</h1>
+					{errorMessage && (
+						<span className="error">{errorMessage}</span>
+					)}
 					<form className="signinForm">
 						<div className="email">
 							<span>Email</span>
@@ -79,7 +100,11 @@ function SignIn() {
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 							/>
+							<span className="error">
+								{errors.email?.message}
+							</span>
 						</div>
+
 						<div className="pwd">
 							<span>Password</span>
 							<Link to="/forgotpwd" className="forgotPwd">
@@ -91,6 +116,9 @@ function SignIn() {
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 							/>
+							<span className="error">
+								{errors.password?.message}
+							</span>
 						</div>
 						<button onClick={handleSignIn}>Log in</button>
 					</form>

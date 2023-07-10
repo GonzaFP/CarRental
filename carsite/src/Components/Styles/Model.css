@@ -9,6 +9,13 @@
 	height: 110px;
 	object-fit: cover;
 }
+.card > a {
+	color: black;
+	text-decoration: none;
+}
+.card > a:hover {
+	color: blueviolet;
+}
 .carCard > h4 {
 	text-align: center;
 }

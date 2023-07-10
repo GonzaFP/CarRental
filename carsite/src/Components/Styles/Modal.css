@@ -25,12 +25,12 @@ a {
 
 .modalBg .title {
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 40px;
 }
 
 .modalBg .body {
 	font-size: 18px;
-	margin-top: 45px;
+	margin-top: 20px;
 }
 .modalBg .links {
 	color: blueviolet;
@@ -83,7 +83,8 @@ a {
 .acceptBg .title > h1 {
 	font-size: 20px;
 	font-weight: 200;
-	margin-top: 50px;
+	margin-top: 60px;
+	align-self: center;
 }
 .acceptBg .footerBtns {
 	margin-top: 100px;
@@ -110,4 +111,42 @@ a {
 }
 .resetBg > h3 {
 	color: blueviolet;
+}
+
+/* !Close account modal settings */
+.closeBg {
+	position: relative;
+	border: 1px solid rgb(240, 235, 235);
+	background-color: white;
+	border-radius: 10px;
+	width: 400px;
+	height: 460px;
+	padding: 20px;
+	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
+	z-index: 3;
+	margin: 0 auto;
+}
+.closeBg .title {
+	margin-top: 30px;
+}
+.closeBg .title > h3 {
+	margin-top: -10px;
+}
+.closeBg .body {
+	font-weight: 500;
+	font-size: 17px;
+	color: #474747;
+}
+.closeBg .body > ul > li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.closeBg .footerBtns > .whiteBtns {
+	margin-right: 15px;
+}
+.closeBg .close {
+	position: absolute;
+	left: 400px;
+	top: 15px;
+	cursor: pointer;
 }

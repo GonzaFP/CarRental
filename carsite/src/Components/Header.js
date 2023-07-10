@@ -3,16 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Styles/HeaderStyles.css";
-import DirectionsCarOutlinedIcon from "@mui/icons-material/DirectionsCarOutlined";
-import VpnKeyOutlinedIcon from "@mui/icons-material/VpnKeyOutlined";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
-import { GrLogout } from "react-icons/gr";
-import {
-	MdOutlineManageAccounts,
-	MdOutlineFavoriteBorder,
-	MdOutlineForwardToInbox,
-} from "react-icons/md";
-import { PiRoadHorizonLight } from "react-icons/pi";
+import Dropdown from "./dropdown";
 
 function Header() {
 	const navigate = useNavigate();
@@ -53,51 +45,7 @@ function Header() {
 						<MenuIcon className="menuitem" />
 						<AccountCircleOutlinedIcon className="menuitem account" />
 					</div>
-
-					<div className={`${className} dropdownmenu`}>
-						<Link to="/signin">Log in</Link>
-						<Link to="/firstsignup">Sign up</Link>
-
-						<div>
-							<div className="flex">
-								<MdOutlineFavoriteBorder className="icon" />
-								<Link to="/signin">Favorites</Link>
-							</div>
-
-							<div className="flex">
-								<PiRoadHorizonLight className="icon" />
-								<Link to="/signin">Trips</Link>
-							</div>
-
-							<div className="flex">
-								<MdOutlineForwardToInbox className="icon" />
-								<Link to="/signin">Inbox</Link>
-							</div>
-
-							<div className="flex">
-								<AccountCircleOutlinedIcon className="icon" />
-								<Link to="/host">Profile</Link>
-							</div>
-
-							<div className="flex">
-								<MdOutlineManageAccounts className="icon" />
-								<Link to="/host">Account</Link>
-							</div>
-						</div>
-						<div className="flex">
-							<DirectionsCarOutlinedIcon className="icon" />
-							<Link to="/host">Become a host</Link>
-						</div>
-
-						<div className="flex top">
-							<VpnKeyOutlinedIcon className="icon" />
-							<Link to="/howworks">How Turo works</Link>
-						</div>
-						<div className="flex top">
-							<GrLogout className="icon" />
-							<Link to="/howworks">Log out</Link>
-						</div>
-					</div>
+					<Dropdown className={className} />
 				</div>
 			</div>
 		</>

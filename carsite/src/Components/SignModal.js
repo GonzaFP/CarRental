@@ -5,26 +5,47 @@ import "./Styles/Modal.css";
 import { deleteUser } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
 import { useNavigate } from "react-router-dom";
+import { sendEmailVerification } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../Store/ReducerFunction";
 
 function SignModal({ closeModal, user }) {
 	const navigate = useNavigate();
-	const [agree, setAgree] = useState(false);
+	const dispatch = useDispatch();
+	const { User } = useSelector((state) => state.mainReducer);
+	const [agree, setAgree] = useState("");
+	const [open, setOpen] = useState(false);
 	const currentUser = auth.currentUser;
-	const DeleteUser = async () => {
-		console.log("agree", agree);
-		console.log("current user", currentUser);
+	const actionCodeSettings = {
+		url: "http://localhost:3000",
+		handleCodeInApp: false,
+	};
+
+	const handleUser = () => {
 		if (user === true && agree === false) {
 			deleteUser(currentUser).then(() => {
 				console.log("user deleted");
 				return;
 			});
 		} else {
-			navigate("/");
+			console.log("email verified", currentUser);
+			sendEmailVerification(currentUser, actionCodeSettings);
+			dispatch(
+				login({
+					name: currentUser.displayName,
+					email: currentUser.email,
+					id: currentUser.uid,
+					sendNotification: false,
+					agreedToTerms: true,
+				})
+			);
+			setOpen(true);
 		}
 	};
+	console.log("user in state", User);
 	return (
 		<>
-			{agree ? (
+			{open ? (
 				<AcceptModal closeModal={closeModal} />
 			) : (
 				<div className="modalBg">
@@ -32,7 +53,8 @@ function SignModal({ closeModal, user }) {
 						<ClearOutlinedIcon
 							onClick={() => {
 								closeModal(false);
-								DeleteUser();
+								setAgree(false);
+								handleUser();
 							}}
 							className="close"
 						/>
@@ -57,16 +79,18 @@ function SignModal({ closeModal, user }) {
 							<button
 								onClick={() => {
 									closeModal(false);
-									DeleteUser();
+									setAgree(false);
+									handleUser();
 								}}
 								id="decline">
 								Decline
 							</button>
+
 							<button
 								id="agree"
 								onClick={() => {
 									setAgree(true);
-									setAgree(true);
+									handleUser();
 								}}>
 								Accept
 							</button>
