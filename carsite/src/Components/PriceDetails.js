@@ -4,6 +4,7 @@ import { MdClear } from "react-icons/md";
 import "./Styles/PriceDetails.css";
 
 function PriceDetails({ setClose }) {
+	
 	return (
 		<div className="priceDetailsContainer">
 			<div className="priceDetails">

@@ -18,7 +18,7 @@ body {
 	position: absolute;
 	font-size: 25px;
 	right: 20px;
-	top: 20px;
+	top: 10px;
 }
 #stars {
 	margin-top: -10px;
@@ -32,7 +32,7 @@ body {
 	width: 350px;
 }
 .carInfo > h3 {
-	font-size: 23px;
+	font-size: 20px;
 }
 .carInfo .price {
 	position: absolute;
@@ -41,4 +41,11 @@ body {
 }
 .carInfo .price > a {
 	color: blueviolet;
+}
+.carInfo .price > p {
+	text-decoration: underline;
+	color: blueviolet;
+}
+.carInfo .price > p:hover {
+	color: black;
 }
