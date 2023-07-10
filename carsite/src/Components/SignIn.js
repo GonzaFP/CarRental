@@ -61,6 +61,7 @@ function SignIn() {
 
 	const signInGoogle = async () => {
 		const provider = new GoogleAuthProvider();
+		const user = auth.currentUser;
 		try {
 			await signInWithPopup(auth, provider).then(async (result) => {
 				const isNewUser = getAdditionalUserInfo(result).isNewUser;
@@ -69,7 +70,17 @@ function SignIn() {
 					setNewUser(isNewUser);
 				} else {
 					setNewUser(false);
-					// throw an error. Account exists.
+					dispatch(
+						login({
+							name: user.displayName,
+							email: user.email,
+							id: user.uid,
+							sendNotification: true,
+							agreedToTerms: true,
+							photo: user.photoURL,
+						})
+					);
+					navigate(-1);
 				}
 			});
 		} catch (error) {
