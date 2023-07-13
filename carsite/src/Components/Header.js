@@ -5,9 +5,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Styles/HeaderStyles.css";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import Dropdown from "./dropdown";
+import { useSelector } from "react-redux";
 
 function Header() {
 	const navigate = useNavigate();
+	const { User } = useSelector((state) => state.mainReducer);
 	const [className, setClassName] = useState("hide");
 	const [clearClass, setClearClass] = useState("clear");
 	const [profileClass, setProfileClass] = useState("display");
@@ -43,7 +45,15 @@ function Header() {
 					<ClearOutlinedIcon className={`${clearClass} clearIcon`} />
 					<div className={`${profileClass} menu`}>
 						<MenuIcon className="menuitem" />
-						<AccountCircleOutlinedIcon className="menuitem account" />
+						{!User ? (
+							<AccountCircleOutlinedIcon className="menuitem account" />
+						) : User?.photo ? (
+							<img src={User?.photo} alt="" id="profilepic" />
+						) : (
+							<div className=" profilename">
+								{User.name || User.email[0].toUpperCase()}
+							</div>
+						)}
 					</div>
 					<Dropdown className={className} />
 				</div>

@@ -17,7 +17,7 @@ import { auth } from "../Firebase/Firebase";
 
 function Dropdown({ className }) {
 	const dispatch = useDispatch();
-	const { User } = useSelector((state) => state.mainReducer);
+	const { User, initials } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
 	const [show, setShow] = useState(false);
 	const [showSign, setShowSign] = useState(true);
@@ -39,6 +39,7 @@ function Dropdown({ className }) {
 			return;
 		}
 	}, [User]);
+
 	return (
 		<div>
 			<div className={`${className} dropdownmenu`}>
@@ -78,8 +79,21 @@ function Dropdown({ className }) {
 						<hr />
 
 						<Link to="/profile">
-							<div className="flex">
-								<AccountCircleOutlinedIcon className="icon" />
+							<div className="flex ">
+								{!User ? (
+									<AccountCircleOutlinedIcon className="icon" />
+								) : User?.photo ? (
+									<img
+										src={User.photo}
+										alt=""
+										id="profilepic"
+									/>
+								) : (
+									<div className="profiler">
+										{initials && initials}
+									</div>
+								)}
+
 								<span>Profile</span>
 							</div>
 						</Link>

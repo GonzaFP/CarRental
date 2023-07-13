@@ -25,6 +25,8 @@ import MobilePhone from "./Components/MobilePhone";
 import Approved from "./Components/Approved";
 import CarModels from "./Components/CarModels";
 import PriceDetails from "./Components/PriceDetails";
+import CarDetails from "./Components/CarDetails";
+import CarInfo from "./Components/CarInfo";
 
 function App() {
 	return (
@@ -48,6 +50,7 @@ function App() {
 						<Route path="approved" element={<Approved />} />
 						<Route path="pricedetails" element={<PriceDetails />} />
 						<Route path="model/:modelId" element={<CarModels />} />
+						<Route path="cars/:carId" element={<CarInfo />} />
 						<Route
 							path="changepassword"
 							element={<ChangePassword />}

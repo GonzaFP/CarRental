@@ -7,13 +7,13 @@ import { useForm } from "react-hook-form";
 import { schema } from "../Features/Schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../Store/ReducerFunction";
+import { getInitials, login } from "../Store/ReducerFunction";
 
 function SignUp() {
 	const dispatch = useDispatch();
 	// const { User } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
-	const { errorMessage, setErrorMessage } = useState();
+	const { errorMessage, setErrorMessage } = useState("");
 
 	const {
 		register,
@@ -42,6 +42,7 @@ function SignUp() {
 					photo: null,
 				})
 			);
+			dispatch(getInitials(`${firstName} ${lastName}`));
 			navigate(-1);
 		} catch (error) {
 			setErrorMessage(error.message);

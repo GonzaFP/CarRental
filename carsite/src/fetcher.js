@@ -19,6 +19,7 @@ const fetcher = async (url) => {
 	} catch (error) {
 		responseObject.errorMessage = error;
 	}
+
 	return responseObject;
 };
 export default fetcher;

@@ -50,15 +50,21 @@ function Cars(props) {
 	}, [showPrice]);
 	return (
 		<div className="carContainer">
-			{showPrice && <PriceDetails setClose={setShowPrice} />}
+			{showPrice && (
+				<PriceDetails setClose={setShowPrice} price={price} />
+			)}
 
 			<div className="cars">
 				<div className="carBody">
 					<div className="image">
-						<img src={image} alt="" />
+						<Link to={`/cars/${id}`}>
+							<img src={image} alt="" />
+						</Link>
 					</div>
 					<div className="carInfo">
-						<h3>{title}</h3>
+						<Link to={`/cars/${id}`}>
+							<h3>{title}</h3>
+						</Link>
 						{liked ? (
 							<Tooltip title="Remove car from favourities.">
 								<IconButton id="favicon" onClick={removeCar}>
@@ -76,7 +82,7 @@ function Cars(props) {
 						<p>pick up at place.</p>
 						<h4>Trips: {trips}</h4>
 						<div className="price">
-							<h3>&pound;{`${price}/day`}</h3>
+							<h3>&pound;{`${price} / day`}</h3>
 							<p onClick={() => setShowPrice(true)}>
 								Price details
 							</p>

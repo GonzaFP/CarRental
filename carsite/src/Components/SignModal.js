@@ -7,7 +7,7 @@ import { auth } from "../Firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../Store/ReducerFunction";
+import { login, getInitials } from "../Store/ReducerFunction";
 
 function SignModal({ closeModal, user }) {
 	const navigate = useNavigate();
@@ -24,7 +24,6 @@ function SignModal({ closeModal, user }) {
 	const handleUser = () => {
 		if (user === true && agree === false) {
 			deleteUser(currentUser).then(() => {
-				console.log("user deleted");
 				return;
 			});
 		} else {
@@ -37,12 +36,14 @@ function SignModal({ closeModal, user }) {
 					id: currentUser.uid,
 					sendNotification: false,
 					agreedToTerms: true,
+					photo: currentUser.photoURL,
 				})
 			);
+			dispatch(getInitials(currentUser.displayName));
 			setOpen(true);
 		}
 	};
-	console.log("user in state", User);
+
 	return (
 		<>
 			{open ? (

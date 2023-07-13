@@ -28,11 +28,18 @@ body {
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 50px;
 }
-.carBody .image > img {
+.carBody .image > a > img {
 	width: 350px;
 }
-.carInfo > h3 {
-	font-size: 20px;
+.carInfo > a {
+	font-size: 18px;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.carInfo > a:hover {
+	color: blueviolet;
 }
 .carInfo .price {
 	position: absolute;

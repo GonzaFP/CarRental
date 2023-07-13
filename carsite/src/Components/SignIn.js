@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../Features/Schema";
 import SignModal from "./SignModal";
-import { login } from "../Store/ReducerFunction";
+import { getInitials, login } from "../Store/ReducerFunction";
 import { useDispatch } from "react-redux";
 
 function SignIn() {
@@ -50,8 +50,10 @@ function SignIn() {
 					// !get name, notify status from db
 					sendNotification: true,
 					agreedToTerms: true,
+					photo: null,
 				})
 			);
+			dispatch(getInitials(user.name));
 			navigate(-1);
 		} catch (error) {
 			setErrorMessage(error.code);
@@ -80,6 +82,7 @@ function SignIn() {
 							photo: user.photoURL,
 						})
 					);
+					dispatch(getInitials(user.displayName));
 					navigate(-1);
 				}
 			});

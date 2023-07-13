@@ -34,7 +34,18 @@
 	margin-top: -20px;
 	margin-bottom: 20px;
 }
-
+.left #profilepic {
+	width: 150px;
+}
+.left .profiler {
+	font-size: 50px;
+	border: 4px solid lightgray;
+	border-radius: 50%;
+	color: blueviolet;
+	width: 150px;
+	text-align: center;
+	padding: 10px;
+}
 .verifyinfo {
 	font-size: 13px;
 	color: gray;

@@ -19,6 +19,7 @@ function CarModels() {
 		};
 		fetchData();
 	}, [modelId]);
+
 	let carData = modelCars.errorMessage
 		? `Error: ${modelCars.errorMessage}`
 		: modelCars.data.map((car, index) => {

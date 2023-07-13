@@ -3,8 +3,7 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { MdClear } from "react-icons/md";
 import "./Styles/PriceDetails.css";
 
-function PriceDetails({ setClose }) {
-	
+function PriceDetails({ setClose, price }) {
 	return (
 		<div className="priceDetailsContainer">
 			<div className="priceDetails">
@@ -14,7 +13,7 @@ function PriceDetails({ setClose }) {
 					<h4>Included</h4>
 					<div className="baseprice tripfee">
 						<AiOutlineCheck id="tick" />
-						<h5>&pound; 95 &times; 3 days</h5>
+						<h5>&pound; {price} &times; 3 days</h5>
 						<h5 id="total">&pound; 285</h5>
 					</div>
 					<div className="tripprice tripfee">

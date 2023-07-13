@@ -69,3 +69,26 @@ export const responsiveCarousel = {
 		slidesToSlide: 1,
 	},
 };
+export const responsiveCar = {
+	superLargeDesktop: {
+		// the naming can be any, depends on you.
+		breakpoint: { max: 4000, min: 1200 },
+		items: 1,
+		slidesToSlide: 1,
+	},
+	desktop: {
+		breakpoint: { max: 1200, min: 980 },
+		items: 1,
+		slidesToSlide: 1,
+	},
+	tablet: {
+		breakpoint: { max: 980, min: 600 },
+		items: 1,
+		slidesToSlide: 1,
+	},
+	mobile: {
+		breakpoint: { max: 600, min: 0 },
+		items: 1,
+		slidesToSlide: 1,
+	},
+};

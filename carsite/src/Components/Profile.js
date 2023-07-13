@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
 import "./Styles/Profile.css";
 import StarRating from "./StarRating";
+import { useSelector } from "react-redux";
 
 function Profile() {
+	const { User, initials } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
 	return (
 		<div className="profileContainer">
@@ -17,8 +19,15 @@ function Profile() {
 
 			<div className="profile">
 				<div className="left">
-					<AccountCircleOutlinedIcon className="icon" />
-					<h1>Name</h1>
+					{!User ? (
+						<AccountCircleOutlinedIcon className="icon" />
+					) : User?.photo ? (
+						<img src={User.photo} alt="" id="profilepic" />
+					) : (
+						<div className="profiler">{initials && initials}</div>
+					)}
+
+					<h1>{User?.name}</h1>
 					<p className="date gray">Joined Jul 2023</p>
 					<p className="verifyinfo">Verified Info</p>
 					<div className="verify">

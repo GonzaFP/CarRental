@@ -84,7 +84,7 @@ export const HostData = [
 
 	{
 		name: "Syder",
-		image: "host10.jpg",
+		image: "host30.jpg",
 		message:
 			"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
 		trips: 600,
@@ -94,7 +94,7 @@ export const HostData = [
 
 	{
 		name: "Kaar",
-		image: "host11.jpeg",
+		image: "host31.jpeg",
 		message:
 			"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
 		trips: 987,
@@ -104,7 +104,7 @@ export const HostData = [
 
 	{
 		name: "Mery",
-		image: "host12.jpg",
+		image: "host32.jpg",
 		message:
 			"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
 		trips: 2300,
