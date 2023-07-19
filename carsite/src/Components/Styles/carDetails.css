@@ -240,6 +240,7 @@
 	border: 1px solid black;
 	padding: 0px;
 	width: 400px;
+	font-weight: bold;
 }
 
 .addFac > button:hover {

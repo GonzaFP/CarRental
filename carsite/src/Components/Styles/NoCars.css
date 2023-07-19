@@ -1,0 +1,25 @@
+.noCars {
+	margin: 50px 50px 50px 200px;
+}
+
+.body #road {
+	color: blueviolet;
+	font-size: 200px;
+}
+.subbody {
+	margin-top: -40px;
+	margin-left: 20px;
+}
+.subbody > h3 {
+	font-size: 26px;
+}
+
+.subbody > button {
+	background-color: blueviolet;
+	color: white;
+	font-weight: bold;
+	border: 1px solid blueviolet;
+	padding: 15px 10px;
+	width: 100px;
+	margin-left: 20px;
+}

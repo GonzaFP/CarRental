@@ -244,8 +244,8 @@ function CarDetails(props) {
 
 				<div className="rightside">
 					<div className="price">
-						<span id="cutprice">&pound;200</span>
-						<span id="unitprice">&pound;{price}</span>
+						<span id="cutprice">US$ 200</span>
+						<span id="unitprice">US$ {price}</span>
 						<span> / day</span>
 						{/* <button onClick={() => setShowPrice(true)}>
 							Price details
@@ -283,7 +283,7 @@ function CarDetails(props) {
 								<h4>600 mi</h4>
 							</div>
 						</div>
-						<p> &pound;0.22/mi fee for additional miles driven</p>
+						<p> US$ 0.22/mi fee for additional miles driven</p>
 					</div>
 					<div className="insurancepolicy">
 						<h4 className="subtitle">Insurance & Protection</h4>

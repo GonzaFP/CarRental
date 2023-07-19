@@ -13,13 +13,13 @@ function PriceDetails({ setClose, price }) {
 					<h4>Included</h4>
 					<div className="baseprice tripfee">
 						<AiOutlineCheck id="tick" />
-						<h5>&pound; {price} &times; 3 days</h5>
-						<h5 id="total">&pound; 285</h5>
+						<h5>US$ {price} &times; 3 days</h5>
+						<h5 id="total">US$ 285</h5>
 					</div>
 					<div className="tripprice tripfee">
 						<div className="totalprice">
 							<h5>Est. trip total</h5>
-							<h5 id="est">&pound; 285</h5>
+							<h5 id="est">US$ 285</h5>
 						</div>
 						<h5>Not yet included (applied at checkout)</h5>
 					</div>

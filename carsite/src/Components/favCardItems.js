@@ -35,7 +35,7 @@ function FavCardItems(props) {
 								<StarRating id="stars" />
 								<h5>Trips: {trips}</h5>
 							</div>
-							<h4 id="price">&pound; {`${price} /day`}</h4>
+							<h4 id="price">US$ {`${price} /day`}</h4>
 						</div>
 					</Link>
 				</div>

@@ -27,6 +27,7 @@ import CarModels from "./Components/CarModels";
 import PriceDetails from "./Components/PriceDetails";
 import CarDetails from "./Components/CarDetails";
 import CarInfo from "./Components/CarInfo";
+import BrowseCars from "./Components/BrowseCars";
 
 function App() {
 	return (
@@ -49,6 +50,7 @@ function App() {
 						<Route path="mobilephone" element={<MobilePhone />} />
 						<Route path="approved" element={<Approved />} />
 						<Route path="pricedetails" element={<PriceDetails />} />
+						<Route path="browsecars" element={<BrowseCars />} />
 						<Route path="model/:modelId" element={<CarModels />} />
 						<Route path="cars/:carId" element={<CarInfo />} />
 						<Route

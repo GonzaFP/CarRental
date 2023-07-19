@@ -13,7 +13,7 @@ function FavCard() {
 	console.log("data", favCar);
 	return (
 		<div className="favs">
-			<h2>{`${User?.email}'s favourities`}</h2>
+			<h2>{`${User?.name}'s favourities`}</h2>
 			<div className="favCars">{data}</div>
 		</div>
 	);

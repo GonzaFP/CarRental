@@ -1,0 +1,74 @@
+.sortModal {
+	position: fixed;
+	border: 1px solid rgb(240, 235, 235);
+	background-color: white;
+	border-radius: 10px;
+	width: 350px;
+	height: 200px;
+	padding: 20px;
+	box-shadow: 1px 1px 0.1px 0.1px #b8b3b3;
+	z-index: 3;
+	top: 140px;
+}
+.sortModal .close {
+	position: absolute;
+	right: 20px;
+	top: 15px;
+	cursor: pointer;
+}
+.sortModal > div {
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 100px;
+}
+.sortModal > div input {
+	width: 50px;
+	height: 20px;
+}
+
+.applyBtn > button {
+	background-color: blueviolet;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 10px;
+	border: 1px solid blueviolet;
+	width: 150px;
+	margin: 15px;
+}
+.applyBtn > button:hover {
+	background-color: purple;
+}
+.applyBtn #reset {
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 0px;
+	color: black;
+	padding: 5px;
+	font-weight: 550;
+	width: 100px;
+}
+/* !price sort modal styles */
+
+.priceSort {
+	position: fixed;
+	border: 1px solid rgb(240, 235, 235);
+	background-color: white;
+	border-radius: 10px;
+	width: 400px;
+	height: 130px;
+	padding: 20px;
+	box-shadow: 1px 1px 0.1px 0.1px #b8b3b3;
+	z-index: 3;
+	top: 140px;
+}
+.priceSort .close {
+	position: absolute;
+	right: 20px;
+	top: 15px;
+	cursor: pointer;
+}
+
+.priceSort .slider {
+	margin-top: 10px;
+}

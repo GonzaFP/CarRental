@@ -26,9 +26,9 @@ function CarModels() {
 				return <Cars car={car} key={index} />;
 		  });
 	return (
-		<div>
+		<div className="allCars">
 			<div className="carTitle">
-				<h2>32 cars at or near LTN</h2>
+				<h2>{`${modelCars.data.length} cars at or near LTN`}</h2>
 				<h5>These cars can be picked up at or near airport.</h5>
 			</div>
 			{carData}

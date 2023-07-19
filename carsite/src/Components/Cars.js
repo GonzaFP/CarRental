@@ -53,39 +53,44 @@ function Cars(props) {
 			{showPrice && (
 				<PriceDetails setClose={setShowPrice} price={price} />
 			)}
-
-			<div className="cars">
-				<div className="carBody">
-					<div className="image">
+			<div className="allCars">
+				<div className="card">
+					<div className="carCard">
 						<Link to={`/cars/${id}`}>
 							<img src={image} alt="" />
 						</Link>
-					</div>
-					<div className="carInfo">
-						<Link to={`/cars/${id}`}>
-							<h3>{title}</h3>
-						</Link>
-						{liked ? (
-							<Tooltip title="Remove car from favourities.">
-								<IconButton id="favicon" onClick={removeCar}>
-									<BsFillHeartFill />
-								</IconButton>
-							</Tooltip>
-						) : (
-							<Tooltip title="Add car to favourites">
-								<IconButton id="icon" onClick={handleFav}>
-									<MdOutlineFavoriteBorder />
-								</IconButton>
-							</Tooltip>
-						)}
-
-						<p>pick up at place.</p>
-						<h4>Trips: {trips}</h4>
-						<div className="price">
-							<h3>&pound;{`${price} / day`}</h3>
-							<p onClick={() => setShowPrice(true)}>
-								Price details
-							</p>
+						<div className="rightCard">
+							{liked ? (
+								<Tooltip title="Remove car from favourities.">
+									<IconButton
+										id="favicon"
+										onClick={removeCar}>
+										<BsFillHeartFill />
+									</IconButton>
+								</Tooltip>
+							) : (
+								<Tooltip title="Add car to favourites">
+									<IconButton id="icon" onClick={handleFav}>
+										<MdOutlineFavoriteBorder />
+									</IconButton>
+								</Tooltip>
+							)}
+							<Link to={`/cars/${id}`}>
+								<h4>{title}</h4>
+							</Link>
+							<div className="detail">
+								<StarRating id="stars" />
+								<div>
+									<h5>pick up at place.</h5>
+									<h5>Trips: {trips}</h5>
+								</div>
+							</div>
+							<div className="price">
+								<h4>US$ {`${price} /day`}</h4>
+								<p onClick={() => setShowPrice(true)}>
+									Price details
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
