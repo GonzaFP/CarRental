@@ -1,5 +1,5 @@
 .noCars {
-	margin: 50px 50px 50px 200px;
+	margin: 50px;
 }
 
 .body #road {
@@ -22,4 +22,10 @@
 	padding: 15px 10px;
 	width: 100px;
 	margin-left: 20px;
+}
+
+@media screen and (min-width: 900px) {
+	.noCars {
+		margin: 50px 50px 50px 200px;
+	}
 }
