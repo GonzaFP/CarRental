@@ -2,12 +2,12 @@ export const responsive = {
 	superLargeDesktop: {
 		// the naming can be any, depends on you.
 		breakpoint: { max: 4000, min: 1200 },
-		items: 3,
+		items: 4,
 		slidesToSlide: 1,
 	},
 	desktop: {
 		breakpoint: { max: 1200, min: 800 },
-		items: 2,
+		items: 3,
 		slidesToSlide: 1,
 	},
 	tablet: {

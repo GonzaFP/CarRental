@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from "react";
 import ModelCard from "./modelCard";
-import Carousel from "react-elastic-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { responsive } from "../Data/ResponsiveData";
 import "./Styles/Model.css";
 import fetcher from "../fetcher";
+import ExperinceCard from "./ExperinceCard";
 
-const breakpoints = [
-	{ width: 1, itemsToShow: 1 },
-	{ width: 550, itemsToShow: 2 },
-	{ width: 700, itemsToShow: 3 },
-	{ width: 800, itemsToShow: 5 },
-];
+// const breakpoints = [
+// 	{ width: 1, itemsToShow: 1 },
+// 	{ width: 550, itemsToShow: 2 },
+// 	{ width: 700, itemsToShow: 3 },
+// 	{ width: 800, itemsToShow: 4 },
+// ];
 function BrowseMake() {
+	const settings = {
+		dots: false,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		cssEase: "linear",
+		arrows: "true",
+	};
 	const [models, setModels] = useState({
 		errorMessage: "",
 		data: [],
@@ -25,13 +37,20 @@ function BrowseMake() {
 
 	let model = models.errorMessage
 		? `Error: ${models.errorMessage}`
-		: models.data.map((car, index) => {
-				return <ModelCard car={car} key={index} />;
+		: models.data.map((item, index) => {
+				return <ModelCard car={item} key={index} />;
 		  });
 	return (
-		<div className="model">
-			<h3>Browse by make</h3>
-			<Carousel breakPoints={breakpoints}>{model}</Carousel>
+		<div className="models">
+			<h1>Browse by make</h1>
+			<div className="eachModel">
+				<Carousel
+					responsive={responsive}
+					swipeable={true}
+					itemClass="carouselCard">
+					{model}
+				</Carousel>
+			</div>
 		</div>
 	);
 }

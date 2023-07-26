@@ -4,11 +4,11 @@
 		{ "id": 2, "title": "Mercedes-Benz", "image": "benz.jpg" },
 		{ "id": 3, "title": "BMW", "image": "bmw.jpg" },
 		{ "id": 4, "title": "Ford", "image": "ford.jpg" },
-		{ "id": 5, "title": "Jeep", "image": "jeep.jpg" },
+		{ "id": 5, "title": "Jeep", "image": "black.jpg" },
 		{ "id": 6, "title": "Porsche", "image": "pors.jpg" },
 		{ "id": 7, "title": "Range Rover", "image": "rover.jpg" },
 		{ "id": 8, "title": "Tesla", "image": "tesla.jpg" },
-		{ "id": 9, "title": "Volkswagen", "image": "volks.webp" },
+		{ "id": 9, "title": "Volkswagen", "image": "volks.jpg" },
 		{ "id": 10, "title": "Jaguar", "image": "jag.avif" }
 	],
 	"cars": [

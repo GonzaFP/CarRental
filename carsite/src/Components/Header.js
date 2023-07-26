@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -28,34 +28,50 @@ function Header() {
 		setToggle(!toggle);
 	};
 
+	useEffect(() => {
+		document.body.style.overflow =
+			className === "show" ? "hidden" : "unset";
+	}, [className]);
 	return (
 		<>
-			<div className="navbar">
-				<h3 className="logo" onClick={() => navigate("/")}>
-					CarRental{" "}
-				</h3>
-
-				<div className="host">
-					<button onClick={() => navigate("/host")}>
-						Become a host
-					</button>
+			<Dropdown className={className} />
+			<div className="navibar">
+				<div className="navlogo">
+					<h3 className="logo" onClick={() => navigate("/")}>
+						CarRental{" "}
+					</h3>
 				</div>
 
-				<div className="dropdown" onClick={handleDisplay}>
-					<ClearOutlinedIcon className={`${clearClass} clearIcon`} />
-					<div className={`${profileClass} menu`}>
-						<MenuIcon className="menuitem" />
-						{!User ? (
-							<AccountCircleOutlinedIcon className="menuitem account" />
-						) : User?.photo ? (
-							<img src={User?.photo} alt="" id="profilepic" />
-						) : (
-							<div className=" profilename">
-								{User.name || User.email[0].toUpperCase()}
-							</div>
-						)}
+				<div className="menuIcons">
+					<div className="hostBtn">
+						<button onClick={() => navigate("/host")}>
+							Become a host
+						</button>
 					</div>
-					<Dropdown className={className} />
+
+					<div onClick={handleDisplay} className="dropdown">
+						<ClearOutlinedIcon
+							className={`${clearClass} clearIcon`}
+						/>
+
+						<div className={`${profileClass} menu`}>
+							<MenuIcon className="menuitem" />
+							{!User ? (
+								<AccountCircleOutlinedIcon className="menuitem account" />
+							) : User?.photo ? (
+								<img
+									src={User?.photo}
+									alt=""
+									id="profilepic"
+									className="account"
+								/>
+							) : (
+								<div className=" profilename account">
+									{User.name || User.email[0].toUpperCase()}
+								</div>
+							)}
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
@@ -63,3 +79,27 @@ function Header() {
 }
 
 export default Header;
+
+{
+	/* <div className="dropdown" onClick={handleDisplay}>
+						<ClearOutlinedIcon
+							className={`${clearClass} clearIcon`}
+						/>
+						<div className={`${profileClass} menu`}>
+							<MenuIcon className="menuitem" />
+							{!User ? (
+								<AccountCircleOutlinedIcon className="menuitem account" />
+							) : User?.photo ? (
+								<img src={User?.photo} alt="" id="profilepic" />
+							) : (
+								<div className=" profilename">
+									{User.name || User.email[0].toUpperCase()}
+								</div>
+							)}
+						</div>
+						<Dropdown className={className} />
+					</div>
+				</div>
+			</div>
+		</> */
+}

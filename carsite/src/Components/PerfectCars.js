@@ -6,8 +6,13 @@ function PerfectCars() {
 	const navigate = useNavigate();
 	return (
 		<div className="browse">
-			<img src="lamb.png" alt="lamborghini" />
-			<div className="right">
+			<div className="browseOverLay">
+				<h3>Find the perfect car to take on the great outdoors</h3>
+				<button onClick={() => navigate("/browsecars")}>
+					Browse cars
+				</button>
+			</div>
+			{/* <div className="right">
 				<h3>
 					Find the perfect car{" "}
 					<span className="span">to take on the great outdoors</span>
@@ -18,8 +23,7 @@ function PerfectCars() {
 				</p>
 				<button onClick={() => navigate("/browsecars")}>
 					Browse cars
-				</button>
-			</div>
+				</button> */}
 		</div>
 	);
 }

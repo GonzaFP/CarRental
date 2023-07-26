@@ -1,27 +1,28 @@
 .heroContainer {
-	display: flex;
-	gap: 10px;
-	margin: 0 auto;
-	background-color: white;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	width: 100vw;
+	/* background-color: white;
 	border: 1px solid rgb(235, 224, 224);
 	border-radius: 10px;
 	width: 700px;
 	padding: 25px;
-	box-shadow: 2px 2px 2px 0.5px #888888;
+	box-shadow: 2px 2px 2px 0.5px #888888; */
 }
 
 .box {
-	margin-top: 0px;
+	margin-top: 25px;
 	text-align: left;
 }
 
 .box > input {
-	background-color: rgb(223, 217, 217);
+	background-color: transparent;
 	padding: 10px;
 	outline: none;
-	border: 1px solid white;
-	border-radius: 5px;
+	border: none;
+	border-bottom: 1px solid white;
 	width: 200px;
+	color: white;
 }
 .search .searchIcon {
 	font-size: 20px;
@@ -33,13 +34,14 @@
 }
 .HideBtn {
 	display: none;
-	background-color: blueviolet;
+	background-color: transparent;
 	color: white;
 	font-weight: bold;
 	font-size: 15px;
 	border: 1px solid white;
 	border-radius: 5px;
 	padding: 10px;
+	margin-top: 10px;
 }
 
 @media screen and (max-width: 900px) {
@@ -62,5 +64,9 @@
 
 	.HideBtn {
 		display: block;
+	}
+
+	.box > input {
+		width: 80vw;
 	}
 }

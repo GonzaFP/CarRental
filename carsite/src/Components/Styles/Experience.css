@@ -1,39 +1,184 @@
-.Card {
-	width: 500px;
+.main {
+	position: relative;
+	margin-top: 100px;
+}
+.main > h3 {
+	text-align: center;
+
+	background-image: linear-gradient(
+		to right,
+		rgba(138, 43, 226, 0.5),
+		rgb(138, 43, 226, 0.6)
+	);
+	background-size: 400px 30px;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+.main .categories {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(5%, 100%));
+
+	width: 80%;
+	gap: 20px;
+
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
+/* .Card {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: blue;
+} */
+
+.Card {
+	width: 100%;
+	cursor: pointer;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	position: relative;
+}
 .Card > img {
-	width: 350px;
-	border-radius: 20px;
+	width: 90%;
+	height: 100%;
+	margin: 10px auto;
+	display: block;
 }
 
 .Card .sub {
 	display: flex;
 	justify-content: center;
-}
-
-.Card .sub > h4 {
-	margin-top: 0px;
 	margin-left: 10px;
 }
-.main > h3 {
-	text-align: left;
-	margin-left: 130px;
-	color: blueviolet;
-}
-.rec-dot {
-	display: none;
+
+.sub > a {
+	margin-top: 0px;
+	margin-left: 10px;
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 25px;
 }
 
-@media screen and (max-width: 800px) {
-	.Card > img {
-		width: 250px;
+.sub > a:hover {
+	text-decoration: underline;
+	color: blueviolet;
+}
+@media screen and (max-width: 680px) {
+	.main > h3 {
+		font-size: 40px;
+		background-size: 200px 20px;
+	}
+	.Card .CardOverLay {
+		top: 10px;
+		left: 18px;
+	}
+	.CardOverLay .toptext {
+		margin-top: 10px;
+	}
+	.CardOverLay .toptext {
+		margin-top: 30px;
+	}
+	.CardOverLay p {
+		margin-left: 20px;
 	}
 }
-@media screen and (max-width: 500px) {
-	.Card > img {
-		width: 200px;
+
+@media screen and (min-width: 681px) {
+	.main > h3 {
+		font-size: 50px;
+		background-size: 400px 30px;
 	}
+	.Card {
+		width: 100%;
+	}
+	.main .categories {
+		grid-template-columns: 1fr 1fr;
+		gap: 5px;
+	}
+	.Card .CardOverLay {
+		top: 10px;
+		bottom: 0;
+		left: 17px;
+		right: 0;
+	}
+	.CardOverLay .toptext {
+		margin-top: 40px;
+	}
+	.CardOverLay p {
+		margin-left: 40px;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.Card {
+		width: 100%;
+	}
+	.main .categories {
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 5px;
+	}
+	.Card .CardOverLay {
+		top: 10px;
+		bottom: 0;
+		left: 20px;
+		right: 0;
+	}
+	.CardOverLay .toptext {
+		margin-top: 70px;
+	}
+	.CardOverLay p {
+		margin-left: 40px;
+	}
+}
+.Card .CardOverLay {
+	position: absolute;
+	width: 90%;
+	height: 100%;
+
+	visibility: hidden;
+	color: white;
+	font-size: 20px;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+.Card:hover .CardOverLay {
+	visibility: visible;
+}
+
+.CardOverLay #superPrice {
+	font-size: 40px;
+}
+
+.CardOverLay .prices {
+	color: burlywood;
+	font-weight: bold;
+}
+
+/* @media screen and (max-width: 768px) {
+	.main {
+		margin-left: 25%;
+		margin-right: 10%;
+	}
+	.Card {
+		width: 85vw;
+	}
+} */
+
+/* @media screen and (max-width: 500px) {
+	.main {
+		margin-left: 6%;
+		width: 100%;
+	}
+	.main .categories {
+		gap: 10px;
+	}
+	.Card {
+		width: 320px;
+	}
+} */
+
+/* @media screen and (max-width: 500px) {
 	.main {
 		text-align: left;
 		margin: 100px 20px;
@@ -42,4 +187,4 @@
 	.Card .sub {
 		justify-content: start;
 	}
-}
+} */

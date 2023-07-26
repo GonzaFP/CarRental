@@ -1,0 +1,86 @@
+.fuelContainer {
+	text-align: center;
+	position: relative;
+	margin-bottom: 100px;
+}
+
+.fuelTitle {
+	margin-top: 100px;
+}
+.fuelTitle > h1 {
+	font-size: 50px;
+	background-image: linear-gradient(
+		to right,
+		rgba(138, 43, 226, 0.5),
+		rgb(138, 43, 226, 0.6)
+	);
+	background-size: 400px 30px;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+.fuelTitle > p {
+	font-size: 20px;
+	margin-top: -10px;
+}
+.fuelbody > img {
+	width: 55%;
+	height: auto;
+}
+
+.fuelsubbody {
+	position: absolute;
+	left: 15%;
+	top: 40%;
+	background-color: black;
+	color: white;
+
+	z-index: 3;
+	padding: 30px;
+	text-align: left;
+}
+
+.fuelsubbody > h1 {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.fuelsubbody > p {
+	font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+	.fuelbody > img {
+		width: 100%;
+	}
+	.fuelsubbody {
+		top: 80%;
+		left: 25%;
+		height: 150px;
+		width: 65%;
+		padding: 15px;
+	}
+	.fuelsubbody > h1 {
+		font-size: 11px;
+	}
+	.fuelsubbody p {
+		font-size: 15px;
+	}
+}
+@media screen and (min-width: 601px) {
+	.fuelbody > img {
+		width: 80%;
+	}
+	.fuelsubbody {
+		left: 5%;
+		width: 200px;
+		height: 180px;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.fuelsubbody {
+		width: 350px;
+		height: 200px;
+	}
+}

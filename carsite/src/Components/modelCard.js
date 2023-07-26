@@ -6,14 +6,13 @@ function ModelCard(props) {
 	const { title, image, id } = props.car;
 
 	return (
-		<div className="card">
-			<Link to={`model/${id}`}>
-				<div className="carCard">
-					<img src={image} />
-					<h4>{title}</h4>
-				</div>
-			</Link>
-		</div>
+		<Link to={`model/${id}`}>
+			<div className="modelCard">
+				<img src={image} />
+
+				<h4>{title}</h4>
+			</div>
+		</Link>
 	);
 }
 

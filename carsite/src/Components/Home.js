@@ -4,23 +4,28 @@ import Works from "./Works";
 import BrowseMake from "./BrowseMake";
 import PerfectCars from "./PerfectCars";
 import Experience from "./Experience";
-import Sustain from "./Sustain";
+
 import Hosts from "./Hosts";
 import Become from "./Become";
 import Hero from "./Hero";
+import FuelDreams from "./FuelDreams";
+import Header from "./Header";
 
 function Home() {
 	return (
 		<div>
+			<Header />
 			<Front />
-			<Hero />
-			<Works />
-			<BrowseMake />
-			<PerfectCars />
+
 			<Experience />
-			<Sustain />
-			<Hosts />
-			<Become />
+			<PerfectCars />
+			<BrowseMake />
+			<FuelDreams />
+			{/* <BrowseMake /> */}
+			{/*
+			<FuelDreams />
+
+			<Hosts /> */}
 		</div>
 	);
 }

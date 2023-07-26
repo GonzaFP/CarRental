@@ -1,9 +1,10 @@
 import React from "react";
 import "./Styles/hosts.css";
+
 function HostCard(props) {
 	const { name, image, date, customer, message, trips } = props.host;
 	return (
-		<div className="hosts">
+		<div className="hostsContainer">
 			<div className="profile">
 				<img src={image} alt="" />
 

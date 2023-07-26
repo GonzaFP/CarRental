@@ -118,7 +118,7 @@ function Dropdown({ className }) {
 				<Link to="/howworks">
 					<div className="flex top">
 						<VpnKeyOutlinedIcon className="icon" />
-						<span>How Turo works</span>
+						<span>How CarRental works</span>
 					</div>
 				</Link>
 

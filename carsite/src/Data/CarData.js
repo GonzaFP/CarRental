@@ -90,3 +90,10 @@ export const categoryData = [
 		image: "tesla.jpg",
 	},
 ];
+
+export const headerImageData = [
+	"/image1.jpg",
+	"/image2.jpg",
+	"/image4.jpg",
+	"/image3.jpg",
+];

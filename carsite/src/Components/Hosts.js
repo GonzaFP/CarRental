@@ -12,6 +12,7 @@ function Hosts() {
 	return (
 		<div className="hostcontainer">
 			<h2>Meet the hosts</h2>
+			<h3>Top hosts on CarRental </h3>
 			<Carousel responsive={responsiveHost}>{Host}</Carousel>
 		</div>
 	);
