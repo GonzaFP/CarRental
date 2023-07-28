@@ -1,66 +1,80 @@
-.browse {
+.BrowseContainer {
+	width: 100%;
+	height: 100%;
 	margin-top: 100px;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url("../../../public/perfect2.JPG");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+	/* padding: 1rem; */
+}
+.Browse {
+	width: 90%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	margin-left: auto;
+
 	/* height: 650px; */
 }
-.browse > img {
-	width: 100%;
-	height: 500px;
+.Browse .rightColumn {
+	display: flex;
+	gap: 30px;
+	padding: 1rem 2rem;
+	justify-content: center;
+	align-items: center;
 }
-.browseOverLay {
-	position: absolute;
-	/* width: 50%; */
-	right: 5%;
-	top: 25%;
-	color: white;
-	/* font-size: 40px; */
-	font-weight: bold;
+.rightColumn img {
+	width: 50%;
+	height: 100%;
+	object-fit: cover;
 }
-.browse .right {
-	margin-top: 20px;
-	text-align: left;
-	width: 600px;
+.Browse .leftColumn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.4;
+	padding: 1rem 2rem;
+	margin-top: -60px;
 }
-.span {
-	color: blueviolet;
+.leftColumn h1 {
+	margin-bottom: 1rem;
+	font-size: clamp(1.5rem, 8vw, 2.5rem);
 }
-
-.browse .right > h3 {
-	font-size: 35px;
-}
-.browseOverLay button {
-	background-color: transparent;
-	border-color: white;
-	color: white;
-	padding: 25px;
-	font-weight: bold;
+.leftColumn h5 {
 	text-transform: uppercase;
-}
-.browseOverLay button:hover {
-	background-color: blueviolet;
-	border-color: blueviolet;
+	color: goldenrod;
+	font-size: 14px;
+	font-weight: 400;
+	align-self: flex-start;
+	margin-top: -5px;
 }
 
-@media screen and (max-width: 950px) {
-	.browse {
-		height: 400px;
+.leftColumn p {
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+.leftColumn button {
+	margin-top: 30px;
+	align-self: flex-start;
+}
+@media screen and (max-width: 767px) {
+	.Browse {
+		grid-template-columns: 1fr;
+		width: 100%;
 	}
-	.browseOverLay {
-		width: 90%;
-		font-size: 25px;
+	.Browse .rightColumn {
+		flex-direction: column;
+	}
+	.rightColumn img {
+		width: 100%;
+		align-self: flex-start;
 	}
 }
-@media screen and (min-width: 951px) {
-	.browse {
-		height: 650px;
+@media screen and (min-width: 768px) {
+	.Browse {
+		margin-left: 45px;
 	}
-	.browseOverLay {
-		width: 60%;
-		font-size: 40px;
+}
+@media screen and (min-width: 1024px) {
+	.Browse {
+		margin-left: auto;
 	}
 }

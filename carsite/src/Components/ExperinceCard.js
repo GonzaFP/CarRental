@@ -17,21 +17,23 @@ function ExperinceCard(props) {
 		<div className="Card">
 			<img src={image} />
 			<div className="CardOverLay">
-				<p className="toptext">
-					from
-					<span>
-						{" "}
-						<sup className="prices">$</sup>
-					</span>
-					<span id="superPrice" className="prices">
-						180
-					</span>{" "}
-					<span className="prices">/ hour</span>
-				</p>
-				<p>
-					Lorem ipsum is placeholder text commonly used in the
-					graphic, print, and publishing industries
-				</p>
+				<div className="OverLayContent">
+					<p className="toptext">
+						from
+						<span>
+							{" "}
+							<sup className="prices">$</sup>
+						</span>
+						<span id="superPrice" className="prices">
+							180
+						</span>{" "}
+						<span className="prices">/ hour</span>
+					</p>
+					<p>
+						Lorem ipsum is placeholder text commonly used in the
+						graphic, print, and publishing industries
+					</p>
+				</div>
 			</div>
 
 			<div className="sub">

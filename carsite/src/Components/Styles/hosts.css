@@ -1,4 +1,4 @@
-.hostcontainer {
+/* .hostcontainer {
 	margin-top: 100px;
 	margin-bottom: 100px;
 	text-align: center;
@@ -83,5 +83,71 @@
 @media screen and (max-width: 500px) {
 	.hostsContainer {
 		width: 200px;
+	}
+} */
+.topHostSection {
+	width: 100%;
+	height: 100%;
+	margin-top: 100px;
+}
+.topHostTitle {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10%;
+	border-bottom: 1px solid lightgray;
+	width: 85%;
+}
+.topHostTitle h1 {
+	font-size: clamp(2rem, 8vw, 3rem);
+}
+.topHostTitle h3 {
+	color: goldenrod;
+	text-transform: uppercase;
+	font-size: 13px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.topHosts {
+	display: flex;
+	gap: 20px;
+	width: 100%;
+	justify-content: flex-end;
+	padding: 2rem;
+}
+
+.topHostContainer img {
+	width: 100%;
+	height: 80%;
+	object-fit: cover;
+}
+.topHostTrips {
+	margin-top: 15px;
+}
+
+@media screen and (max-width: 767px) {
+	.topHostTitle {
+		margin-left: 5%;
+	}
+	.topHosts {
+		flex-direction: column;
+	}
+	.topHostContainer {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 768px) {
+	.topHosts {
+		justify-content: center;
+	}
+	.topHostContainer {
+		width: 30%;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.topHosts {
+		justify-content: flex-end;
+	}
+	.topHostContainer {
+		width: 20%;
 	}
 }

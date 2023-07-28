@@ -1,25 +1,25 @@
 import React from "react";
 import "./Styles/hosts.css";
+import StarRating from "./StarRating";
 
 function HostCard(props) {
-	const { name, image, date, customer, message, trips } = props.host;
+	const { name, image, rating, trips } = props.host;
 	return (
-		<div className="hostsContainer">
-			<div className="profile">
-				<img src={image} alt="" />
+		<div className="topHostContainer">
+			<img src={image} alt="" />
 
-				<div className="trips">
-					<div className="name">{name}</div>
-					<div className="trip">{trips} trips.</div>
-				</div>
+			<div className="topHostTrips">
+				<h2>{name}</h2>
+				<StarRating value={rating} />
+				<h3>{trips} trips.</h3>
 			</div>
 
-			<p>"{message}"</p>
+			{/* <p>"{message}"</p>
 			<div className="customer">
 				<p>
 					{customer} -<span>{date}</span>
 				</p>
-			</div>
+			</div> */}
 		</div>
 	);
 }

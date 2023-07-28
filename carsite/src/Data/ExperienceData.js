@@ -18,7 +18,7 @@ export const ExperienceData = [
 	},
 	{
 		name: "Convertibles",
-		image: "convert.avif",
+		image: "convert.jpg",
 		icon: <CarRentalOutlinedIcon color="secondary" />,
 	},
 
@@ -30,13 +30,13 @@ export const ExperienceData = [
 
 	{
 		name: "Electric",
-		image: "electric.avif",
+		image: "electric.jpg",
 		icon: <ElectricalServicesOutlinedIcon color="secondary" />,
 	},
 
 	{
 		name: "Pet friendly",
-		image: "pets.png",
+		image: "pets.jpg",
 		icon: <PetsOutlinedIcon color="secondary" />,
 	},
 ];

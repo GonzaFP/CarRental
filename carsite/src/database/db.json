@@ -1,6 +1,6 @@
 {
 	"model": [
-		{ "id": 1, "title": "Bentely", "image": "ben.jpg" },
+		{ "id": 1, "title": "Bentley", "image": "ben.jpg" },
 		{ "id": 2, "title": "Mercedes-Benz", "image": "benz.jpg" },
 		{ "id": 3, "title": "BMW", "image": "bmw.jpg" },
 		{ "id": 4, "title": "Ford", "image": "ford.jpg" },
@@ -9,7 +9,7 @@
 		{ "id": 7, "title": "Range Rover", "image": "rover.jpg" },
 		{ "id": 8, "title": "Tesla", "image": "tesla.jpg" },
 		{ "id": 9, "title": "Volkswagen", "image": "volks.jpg" },
-		{ "id": 10, "title": "Jaguar", "image": "jag.avif" }
+		{ "id": 10, "title": "Jaguar", "image": "jag.jpg" }
 	],
 	"cars": [
 		{

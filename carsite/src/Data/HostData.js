@@ -112,3 +112,24 @@ export const HostData = [
 		date: "March 2023",
 	},
 ];
+
+export const topHosts = [
+	{
+		name: "Terry Harper",
+		image: "top1.jpg",
+		trips: 4000,
+		rating: 5,
+	},
+	{
+		name: "Mery Gonzalez",
+		image: "top3.jpg",
+		trips: 3500,
+		rating: 5,
+	},
+	{
+		name: "Jimmy Okoye",
+		image: "top2.jpg",
+		trips: 2000,
+		rating: 5,
+	},
+];

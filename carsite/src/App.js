@@ -28,6 +28,7 @@ import PriceDetails from "./Components/PriceDetails";
 import CarDetails from "./Components/CarDetails";
 import CarInfo from "./Components/CarInfo";
 import BrowseCars from "./Components/BrowseCars";
+import "./Components/Styles/GlobalStyles.css";
 
 function App() {
 	return (

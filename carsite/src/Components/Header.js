@@ -28,10 +28,10 @@ function Header() {
 		setToggle(!toggle);
 	};
 
-	useEffect(() => {
-		document.body.style.overflow =
-			className === "show" ? "hidden" : "unset";
-	}, [className]);
+	// useEffect(() => {
+	// 	document.body.style.overflow =
+	// 		className === "show" ? "hidden" : "unset";
+	// }, [className]);
 	return (
 		<>
 			<Dropdown className={className} />
