@@ -14,7 +14,7 @@ function Hosts() {
 		<div className="topHostSection">
 			<div className="topHostTitle">
 				<h1>Meet the hosts</h1>
-				<h3>Top hosts on CarRental </h3>
+				<h5>Top hosts on CarRental </h5>
 			</div>
 			<div className="topHosts">{Host}</div>
 		</div>

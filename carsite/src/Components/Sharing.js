@@ -3,12 +3,16 @@ import "./Styles/Sharing.css";
 
 function Sharing() {
 	return (
-		<div className="sharingContainer">
-			<h2>How sharing your car works</h2>
+		<section className="sharingSection">
+			<div className="sharingContainer">
+				<div className="sharingLeft">
+					<img src="share.jpg" alt="" />
+				</div>
 
-			<div className="sharing">
-				<div className="instruct">
-					<div>
+				<div className="sharingRight">
+					<h2>How sharing your car works</h2>
+
+					<div className="sharingOptions">
 						<h3>List your car for free</h3>
 						<p>
 							Share your truck, sports car, or anything in
@@ -17,7 +21,7 @@ function Sharing() {
 						</p>
 					</div>
 
-					<div>
+					<div className="sharingOptions">
 						<h3>Set your price & rules</h3>
 						<p>
 							Lay your own ground rules and customize when your
@@ -27,7 +31,7 @@ function Sharing() {
 						</p>
 					</div>
 
-					<div>
+					<div className="sharingOptions">
 						<h3>Welcome your guests</h3>
 						<p>
 							When a guest books your car, you’ll confirm where
@@ -36,7 +40,8 @@ function Sharing() {
 							and relax until the trip is over.
 						</p>
 					</div>
-					<div>
+
+					<div className="sharingOptions">
 						<h3>Sit back & earn</h3>
 						<p>
 							Get paid via direct deposit within three days after
@@ -46,12 +51,9 @@ function Sharing() {
 							mileage beyond your limit.
 						</p>
 					</div>
-
-					<div></div>
 				</div>
-				<img src="drive.jpg" alt="" />
 			</div>
-		</div>
+		</section>
 	);
 }
 

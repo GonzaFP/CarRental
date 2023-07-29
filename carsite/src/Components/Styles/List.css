@@ -1,62 +1,37 @@
 .ListContainer {
-	margin: 50px 100px;
+	margin: 5%;
+}
+.ListContainer .type h1 {
+	font-size: clamp(2rem, 6vw, 3rem);
 }
 
-.ListContainer > h2 {
-	font-size: 30px;
-}
-.ListContainer > img {
-	width: 100%;
-}
-
-.started {
-	margin-bottom: 100px;
-}
-.started > button {
-	background-color: blueviolet;
-	color: white;
-	border: 1px solid white;
-	border-radius: 5px;
-	padding: 15px;
+.ListContainer h5 {
+	text-transform: uppercase;
+	color: goldenrod;
+	font-size: 14px;
 	font-weight: bold;
-	font-size: 15px;
+
+	margin-top: 20px;
 }
 
-.started > button:hover {
-	background-color: purple;
+.ListContainer button {
+	margin-top: 25px;
 }
+
 .Typewriter__cursor {
-	color: beige;
+	color: white;
 }
 .Typewriter__wrapper {
-	color: blueviolet;
+	color: goldenrod;
 }
 
-.type {
-	display: flex;
-	gap: 5px;
-}
-.type > span {
-	font-size: 40px;
-	font-weight: bold;
+.ListContainer img {
+	width: 90%;
+	margin-top: 50px;
 }
 
-@media screen and (max-width: 700px) {
-	.type {
-		flex-wrap: wrap;
-	}
-
-	.ListContainer {
-		margin: 10px;
-	}
-
-	.started > button {
+@media screen and (max-width: 1024px) {
+	.ListContainer img {
 		width: 100%;
-	}
-}
-
-@media screen and (max-width: 1300px) {
-	.type {
-		flex-wrap: wrap;
 	}
 }

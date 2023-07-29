@@ -1,3 +1,6 @@
+.signin {
+	margin-top: 50px;
+}
 .signin > h1 {
 	text-align: center;
 }
@@ -34,11 +37,13 @@
 .email > input,
 .pwd > input {
 	width: 400px;
+	height: 35px;
 	margin-top: 5px;
 	margin-bottom: 10px;
 	outline-color: blueviolet;
-	height: 30px;
+
 	border: 1px solid lightgray;
+	padding: 10px;
 }
 
 .email > span,

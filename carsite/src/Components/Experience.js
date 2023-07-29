@@ -14,7 +14,8 @@ function Experience() {
 	});
 	return (
 		<div className="main">
-			<h3>Browse by experience</h3>
+			<h1>Browse by experience</h1>
+			<h6>Finest transport</h6>
 			<div className="categories">{data}</div>
 		</div>
 	);

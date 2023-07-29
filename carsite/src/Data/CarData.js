@@ -97,3 +97,16 @@ export const headerImageData = [
 	"/image4.jpg",
 	"/image3.jpg",
 ];
+export const logoData = [
+	"teslalogo.jpg",
+	"benzlogo.jpg",
+	"bmwlogo.jpg",
+	"ferlogo.jpg",
+	"jaglogo.jpg",
+	"lablogo.jpg",
+	"buglogo.jpg",
+	"lotlogo.jpg",
+	"porlogo.jpg",
+	"volklogo.jpg",
+	"volvologo.jpg",
+];

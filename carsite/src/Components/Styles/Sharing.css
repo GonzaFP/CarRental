@@ -1,35 +1,51 @@
+.sharingSection {
+	background-color: whitesmoke;
+	margin-bottom: 50px;
+	margin-top: 150px;
+}
 .sharingContainer {
-	margin: 10px 50px 50px 100px;
-}
-.sharingContainer > h2 {
-	color: blueviolet;
-	font-size: 40px;
-}
-.sharing {
 	display: flex;
-	gap: 50px;
+
+	width: 100%;
+	height: 100%;
 }
-.sharing > img {
-	width: 400px;
-	height: 400px;
-	margin-top: 50px;
+.sharingLeft {
+	width: 100%;
 }
-.sharing .instruct {
-	width: 500px;
+.sharingLeft img {
+	width: 100%;
+	height: 100%;
 }
 
-@media screen and (max-width: 900px) {
-	.sharing {
-		flex-wrap: wrap;
-	}
+.sharingRight {
+	padding: 4rem 5rem;
+}
+.sharingRight h2 {
+	font-size: clamp(2rem, 6vw, 3rem);
+	font-weight: 600;
 }
 
-@media screen and (max-width: 700px) {
-	.sharing {
-		flex-wrap: wrap;
-	}
+.sharingOptions {
+	margin-top: 25px;
+}
+.sharingOptions h3 {
+	color: goldenrod;
+	font-weight: bold;
+	font-size: 20px;
+}
+.sharingOptions p {
+	font-size: 18px;
+	margin-top: 10px;
+}
 
+@media screen and (max-width: 1024px) {
 	.sharingContainer {
-		margin: 10px 20px;
+		flex-direction: column-reverse;
+	}
+	.sharingRight {
+		padding: 2rem;
+	}
+	.sharingSection {
+		margin-top: 50px;
 	}
 }

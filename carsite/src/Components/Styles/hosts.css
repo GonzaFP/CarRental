@@ -1,94 +1,9 @@
-/* .hostcontainer {
-	margin-top: 100px;
-	margin-bottom: 100px;
-	text-align: center;
-}
-
-.hostcontainer > h2 {
-	font-size: 50px;
-	background-image: linear-gradient(
-		to right,
-		rgba(138, 43, 226, 0.5),
-		rgb(138, 43, 226, 0.6)
-	);
-	background-size: 400px 30px;
-	background-repeat: no-repeat;
-	background-position-x: center;
-	background-position-y: bottom;
-}
-
-.hostcontainer > h3 {
-	text-align: left;
-	margin: 50px 50px 30px 100px;
-	font-size: 25px;
-}
-.hostsContainer {
-	background-color: white;
-	border: 1px solid lightgray;
-	width: 300px;
-	height: 250px;
-	margin: 0 auto;
-	padding: 20px;
-	box-shadow: 2px 2px 3px 1px lightgray;
-	border-radius: 10px;
-}
-
-.hostsContainer .profile {
-	display: flex;
-	margin-top: 5px;
-	margin-left: 10px;
-	gap: 20px;
-}
-
-.hostsContainer .profile > img {
-	width: 100px;
-	border-radius: 50%;
-}
-
-.hostsContainer .profile .trips {
-	display: flex;
-	flex-direction: column;
-	margin-top: 10px;
-}
-
-.hostsContainer .profile .trips .name {
-	font-weight: bold;
-}
-
-.hostsContainer .profile .trips .trip {
-	font-size: 13px;
-}
-
-.hostsContainer > p {
-	text-align: left;
-	font-size: 15px;
-}
-
-.hostsContainer .customer {
-	font-size: 13px;
-	text-align: left;
-	font-weight: 500;
-}
-
-.hostsContainer .customer span {
-	color: black;
-	margin-left: 5px;
-}
-
-@media screen and (max-width: 800px) {
-	.hostsContainer {
-		width: 250px;
-	}
-}
-@media screen and (max-width: 500px) {
-	.hostsContainer {
-		width: 200px;
-	}
-} */
 .topHostSection {
 	width: 100%;
 	height: 100%;
-	margin-top: 100px;
+	margin-top: -20px;
+	background-color: whitesmoke;
+	padding: 5rem 0;
 }
 .topHostTitle {
 	display: flex;
@@ -100,12 +15,18 @@
 .topHostTitle h1 {
 	font-size: clamp(2rem, 8vw, 3rem);
 }
-.topHostTitle h3 {
+.topHostTitle h5 {
 	color: goldenrod;
 	text-transform: uppercase;
 	font-size: 13px;
 	margin-top: 15px;
 	margin-bottom: 20px;
+	text-transform: uppercase;
+	color: goldenrod;
+	font-size: 14px;
+	font-weight: bold;
+	align-self: flex-start;
+	margin-top: 10px;
 }
 .topHosts {
 	display: flex;

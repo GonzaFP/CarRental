@@ -11,17 +11,23 @@ import Hero from "./Hero";
 import FuelDreams from "./FuelDreams";
 import Header from "./Header";
 import Banner from "./Banner";
-
+import Review from "./Review";
+import HeroBanner from "./HeroBanner";
+import FooterBanner from "./FooterBanner";
+import Footer from "./Footer";
 function Home() {
 	return (
 		<div>
 			<Header />
 			<Front />
 			<Experience />
-			<Banner />
+			<HeroBanner />
 			<PerfectCars />
 			<BrowseMake />
 			<Hosts />
+			<Review />
+			<FooterBanner />
+			{/* <Footer /> */}
 			{/* <FuelDreams /> */}
 			{/* <BrowseMake /> */}
 			{/*

@@ -11,4 +11,6 @@ button {
 	text-transform: uppercase;
 }
 button:hover {
+	background-color: whitesmoke;
+	border: 1px solid black;
 }

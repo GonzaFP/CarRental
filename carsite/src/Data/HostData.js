@@ -133,3 +133,33 @@ export const topHosts = [
 		rating: 5,
 	},
 ];
+
+export const Reviews = [
+	{
+		title: "Best Cars and Hosts",
+
+		message:
+			"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+		rating: 4,
+		customer: "Gordon M",
+		date: "May 2023",
+	},
+
+	{
+		title: "Clean and Comfortable",
+		message:
+			"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+		rating: 5,
+		customer: "Tracy H",
+		date: "Feb 2023",
+	},
+
+	{
+		title: "Amazing Hosts",
+		message:
+			"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+		rating: 4,
+		customer: "Gordon M",
+		date: "March 2023",
+	},
+];

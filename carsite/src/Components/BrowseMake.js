@@ -43,6 +43,7 @@ function BrowseMake() {
 	return (
 		<div className="models">
 			<h1>Browse by make</h1>
+			<h5>Only the best</h5>
 			<div className="eachModel">
 				<Carousel
 					responsive={responsive}

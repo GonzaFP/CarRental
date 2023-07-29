@@ -83,12 +83,6 @@ function Dropdown({ className }) {
 								<div className="flex ">
 									{!User ? (
 										<AccountCircleOutlinedIcon className="icon" />
-									) : User?.photo ? (
-										<img
-											src={User.photo}
-											alt=""
-											id="profilepic"
-										/>
 									) : (
 										<div className="profiler">
 											{initials && initials}
@@ -125,7 +119,7 @@ function Dropdown({ className }) {
 
 					{show && (
 						<div className="flex top" onClick={Logout}>
-							<GrLogout className="icon" />
+							<GrLogout className="icon" id="icon" />
 							<span>Log out</span>
 						</div>
 					)}

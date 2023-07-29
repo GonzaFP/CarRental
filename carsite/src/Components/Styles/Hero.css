@@ -2,12 +2,7 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	width: 100vw;
-	/* background-color: white;
-	border: 1px solid rgb(235, 224, 224);
-	border-radius: 10px;
-	width: 700px;
-	padding: 25px;
-	box-shadow: 2px 2px 2px 0.5px #888888; */
+	margin-top: 20px;
 }
 
 .box {
@@ -27,21 +22,22 @@
 .search .searchIcon {
 	font-size: 20px;
 	margin-top: 18px;
-	background-color: blueviolet;
+	background-color: #000d1a;
 	border-radius: 50%;
 	padding: 10px;
 	color: white;
+	width: 50px;
+	height: 50px;
 }
 .HideBtn {
 	display: none;
-	background-color: transparent;
+
 	color: white;
 	font-weight: bold;
 	font-size: 15px;
-	border: 1px solid white;
-	border-radius: 5px;
+
 	padding: 10px;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 @media screen and (max-width: 900px) {
@@ -69,4 +65,9 @@
 	.box > input {
 		width: 80vw;
 	}
+}
+
+::-webkit-calendar-picker-indicator {
+	filter: invert(1) brightness(50%) sepia(100%) saturate(10000%)
+		hue-rotate(180deg);
 }

@@ -22,7 +22,7 @@ export const responsive = {
 	},
 };
 
-export const responsiveHost = {
+export const responsiveReview = {
 	superLargeDesktop: {
 		// the naming can be any, depends on you.
 		breakpoint: { max: 4000, min: 1200 },
@@ -31,7 +31,7 @@ export const responsiveHost = {
 	},
 	desktop: {
 		breakpoint: { max: 1200, min: 980 },
-		items: 2,
+		items: 3,
 		slidesToSlide: 1,
 	},
 	tablet: {

@@ -100,7 +100,7 @@ function SignUp() {
 					</span>
 				</div>
 
-				<div className="checkbox">
+				<div className="checker">
 					<div className="check">
 						<input type="checkbox" {...register("terms")} />
 

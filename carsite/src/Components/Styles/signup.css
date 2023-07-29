@@ -1,10 +1,13 @@
+.signupContainer {
+	margin-top: 100px;
+}
 .signupContainer > h2 {
 	text-align: center;
 }
 
 .signupForm {
 	display: table;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 .name {
 	display: flex;
@@ -14,14 +17,16 @@
 .name .lastname {
 	display: flex;
 	flex-direction: column;
+	font-size: 18px;
 }
 .firstname > input,
 .lastname > input {
 	width: 200px;
+	height: 35px;
 	margin-top: 5px;
 	margin-bottom: 10px;
 	outline-color: blueviolet;
-	height: 30px;
+
 	border: 1px solid lightgray;
 	box-sizing: border-box;
 }
@@ -30,7 +35,8 @@
 	position: relative;
 }
 .signupForm .driverName {
-	font-size: 12px;
+	font-size: 14px;
+	color: blueviolet;
 }
 
 .signupForm .mail,
@@ -39,6 +45,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: 20px;
+	font-size: 18px;
 }
 
 .signupForm .mail > input,
@@ -51,12 +58,6 @@
 	box-sizing: border-box;
 }
 
-.signupForm .checkbox {
-	display: flex;
-	flex-direction: column;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
 .check > input {
 	margin-bottom: 10px;
 }

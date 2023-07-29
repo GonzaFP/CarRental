@@ -13,13 +13,6 @@ function HostCard(props) {
 				<StarRating value={rating} />
 				<h3>{trips} trips.</h3>
 			</div>
-
-			{/* <p>"{message}"</p>
-			<div className="customer">
-				<p>
-					{customer} -<span>{date}</span>
-				</p>
-			</div> */}
 		</div>
 	);
 }

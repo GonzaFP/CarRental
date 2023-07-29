@@ -107,3 +107,27 @@ export const FAQData = [
 						of COVID-19 or other viruses.`,
 	},
 ];
+
+export const earnData = [
+	{
+		amount: 6490,
+		type: "Average annual earnings of 1 car",
+	},
+	{
+		amount: 19404,
+		type: "Average annual earnings of 3 cars",
+	},
+
+	{
+		amount: 32340,
+		type: "Average annual earnings of 5 cars",
+	},
+	{
+		amount: 45276,
+		type: "Average annual earnings of 7 cars",
+	},
+	{
+		amount: 58212,
+		type: "Average annual earnings of 9 cars",
+	},
+];

@@ -28,10 +28,6 @@ function Header() {
 		setToggle(!toggle);
 	};
 
-	// useEffect(() => {
-	// 	document.body.style.overflow =
-	// 		className === "show" ? "hidden" : "unset";
-	// }, [className]);
 	return (
 		<>
 			<Dropdown className={className} />
@@ -58,13 +54,6 @@ function Header() {
 							<MenuIcon className="menuitem" />
 							{!User ? (
 								<AccountCircleOutlinedIcon className="menuitem account" />
-							) : User?.photo ? (
-								<img
-									src={User?.photo}
-									alt=""
-									id="profilepic"
-									className="account"
-								/>
 							) : (
 								<div className=" profilename account">
 									{User.name || User.email[0].toUpperCase()}

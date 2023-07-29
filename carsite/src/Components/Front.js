@@ -6,7 +6,7 @@ import { responsiveCar } from "../Data/ResponsiveData";
 import { headerImageData } from "../Data/CarData";
 import Header from "./Header";
 import Hero from "./Hero";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
 function Front() {
 	const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,25 +59,10 @@ function Front() {
 					);
 				})}
 				<div className="sliderArrow">
-					<AiOutlineArrowLeft className="Arrow" onClick={prevSlide} />
-					<AiOutlineArrowRight
-						className="Arrow"
-						onClick={nextSlide}
-					/>
+					<BsArrowLeft className="Arrow" onClick={prevSlide} />
+					<BsArrowRight className="Arrow" onClick={nextSlide} />
 				</div>
 			</div>
-			{/* <div className="slider">
-				<img src={headerImageData[currentSlide]} alt="" />
-				<img src={headerImageData[0]} alt="" id="smallscreenImage" />
-			</div>
-
-			<div className="overlay">
-				<div className="content">
-					<h1>The world's largest car sharing marketplace</h1>
-					<h3>Book a car by completing the form below.</h3>
-					<Hero />
-				</div>
-			</div> */}
 		</section>
 	);
 }

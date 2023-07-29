@@ -6,7 +6,7 @@ function Hero() {
 		<div className="hero">
 			<form className="heroContainer">
 				<div className="box">
-					<span>Destination</span>
+					<h3>Destination</h3>
 					<input
 						type="search"
 						placeholder="City, airport,address or hotel"
@@ -14,12 +14,12 @@ function Hero() {
 				</div>
 
 				<div className="box">
-					<span>Pick-up Date</span>
+					<h3>Pick-up Date</h3>
 					<input type="date" />
 				</div>
 
 				<div className="box">
-					<span>Return Date</span>
+					<h3>Return Date</h3>
 					<input type="date" />
 				</div>
 
