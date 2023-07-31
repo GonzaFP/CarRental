@@ -4,7 +4,7 @@
 	padding-top: 50px;
 	padding-left: 100px;
 }
-.link {
+.linkTrip {
 	color: gray;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -12,12 +12,12 @@
 	margin-right: 15px;
 	border: none;
 }
-.link:hover {
+.linkTrip:hover {
 	color: black;
 }
 
-.active {
+.activeTrip {
 	background-color: white;
 	color: black;
-	border-bottom: 4px solid blueviolet;
+	border-bottom: 4px solid goldenrod;
 }

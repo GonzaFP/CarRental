@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Styles/NavbarStyles.css";
+import "./Styles/Trips.css";
 
 function Inbox() {
 	return (
 		<nav className="bar">
 			<NavLink
 				className={({ isActive }) =>
-					isActive ? "link active" : "link"
+					isActive ? "linkTrip activeTrip" : "linkTrip"
 				}
 				to="/messages"
 				end>
@@ -16,7 +16,7 @@ function Inbox() {
 
 			<NavLink
 				className={({ isActive }) =>
-					isActive ? "link active" : "link"
+					isActive ? "linkTrip activeTrip" : "linkTrip"
 				}
 				to="messages/notify">
 				Notifications

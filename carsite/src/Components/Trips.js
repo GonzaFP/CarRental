@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import "./Styles/NavbarStyles.css";
+import "./Styles/Trips.css";
 
 function Trips() {
 	return (
 		<nav className="bar">
 			<NavLink
 				className={({ isActive }) =>
-					isActive ? "link active" : "link"
+					isActive ? "linkTrip activeTrip" : "linkTrip"
 				}
 				to="/booked"
 				end>
@@ -16,7 +16,7 @@ function Trips() {
 
 			<NavLink
 				className={({ isActive }) =>
-					isActive ? "link active" : "link"
+					isActive ? "linkTrip activeTrip" : "linkTrip"
 				}
 				to="booked/history">
 				History
