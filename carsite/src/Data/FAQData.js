@@ -131,3 +131,42 @@ export const earnData = [
 		type: "Average annual earnings of 9 cars",
 	},
 ];
+
+export const howWorksData = [
+	{
+		title: "Find the perfect car",
+		type: "Enter a location and date and browse thousands of cars shared by local hosts.",
+	},
+
+	{
+		title: " Book your trip",
+		type: "Book on the CarRental app or online, choose a protection plan, and say hi to your host! Cancel for free up to 24 hours before your trip.",
+	},
+
+	{
+		title: " Hit the road",
+		type: "Have the car delivered or pick it up from your host. Check in with the app, grab the keys, and hit the road!",
+	},
+];
+
+export const sharingData = [
+	{
+		title: "List your car for free",
+		type: "Share your truck, sports car, or anything in between. Listing takes about 10 minutes and is free — no sign-up charges, no monthly fees.",
+	},
+
+	{
+		title: "Set your price & rules",
+		type: "Lay your own ground rules and customize when your car is available. Set your own daily price, or let us automatically adjust your price to maximize your earnings.",
+	},
+
+	{
+		title: " Welcome your guests",
+		type: "When a guest books your car, you’ll confirm where and how to hand over the keys before the trip. Check your guest in with the CarRental app, then sit back and relax until the trip is over.",
+	},
+
+	{
+		title: "Sit back & earn",
+		type: "Get paid via direct deposit within three days after each trip. You’ll earn 65% or 75% of the trip price, based on the level of protection you choose. You'll also get reimbursed for things like fuel and any mileage beyond your limit.",
+	},
+];

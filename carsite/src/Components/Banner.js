@@ -8,7 +8,7 @@ function Banner({ item }) {
 		<section className="bannerSection">
 			<img src={image} alt="" />
 			<div className="bannerOverLay">
-				<h1>{title}</h1>
+				{title && <h1>{title}</h1>}
 
 				{icons && (
 					<p>

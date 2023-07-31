@@ -7,12 +7,13 @@ import BrowseCategory from "./Category";
 import Insurance from "./insurance";
 import FAQ from "./FAQs";
 import Questions from "./Questions";
+import Banner from "./Banner";
 
 function HowWorks() {
 	return (
 		<div className="workContainer">
-			<div className="hero">
-				<Hero />
+			<div className="workBanner">
+				<img src="works.jpg" alt="" />
 			</div>
 			<HowCarRentalWorks />
 			<Endless />
