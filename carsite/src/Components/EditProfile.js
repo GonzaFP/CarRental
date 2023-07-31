@@ -10,7 +10,7 @@ import { uploadProfilePhoto } from "../Store/ReducerFunction";
 function EditProfile() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const { User } = useSelector((state) => state.mainReducer);
+	const { User, initials } = useSelector((state) => state.mainReducer);
 	const input = useRef(null);
 	const UploadPhoto = () => {
 		input.current.click();
@@ -23,10 +23,10 @@ function EditProfile() {
 			})
 		);
 	};
-	console.log("this is the user", User);
+
 	return (
 		<div className="profileContainer">
-			<div className="edit">
+			<div className="editBtn">
 				<button>Save profile</button>
 				<button onClick={() => navigate("/profile")} className="cancel">
 					Cancel
@@ -35,8 +35,17 @@ function EditProfile() {
 
 			<div className="profile editprofile">
 				<div className="left">
-					<div className="changeprofile">
-						<AccountCircleOutlinedIcon className="icon" />
+					<div className="mainProfile">
+						{!User ? (
+							<AccountCircleOutlinedIcon className="icon" />
+						) : User?.photo ? (
+							<img src={User.photo} alt="" id="profilepic" />
+						) : (
+							<div className="profiler">
+								{initials && initials}
+							</div>
+						)}
+
 						<div className="profileBtn">
 							<button onClick={UploadPhoto}>
 								Change profile photo
@@ -48,41 +57,40 @@ function EditProfile() {
 								onChange={handleChange}
 							/>
 						</div>
+
+						<div className="names">
+							<p className="gray">
+								Add a face to the name. It’ll help other hosts
+								and guests recognize you at the beginning of a
+								trip.
+							</p>
+						</div>
+						<h1>{User?.name}</h1>
 					</div>
-
-					<div className="names">
-						<p className="gray">
-							Add a face to the name. It’ll help other hosts and
-							guests recognize you at the beginning of a trip.
-						</p>
-
-						<h1>Name</h1>
-					</div>
-
-					<p className="verifyinfo">Lives</p>
+					<p className="verifyInfo">Lives</p>
 
 					<input type="text" placeholder="Paris, France" />
 					<p className="gray">Joined Jul 2023</p>
-					<p className="verifyinfo">Verified Info</p>
-					<div className="verify">
+					<p className="verifyInfo">Verified Info</p>
+					<div className="verifyOption">
 						<p>
 							Approved to drive <span>?</span>
 						</p>
 						<Link to="/account">Verify ID</Link>
 					</div>
 
-					<div className="verify">
+					<div className="verifyOption">
 						<p>Email address</p>
 
 						<BsCheckCircle className="check" />
 					</div>
 
-					<div className="verify">
+					<div className="verifyOption">
 						<p>Phone number</p>
 						<Link to="/account">Verify phone number</Link>
 					</div>
 
-					<div className="verify">
+					<div className="verifyOption">
 						<p>Facebook</p>
 						<Link to="/account">Connect account</Link>
 					</div>
@@ -91,16 +99,16 @@ function EditProfile() {
 						your contact information.
 					</p>
 
-					<p className="verifyinfo">Languages</p>
+					<p className="verifyInfo">Languages</p>
 					<input type="text" />
-					<p className="verifyinfo">Works</p>
+					<p className="verifyInfo">Works</p>
 					<input type="text" />
-					<p className="verifyinfo">School</p>
+					<p className="verifyInfo">School</p>
 					<input type="text" />
 				</div>
 
 				<div className="right">
-					<p className="verifyinfo">About Fiona</p>
+					<p className="verifyInfo">About {User?.name}</p>
 					<p className="textareaLabel">
 						Tell hosts and guests about yourself and why you’re a
 						responsible, trustworthy person. Share your favorite
@@ -108,8 +116,8 @@ function EditProfile() {
 						your driving experience.{" "}
 					</p>
 					<textarea />
-					<p className="verifyinfo">Reviews from Hosts</p>
-					<div className="review">
+					<p className="verifyInfo">Reviews from Hosts</p>
+					<div className="reviewContainer">
 						<div>
 							<AccountCircleOutlinedIcon className="icon" />
 						</div>

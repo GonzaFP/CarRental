@@ -11,44 +11,48 @@ function Profile() {
 	const navigate = useNavigate();
 	return (
 		<div className="profileContainer">
-			<div className="edit">
+			<div className="editBtn">
 				<button onClick={() => navigate("/editprofile")}>
 					Edit profile
 				</button>
 			</div>
 
 			<div className="profile">
-				<div className="left">
-					{!User ? (
-						<AccountCircleOutlinedIcon className="icon" />
-					) : User?.photo ? (
-						<img src={User.photo} alt="" id="profilepic" />
-					) : (
-						<div className="profiler">{initials && initials}</div>
-					)}
+				<div className="leftProfile">
+					<div className="mainProfile">
+						{!User ? (
+							<AccountCircleOutlinedIcon className="icon" />
+						) : User?.photo ? (
+							<img src={User.photo} alt="" id="profilepic" />
+						) : (
+							<div className="profiler">
+								{initials && initials}
+							</div>
+						)}
 
-					<h1>{User?.name}</h1>
+						<h1>{User?.name}</h1>
+					</div>
 					<p className="date gray">Joined Jul 2023</p>
-					<p className="verifyinfo">Verified Info</p>
-					<div className="verify">
+					<p className="verifyInfo">Verified Info</p>
+					<div className="verifyOption">
 						<p>
 							Approved to drive <span>?</span>
 						</p>
 						<Link to="/account">Verify ID</Link>
 					</div>
 
-					<div className="verify">
+					<div className="verifyOption">
 						<p>Email address</p>
 
 						<BsCheckCircle className="check" />
 					</div>
 
-					<div className="verify">
+					<div className="verifyOption">
 						<p>Phone number</p>
 						<Link to="/account">Verify phone number</Link>
 					</div>
 
-					<div className="verify">
+					<div className="verifyOption">
 						<p>Facebook</p>
 						<Link to="/account">Connect account</Link>
 					</div>
@@ -58,9 +62,9 @@ function Profile() {
 					</p>
 				</div>
 
-				<div className="right">
-					<p className="verifyinfo">Reviews from Hosts</p>
-					<div className="review">
+				<div className="rightProfile">
+					<p className="verifyInfo">Reviews from Hosts</p>
+					<div className="reviewContainer">
 						<div>
 							<AccountCircleOutlinedIcon className="icon" />
 						</div>
