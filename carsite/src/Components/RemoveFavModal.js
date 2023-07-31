@@ -15,7 +15,7 @@ function RemoveFavModal({ showModal, id }) {
 	return (
 		<div className="removeFav">
 			<ClearOutlinedIcon
-				className="close"
+				className="closeFav"
 				onClick={() => showModal(false)}
 			/>
 			<div className="title">
@@ -27,13 +27,13 @@ function RemoveFavModal({ showModal, id }) {
 					favorites?
 				</p>
 			</div>
-			<div className="footerBtns">
-				<button id="decline" onClick={() => showModal(false)}>
-					cancel
-				</button>
-				<button id="remove" onClick={removeCar}>
-					Remove
-				</button>
+			<div className="removeBtns">
+				<div className="decline">
+					<button onClick={() => showModal(false)}>cancel</button>
+				</div>
+				<div className="remove">
+					<button onClick={removeCar}>Remove</button>
+				</div>
 			</div>
 		</div>
 	);

@@ -10,7 +10,7 @@ function FavCard() {
 					return <FavCardItems item={item} index={index} />;
 			  })
 			: null;
-	console.log("data", favCar);
+
 	return (
 		<div className="favs">
 			<h2>{`${User?.name}'s favourities`}</h2>

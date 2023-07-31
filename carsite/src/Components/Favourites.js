@@ -14,7 +14,7 @@ function Favourites() {
 	const message = `You’ll be able to access your favorited cars here.`;
 	return (
 		<>
-			{!User ? (
+			{!User || favCar.length === 0 ? (
 				<Display
 					title={title}
 					image={image}

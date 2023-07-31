@@ -18,26 +18,24 @@ function FavCardItems(props) {
 	return (
 		<>
 			{openModal && <RemoveFavModal showModal={setOpenModal} id={id} />}
-			<div className="fav">
-				<div className="card">
-					<Link>
-						<div className="carCard">
-							<img src={image} />
-							<Tooltip title="Remove car from favourities.">
-								<IconButton
-									id="favicon"
-									onClick={() => setOpenModal(true)}>
-									<BsFillHeartFill />
-								</IconButton>
-							</Tooltip>
-							<h4>{title}</h4>
-							<div className="detail">
-								<StarRating id="stars" />
-								<h5>Trips: {trips}</h5>
-							</div>
-							<h4 id="price">US$ {`${price} /day`}</h4>
+			<div className="favCardContainer">
+				<div className="cardContainer">
+					<div className="carContent">
+						<img src={image} />
+						<Tooltip title="Remove car from favourities.">
+							<IconButton
+								id="favicon"
+								onClick={() => setOpenModal(true)}>
+								<BsFillHeartFill />
+							</IconButton>
+						</Tooltip>
+						<h4>{title}</h4>
+						<div className="detail">
+							<StarRating id="stars" />
+							<h5>Trips: {trips}</h5>
 						</div>
-					</Link>
+						<h4 id="price">US$ {`${price} /day`}</h4>
+					</div>
 				</div>
 			</div>
 		</>
