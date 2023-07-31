@@ -14,7 +14,7 @@ function Accounts() {
 		setOpenModal(true);
 	};
 	return (
-		<div className="Account">
+		<div className="AccountContainer">
 			{openModal ? (
 				<CloseModal closeModal={setOpenModal} />
 			) : (
@@ -22,35 +22,40 @@ function Accounts() {
 					<h1>Account</h1>
 					<div className="contactinfo sections">
 						<h4 className="titles">Contact information</h4>
-						<h5>Email</h5>
-						<input
-							type="email"
-							value={User?.email}
-							className="input"
-						/>
-						<span className="verified">
-							<BsCheckCircle className="icon" /> verified{" "}
-						</span>
-						<h5>Password</h5>
-						<button
-							className="whiteBtns"
-							onClick={() => navigate("/changepassword")}>
-							Update
-						</button>
-						<h5>Mobile Phone</h5>
-						<button
-							className="whiteBtns"
-							onClick={() => navigate("/mobilephone")}>
-							Update
-						</button>
-						<h5>Mobile Notifications</h5>
-						<input type="checkbox" className="checkbox" />
-						<span>Enable text message notifications</span>
-						<h5>Email Notifications</h5>
-						<input type="checkbox" className="checkbox" />
-						<span>Promotions and announcements</span>
-						<div>
-							<button className="purpleBtn">Save changes</button>
+
+						<div className="contactOptions">
+							<h5>Email</h5>
+							<input
+								type="email"
+								value={User?.email}
+								className="input"
+							/>
+							<span className="verified">
+								<BsCheckCircle className="icon" /> verified{" "}
+							</span>
+							<h5>Password</h5>
+							<button
+								className="updateBtns"
+								onClick={() => navigate("/changepassword")}>
+								Update
+							</button>
+							<h5>Mobile Phone</h5>
+							<button
+								className="updateBtns"
+								onClick={() => navigate("/mobilephone")}>
+								Update
+							</button>
+							<h5>Mobile Notifications</h5>
+							<input type="checkbox" className="checkbox" />
+							<span>Enable text message notifications</span>
+							<h5>Email Notifications</h5>
+							<input type="checkbox" className="checkbox" />
+							<span>Promotions and announcements</span>
+							<div>
+								<button className="purpleBtn">
+									Save changes
+								</button>
+							</div>
 						</div>
 					</div>
 
@@ -75,23 +80,9 @@ function Accounts() {
 						</div>
 					</div>
 
-					<div className="travelcredit sections">
-						<h4 className="titles">Travel credit </h4>
-						<h5>Travel credit score</h5>
-						<p>
-							Travel credit will automatically apply towards your
-							next trip. Promo codes must be entered at checkout.
-						</p>
-						<input type="text" placeholder="Enter code" />
-						<div>
-							<button className="whiteBtns">Apply</button>
-						</div>
-						<p>Balance:$0</p>
-					</div>
-
 					<div className="closeAccount">
 						<h4 className="titles">Close account</h4>
-						<button className="whiteBtns" onClick={handleClick}>
+						<button className="updateBtns" onClick={handleClick}>
 							Close my account
 						</button>
 					</div>

@@ -114,39 +114,59 @@ a {
 }
 
 /* !Close account modal settings */
+
 .closeBg {
 	position: relative;
 	border: 1px solid rgb(240, 235, 235);
 	background-color: white;
 	border-radius: 10px;
-	width: 400px;
-	height: 460px;
+	width: 600px;
+	height: 600px;
 	padding: 20px;
 	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
 	z-index: 3;
 	margin: 0 auto;
 }
+
+.closeIcon {
+	position: absolute;
+	right: 5%;
+	top: 5%;
+	cursor: pointer;
+}
 .closeBg .title {
 	margin-top: 30px;
 }
 .closeBg .title > h3 {
-	margin-top: -10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 20px;
 }
 .closeBg .body {
 	font-weight: 500;
-	font-size: 17px;
+
 	color: #474747;
 }
-.closeBg .body > ul > li {
-	margin-top: 5px;
-	margin-bottom: 5px;
+.closeBg .body > p {
+	font-size: 20px;
 }
-.closeBg .footerBtns > .whiteBtns {
+.closeBg .body > ul > li {
+	margin: 5%;
+	font-size: 20px;
+}
+.closeBg .footerBtns > .updateBtns {
 	margin-right: 15px;
 }
-.closeBg .close {
-	position: absolute;
-	left: 400px;
-	top: 15px;
-	cursor: pointer;
+#cancelClose {
+	border-color: black;
+}
+
+@media screen and (max-width: 767px) {
+	.closeBg {
+		position: absolute;
+		width: 100vw;
+		height: 150vh;
+		left: 0;
+		top: 0;
+	}
 }

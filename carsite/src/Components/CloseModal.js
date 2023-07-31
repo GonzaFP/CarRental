@@ -1,4 +1,5 @@
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+
 function CloseModal({ closeModal }) {
 	return (
 		<div className="closeBg">
@@ -7,7 +8,7 @@ function CloseModal({ closeModal }) {
 					onClick={() => {
 						closeModal(false);
 					}}
-					className="close"
+					className="closeIcon"
 				/>
 				<h1>Closing your account?</h1>
 				<h3>What that means</h3>
@@ -39,7 +40,8 @@ function CloseModal({ closeModal }) {
 			</div>
 			<div className="footerBtns">
 				<button
-					className=" whiteBtns "
+					className=" updateBtns "
+					id="cancelClose"
 					onClick={() => closeModal(false)}>
 					Cancel
 				</button>
