@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import ModelCard from "./modelCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -7,22 +8,7 @@ import "./Styles/Model.css";
 import fetcher from "../fetcher";
 import ExperinceCard from "./ExperinceCard";
 
-// const breakpoints = [
-// 	{ width: 1, itemsToShow: 1 },
-// 	{ width: 550, itemsToShow: 2 },
-// 	{ width: 700, itemsToShow: 3 },
-// 	{ width: 800, itemsToShow: 4 },
-// ];
 function BrowseMake() {
-	const settings = {
-		dots: false,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		cssEase: "linear",
-		arrows: "true",
-	};
 	const [models, setModels] = useState({
 		errorMessage: "",
 		data: [],
@@ -40,6 +26,7 @@ function BrowseMake() {
 		: models.data.map((item, index) => {
 				return <ModelCard car={item} key={index} />;
 		  });
+
 	return (
 		<div className="models">
 			<h1>Browse by make</h1>

@@ -1,29 +1,32 @@
 body {
 	background-color: white;
 }
+
 .allCars {
-	margin-left: 5px;
-	margin-right: 5px;
+	width: 100%;
 }
+
 .allCars .carCard {
-	width: 90vw;
+	width: 100%;
 	border-radius: 10px;
 	position: relative;
 	margin-bottom: 30px;
+	border: 1px solid lightgray;
 }
+
 .allCars .carCard #icon,
 .allCars .carCard #favicon {
 	position: absolute;
 	right: 10px;
 	top: 10px;
 	background-color: white;
-
 	font-size: 25px;
 }
 
 .allCars .carCard #favicon {
 	color: red;
 }
+
 .allCars .carCard a {
 	text-decoration: none;
 	color: black;
@@ -33,92 +36,69 @@ body {
 	text-decoration: underline;
 	color: blueviolet;
 }
-.allCars .carCard h4 {
-	font-size: 20px;
-	margin-top: 5px;
+
+.allCars .carCard a > h4 {
+	font-size: clamp(1rem, 6vw, 2rem);
+	margin-top: 20px;
 	text-align: left;
 	margin-left: 20px;
 }
+
 .allCars .carCard > a > img {
 	width: 100%;
-
+	height: 100%;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
-.allCars .carCard .rightCard .detail {
+
+.allCars .carCard .rightCard .details {
 	display: flex;
 	flex-direction: column;
-	color: gray;
+
 	margin-left: 20px;
-	margin-top: -20px;
-	border-bottom: 1px solid lightgray;
+	margin-top: 10px;
+
+	font-size: 20px;
 }
-.allCars .carCard .detail > div {
+
+.allCars .carCard .pricedetails > div {
 	display: flex;
 	gap: 5px;
-	margin-top: -20px;
+	margin-top: 10px;
 }
+
 .allCars .card a:hover {
 	color: blueviolet;
 }
-.detail > h5 {
+.pricedetails {
+	position: absolute;
+	right: 10px;
+	bottom: 5%;
+}
+.pricedetails > h4 {
+	font-size: 20px;
+}
+.pricedetails > h5 {
 	margin-top: 2px;
 	margin-left: 15px;
 	font-size: 15px;
 	font-weight: 400;
 }
-.price {
+
+.pricedetails > p {
 	margin-top: 10px;
-	margin-left: 60%;
-	width: 300px;
-}
-.price > p {
-	margin-top: -20px;
 	margin-left: 20px;
 	text-decoration: underline;
 	cursor: pointer;
 }
-.price > p:hover {
+
+.pricedetails > p:hover {
 	color: blueviolet;
 }
 
-@media screen and (max-width: 900px) {
-	.filter {
-		display: block;
-	}
-
-	.sort {
-		display: none;
-	}
-}
-@media screen and (min-width: 900px) {
-	.allCars {
-		margin-left: 50px;
-	}
-	.allCars .carCard {
-		display: flex;
-		width: 800px;
-	}
-	.allCars .carCard > a > img {
-		width: 350px;
-		height: 200px;
-		border-radius: 0%;
-	}
-	.allCars .carCard .rightCard .detail {
-		border: none;
-	}
-	.price {
-		margin-left: 300px;
-	}
-	.sortBtns {
-		display: block;
-	}
-}
 #morefilterBtn {
-	border-radius: 10%;
-	border: 1px solid lightgray;
 	padding: 8px;
-	width: 120px;
+	width: 150px;
 	font-weight: 400;
 }
 .carInfo .price {
@@ -137,9 +117,12 @@ body {
 .carInfo .price > p:hover {
 	color: black;
 }
+.carTitle {
+	margin-top: 20px;
+}
 .carTitle > h5 {
 	color: gray;
-	margin-top: -15px;
+	margin-top: 15px;
 	margin-bottom: 40px;
 }
 .allCars .sortBtns {
@@ -148,16 +131,12 @@ body {
 	padding: 20px;
 }
 .allCars .sortBtns > button {
-	background-color: white;
 	margin-right: 10px;
-	border: 1px solid lightgray;
-	border-radius: 8px;
+
 	padding: 10px;
-	width: 80px;
+	width: 100px;
 }
-.allCars .sortBtns > button:hover {
-	background-color: lightgray;
-}
+
 #sorted,
 #sortedPrice {
 	width: 200px;
@@ -202,4 +181,33 @@ body {
 
 .carInfo > a:hover {
 	color: blueviolet;
+}
+
+@media screen and (max-width: 1023px) {
+	.filter {
+		display: block;
+	}
+
+	.sort {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.allCars {
+		margin-left: 50px;
+		width: 70vw;
+	}
+	.allCars .carCard {
+		display: flex;
+		width: 100%;
+	}
+	.allCars .carCard > a > img {
+		width: 450px;
+		height: 100%;
+		border-radius: 0%;
+	}
+	.sortBtns {
+		display: block;
+	}
 }

@@ -1,7 +1,7 @@
 .priceDetailsContainer {
 	position: fixed;
-	left: 300px;
-	top: 50px;
+	left: 30%;
+	top: 10%;
 	z-index: 3;
 }
 .priceDetails {
@@ -10,10 +10,9 @@
 	border: 1px solid lightgray;
 	border-radius: 10px;
 	box-shadow: 1px 1px 1px 0.5px rgb(255, 249, 249);
-	width: 400px;
-	height: 500px;
-	margin-left: 100px;
-	padding: 20px;
+	width: 70%;
+	height: 550px;
+	padding: 8% 5%;
 }
 #clear {
 	font-size: 30px;
@@ -23,14 +22,17 @@
 }
 .priceDetails > h2 {
 	font-size: 30px;
+	margin-bottom: 15px;
 }
 .priceBody > h4 {
 	color: gray;
 	text-transform: uppercase;
 	font-size: 13px;
-	border-bottom: 1px solid lightgray;
+
+	margin-bottom: 15px;
 }
 .tripfee {
+	border-top: 1px solid lightgray;
 	border-bottom: 1px solid lightgray;
 }
 .baseprice {
@@ -55,7 +57,7 @@
 	display: flex;
 	font-size: 20px;
 	margin-left: 20px;
-	margin-top: -5px;
+	margin-top: 15px;
 }
 .totalprice #est {
 	margin-left: auto;
@@ -63,18 +65,31 @@
 .tripprice > h5 {
 	text-transform: uppercase;
 	color: gray;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 14px;
 }
 
-.tripfee > h5,
-.fee > h5 {
+.tripfee > h5 {
 	font-size: 17px;
-	margin-top: 10px;
+	margin-top: 15px;
 }
-.tripfee > p,
-.fee > p {
+
+.tripfee > p {
 	color: gray;
-	margin-top: -20px;
+	margin-top: 15px;
 	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+@media screen and (max-width: 767px) {
+	.priceDetailsContainer {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.priceDetails {
+		width: 100vw;
+		height: 100vh;
+	}
 }

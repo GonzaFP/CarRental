@@ -228,7 +228,7 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 	return (
 		<div className="filterModal">
 			<ClearOutlinedIcon
-				className="close"
+				className="closeFilter"
 				onClick={() => {
 					openFilterModal(false);
 					showFilterBtn(true);
@@ -248,7 +248,8 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 						id="sortby"
 						onChange={handleChange}
 						value={checked}
-						name="sortby">
+						name="sortby"
+						style={{ width: "80%" }}>
 						<option value="relevant">Relevance</option>
 						<option value="ascend">Price:low to high</option>
 						<option value="descend">Price:high to low</option>
@@ -257,10 +258,11 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 
 				<div className="slider">
 					<h4 className="label">Price</h4>
-					<label>
+					<p>
 						US$ {value[0]} - US$ {value[1]}/day
-					</label>
+					</p>
 					<Slider
+						className="priceSlider"
 						value={value}
 						onChange={handlePriceChange}
 						valueLabelDisplay="auto"
@@ -269,8 +271,7 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 						step={5}
 						size="small"
 						sx={{
-							width: 300,
-
+							width: 200,
 							"& .MuiSlider-thumb": {
 								borderRadius: "1px",
 							},
@@ -285,7 +286,8 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 					id="sortby"
 					onChange={handleChange}
 					name="vehiclemakes"
-					value={carMake}>
+					value={carMake}
+					style={{ width: "80%" }}>
 					<option value="select">-- Select --</option>
 					<option value="15">Audi</option>
 					<option value="11">AM General</option>
@@ -317,6 +319,7 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 					id="sortby"
 					onChange={handleChange}
 					value={features}
+					style={{ width: "80%" }}
 					name="features">
 					<option value="select">-- Select --</option>
 					<option value="All-wheel drive">All-wheel drive</option>
@@ -336,7 +339,7 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 					</option>
 				</select>
 			</div>
-			<div className="applyBtn">
+			<div className="applyBtn" id="viewResults">
 				<button onClick={handleSort}>View results</button>
 				{LargeScreenFilter && (
 					<button

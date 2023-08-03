@@ -4,11 +4,11 @@
 	background-color: white;
 	border-radius: 10px;
 	width: 350px;
-	height: 200px;
+	height: 250px;
 	padding: 20px;
 	box-shadow: 1px 1px 0.1px 0.1px #b8b3b3;
 	z-index: 3;
-	top: 140px;
+	top: 10%;
 }
 .sortModal .close {
 	position: absolute;
@@ -27,18 +27,13 @@
 }
 
 .applyBtn > button {
-	background-color: blueviolet;
-	color: white;
 	font-weight: bold;
 	font-size: 18px;
-	padding: 10px;
-	border: 1px solid blueviolet;
+	padding: 6px;
 	width: 150px;
 	margin: 15px;
 }
-.applyBtn > button:hover {
-	background-color: purple;
-}
+
 .applyBtn #reset {
 	background-color: white;
 	border: 1px solid black;
@@ -56,11 +51,11 @@
 	background-color: white;
 	border-radius: 10px;
 	width: 400px;
-	height: 130px;
+	height: 200px;
 	padding: 20px;
 	box-shadow: 1px 1px 0.1px 0.1px #b8b3b3;
 	z-index: 3;
-	top: 140px;
+	top: 10%;
 }
 .priceSort .close {
 	position: absolute;

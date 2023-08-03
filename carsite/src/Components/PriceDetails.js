@@ -36,7 +36,7 @@ function PriceDetails({ setClose, price }) {
 						<p>This helps us run the CarRental platform.</p>
 					</div>
 				</div>
-				<div className="fee">
+				<div className="tripfee">
 					<h5>Young driver fee</h5>
 					<p>Applies to all drivers under 25 years old.</p>
 				</div>

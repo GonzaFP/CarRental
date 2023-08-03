@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import fetcher from "../fetcher";
-import SortModal from "./SortModal";
+
 import Cars from "./Cars";
 import { useDispatch, useSelector } from "react-redux";
 import { sortCars } from "../Store/ReducerFunction";
-import { BsSliders } from "react-icons/bs";
-import PriceSort from "./PriceSort";
-import FilterModal from "./FilterModal";
 import NoCars from "./NoCars";
+import SortBtns from "./SortBtns";
 
 function BrowseCars() {
 	const { sortedCars } = useSelector((state) => state.mainReducer);
 	const dispatch = useDispatch();
-	const [openFilter, setOpenFilter] = useState(false);
+
 	const [carData, setCarData] = useState({ errorMessage: "", data: [] });
 	const [unSortedCarData, setUnsortedCarData] = useState({
 		errorMessage: "",
 		data: [],
 	});
-	const [openSort, setOpenSort] = useState(false);
-	const [openPrice, setOpenPrice] = useState(false);
-	const [filterBtn, showFilterBtn] = useState(true);
 
 	useEffect(() => {
 		if (!sortedCars) {
@@ -51,11 +46,6 @@ function BrowseCars() {
 		setCarData(sortedCars);
 	}, [sortedCars]);
 
-	useEffect(() => {
-		document.body.style.overflow =
-			openPrice || openFilter || openSort ? "hidden" : "unset";
-	}, [openSort, openFilter, openPrice]);
-
 	let data = carData?.errorMessage
 		? `Error: ${carData.errorMessage}`
 		: carData?.data?.map((item, index) => {
@@ -64,67 +54,9 @@ function BrowseCars() {
 
 	return (
 		<div className="allCars">
-			{openSort && (
-				<SortModal
-					closeSort={setOpenSort}
-					Cars={carData}
-					unSorted={unSortedCarData}
-				/>
-			)}
-			{openPrice && (
-				<PriceSort
-					closeSort={setOpenPrice}
-					Cars={carData}
-					unSorted={unSortedCarData}
-				/>
-			)}
-			{openFilter && (
-				<FilterModal
-					openFilterModal={setOpenFilter}
-					Cars={carData}
-					unSorted={unSortedCarData}
-					showFilterBtn={showFilterBtn}
-				/>
-			)}
 			<div>
-				<div className="sortBtns">
-					<button
-						className="sort"
-						id={
-							sortedCars?.sort === "ascend" ||
-							sortedCars?.sort === "descend"
-								? "sorted"
-								: ""
-						}
-						onClick={() => setOpenSort(!openSort)}>
-						{sortedCars?.sort === "ascend" ||
-						sortedCars?.sort === "descend"
-							? `Sort by - ${sortedCars?.BtnLabel}`
-							: "Sort by"}
-					</button>
-					<button
-						className="sort"
-						onClick={() => setOpenPrice(!openPrice)}
-						id={sortedCars?.value?.length > 0 && "sortedPrice"}>
-						{sortedCars?.value?.length > 0
-							? `Price-  US$ ${sortedCars.value[0]} - US$ ${sortedCars.value[1]}`
-							: "Price"}
-					</button>
-
-					<button
-						id="morefilterBtn"
-						onClick={() => {
-							setOpenFilter(true);
-							showFilterBtn(false);
-						}}>
-						<span>
-							<BsSliders />
-						</span>
-						More Filters
-					</button>
-				</div>
+				<SortBtns unSortedCarData={unSortedCarData} carData={carData} />
 			</div>
-
 			{carData.data ? (
 				<>
 					<div className="carTitle">

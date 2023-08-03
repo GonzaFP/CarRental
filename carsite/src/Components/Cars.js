@@ -78,15 +78,17 @@ function Cars(props) {
 							<Link to={`/cars/${id}`}>
 								<h4>{title}</h4>
 							</Link>
-							<div className="detail">
+
+							<div className="details">
 								<StarRating id="stars" />
 								<div>
 									<h5>pick up at place.</h5>
 									<h5>Trips: {trips}</h5>
 								</div>
 							</div>
-							<div className="price">
-								<h4>US$ {`${price} /day`}</h4>
+
+							<div className="pricedetails">
+								<h4>US${`${price} /day`}</h4>
 								<p onClick={() => setShowPrice(true)}>
 									Price details
 								</p>

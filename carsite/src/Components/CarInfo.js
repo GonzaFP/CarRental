@@ -11,7 +11,7 @@ function CarInfo() {
 
 	useEffect(() => {
 		const fetchCar = async () => {
-			const response = await fetcher(`cars?id=${carId};`);
+			const response = await fetcher(`cars?id=${carId}`);
 
 			setCarData(response);
 		};
