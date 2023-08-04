@@ -8,54 +8,53 @@ a {
 	border: 1px solid rgb(240, 235, 235);
 	background-color: white;
 	border-radius: 10px;
-	width: 400px;
+	width: 450px;
 	height: 400px;
 	padding: 10px 30px;
 	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
 	z-index: 3;
-	margin: 0 auto;
+	margin: 0 auto 50px auto;
 }
 
-.modalBg .close {
+.modalBg .closeAccount {
 	position: absolute;
-	left: 420px;
-	top: 15px;
+
 	cursor: pointer;
 }
 
 .modalBg .title {
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 15%;
 }
 
 .modalBg .body {
 	font-size: 18px;
 	margin-top: 20px;
+	line-height: 2rem;
 }
 .modalBg .links {
-	color: blueviolet;
+	color: goldenrod;
 	font-size: 18px;
 	font-weight: bold;
+	margin-top: 10px;
 }
 
 .modalBg .links > p:hover {
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 .footerBtns {
 	text-align: end;
 }
+.modalBg .footerBtns {
+	margin-top: 10px;
+}
 .footerBtns #agree {
-	background-color: blueviolet;
-	color: white;
-	border: 1px solid white;
 	margin-left: 10px;
 	padding: 10px;
-	cursor: pointer;
 }
-.footerBtns #agree:hover {
-	background-color: purple;
-}
+
 .footerBtns #decline {
 	background-color: white;
 	padding: 10px;
@@ -66,33 +65,33 @@ a {
 	background-color: rgb(226, 209, 243);
 	border: 1px solid blueviolet;
 }
+
+/* !Accept Modal styles */
+
 .acceptBg {
 	position: relative;
 	border: 1px solid rgb(240, 235, 235);
 	background-color: white;
 	border-radius: 10px;
-	width: 250px;
-	height: 250px;
+	width: 400px;
+	height: 300px;
 	padding: 10px 30px;
 	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
 	z-index: 3;
-	margin: 0 auto;
+	margin: 0 auto 50px auto;
 }
 
-/* !Accept Modal styles */
 .acceptBg .title > h1 {
 	font-size: 20px;
 	font-weight: 200;
-	margin-top: 60px;
+	margin-top: 30%;
 	align-self: center;
 }
 .acceptBg .footerBtns {
 	margin-top: 100px;
 }
-.acceptBg .close {
+.acceptBg .closeAccept {
 	position: absolute;
-	left: 265px;
-	top: 10px;
 }
 
 /* !Reset password modal settings */
@@ -102,12 +101,12 @@ a {
 	border: 1px solid rgb(240, 235, 235);
 	background-color: white;
 	border-radius: 10px;
-	width: 250px;
-	height: 100px;
+	width: 300px;
+	height: 200px;
 	padding: 10px;
 	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
 	z-index: 3;
-	margin: 0 auto;
+	margin: 0 auto 50px auto;
 }
 .resetBg > h3 {
 	color: blueviolet;
@@ -125,7 +124,7 @@ a {
 	padding: 20px;
 	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
 	z-index: 3;
-	margin: 0 auto;
+	margin: 0 auto 50px auto;
 }
 
 .closeIcon {
@@ -162,11 +161,29 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-	.closeBg {
+	.closeBg,
+	.modalBg,
+	.acceptBg {
 		position: absolute;
 		width: 100vw;
 		height: 150vh;
 		left: 0;
-		top: 0;
+		top: 10%;
+	}
+	.closeAccount,
+	.closeAccept {
+		top: 2%;
+		right: 5%;
+	}
+	.modalBg .footerBtns {
+		margin-top: 50px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.closeAccount,
+	.closeAccept {
+		top: 8%;
+		right: 8%;
 	}
 }

@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 function Profile() {
 	const { User, initials } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
+
 	return (
 		<div className="profileContainer">
 			<div className="editBtn">
@@ -23,7 +24,7 @@ function Profile() {
 						{!User ? (
 							<AccountCircleOutlinedIcon className="icon" />
 						) : User?.photo ? (
-							<img src={User.photo} alt="" id="profilepic" />
+							<img src={User?.photo} alt="" id="profilepic" />
 						) : (
 							<div className="profiler">
 								{initials && initials}

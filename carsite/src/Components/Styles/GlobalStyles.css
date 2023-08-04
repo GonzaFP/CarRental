@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: whitesmoke;
+}
+
 button {
 	background-color: transparent;
 	border: 1px solid goldenrod;

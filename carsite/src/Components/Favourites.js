@@ -11,9 +11,9 @@ function Favourites() {
 	const title = `${User?.name}'s favourite cars`;
 	const image = <BsFillCarFrontFill id="car" />;
 	const subtitle = `No favourite cars`;
-	const message = `You’ll be able to access your favorited cars here.`;
+	const message = `You’ll be able to access your favorite cars here.`;
 	return (
-		<>
+		<div className="favContainer">
 			{!User || favCar.length === 0 ? (
 				<Display
 					title={title}
@@ -24,7 +24,7 @@ function Favourites() {
 			) : (
 				<FavCard />
 			)}
-		</>
+		</div>
 	);
 }
 

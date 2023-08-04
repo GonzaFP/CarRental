@@ -6,7 +6,7 @@ function SentEmailModal({ closeModal, message }) {
 	return (
 		<div className="resetBg">
 			<ClearOutlinedIcon
-				className="close"
+				className="closeAccept"
 				onClick={() => closeModal(false)}
 			/>
 			<h3>{message}</h3>

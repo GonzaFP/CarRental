@@ -45,7 +45,7 @@ function SignModal({ closeModal, user }) {
 	};
 
 	return (
-		<>
+		<div className="AllModalContainer">
 			{open ? (
 				<AcceptModal closeModal={closeModal} />
 			) : (
@@ -57,7 +57,7 @@ function SignModal({ closeModal, user }) {
 								setAgree(false);
 								handleUser();
 							}}
-							className="close"
+							className="closeAccount"
 						/>
 						<div className="title">
 							<h1>Create an account?</h1>
@@ -99,7 +99,7 @@ function SignModal({ closeModal, user }) {
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	);
 }
 

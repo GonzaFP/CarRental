@@ -1,4 +1,8 @@
-.bar {
+.TripsInfoContainer {
+	margin-top: 5%;
+}
+
+.TripsContainer {
 	border-top: 1px solid lightgray;
 	border-bottom: 1px solid lightgray;
 	padding-top: 50px;
@@ -20,4 +24,13 @@
 	background-color: white;
 	color: black;
 	border-bottom: 4px solid goldenrod;
+}
+
+@media screen and (max-width: 767px) {
+	.TripsInfoContainer {
+		margin-top: 10%;
+	}
+	.TripsContainer {
+		padding-left: 15px;
+	}
 }

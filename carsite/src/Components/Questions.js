@@ -11,7 +11,8 @@ function Questions() {
 	});
 	return (
 		<div className="accordion">
-			<h1>Frequently asked questions </h1>
+			<h2>Frequently asked questions </h2>
+			<h5>List of answers</h5>
 			<div className="fa">{data}</div>
 		</div>
 	);

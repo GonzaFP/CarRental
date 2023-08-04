@@ -1,5 +1,6 @@
 .signupContainer {
-	margin-top: 100px;
+	margin-top: 10%;
+	margin-bottom: 5%;
 }
 .signupContainer > h2 {
 	text-align: center;
@@ -8,6 +9,7 @@
 .signupForm {
 	display: table;
 	margin: 50px auto;
+	position: relative;
 }
 .name {
 	display: flex;
@@ -31,9 +33,6 @@
 	box-sizing: border-box;
 }
 
-.signupForm {
-	position: relative;
-}
 .signupForm .driverName {
 	font-size: 14px;
 	color: blueviolet;
@@ -130,4 +129,25 @@
 }
 .redterms {
 	color: red;
+}
+@media screen and (max-width: 767px) {
+	.firstname input,
+	.lastname input {
+		width: 45vw;
+	}
+	.signupForm .mail > input,
+	.signupForm .password > input,
+	.login button,
+	.signupForm button {
+		width: 90vw;
+	}
+
+	.signupForm {
+		margin: 2%;
+	}
+
+	.signupContainer {
+		margin-top: 25%;
+		margin-left: 4%;
+	}
 }

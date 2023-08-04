@@ -6,18 +6,15 @@ import Protected from "./Protected";
 import GetStarted from "./GetStarted";
 import Logo from "./Logo";
 import Earn from "./Earn";
+
 function BecomeHost() {
 	return (
-		<>
+		<div className="becomeHostContainer">
 			<ListCar />
 			<Logo />
 			<Earn />
 			<Sharing />
-
-			{/* <Sharing />
-			<Protected />
-			<GetStarted /> */}
-		</>
+		</div>
 	);
 }
 

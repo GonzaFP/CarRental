@@ -35,7 +35,7 @@ function Cars(props) {
 
 	useEffect(() => {
 		const handleLiked = (a) => {
-			favCar.map((item) => {
+			favCar?.map((item) => {
 				if (item.id === a) {
 					setLiked(true);
 					return;

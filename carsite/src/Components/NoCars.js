@@ -26,6 +26,7 @@ function NoCars({ unSorted }) {
 			</div>
 			<div className="subbody">
 				<h3>No cars found</h3>
+				<p>Try changing your filters or adjusting your dates.</p>
 				<button onClick={handleReset}>Reset filters</button>
 			</div>
 		</div>

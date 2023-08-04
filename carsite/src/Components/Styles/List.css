@@ -1,6 +1,7 @@
-.ListContainer {
-	margin: 5%;
+.becomeHostContainer {
+	margin: 10% 5%;
 }
+
 .ListContainer .type h1 {
 	font-size: clamp(2rem, 6vw, 3rem);
 }
@@ -33,5 +34,8 @@
 @media screen and (max-width: 1024px) {
 	.ListContainer img {
 		width: 100%;
+	}
+	.becomeHostContainer {
+		margin-top: 20%;
 	}
 }

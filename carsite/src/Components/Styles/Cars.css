@@ -4,6 +4,7 @@ body {
 
 .allCars {
 	width: 100%;
+	margin-top: 5%;
 }
 
 .allCars .carCard {
@@ -183,6 +184,11 @@ body {
 	color: blueviolet;
 }
 
+@media screen and (max-width: 767px) {
+	.allCars {
+		margin-top: 20%;
+	}
+}
 @media screen and (max-width: 1023px) {
 	.filter {
 		display: block;

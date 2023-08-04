@@ -6,7 +6,6 @@ import {
 } from "react-icons/md";
 
 function FAQ(props) {
-	console.log(props);
 	const { question, answer } = props.item;
 	const className = props.className;
 	const [toggle, setToggle] = useState(false);

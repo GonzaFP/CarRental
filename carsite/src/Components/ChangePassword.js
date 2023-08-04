@@ -10,18 +10,6 @@ function ChangePassword() {
 	const [newPwd, setNewPwd] = useState("");
 	const [renterPwd, setRenterPwd] = useState("");
 
-	// const handleChange = (event) => {
-	// 	const [name, value] = event.target;
-	// 	if (value.trim() === "") {
-	// 		setDisabled(true);
-	// 		setClassName("inactive");
-	// 		return;
-	// 	}
-	// 	setDisabled(false);
-	// 	setClassName("active");
-	// 	"set"[name](value);
-	// };
-
 	return (
 		<div className="changePwd">
 			<h1>Change password </h1>

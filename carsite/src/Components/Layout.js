@@ -5,8 +5,8 @@ import Footer from "./Footer";
 
 function Layout() {
 	return (
-		<div className='layoutContainer'>
-			{/* <Header /> */}
+		<div className="layoutContainer">
+			<Header />
 			<Outlet />
 			<Footer />
 		</div>

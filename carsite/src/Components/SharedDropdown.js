@@ -5,7 +5,7 @@ import Trips from "./Trips";
 
 function SharedDropdowm() {
 	return (
-		<div>
+		<div className="TripsInfoContainer">
 			<Trips />
 			<Outlet />
 		</div>

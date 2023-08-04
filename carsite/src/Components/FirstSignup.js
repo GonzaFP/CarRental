@@ -48,7 +48,7 @@ function FirstSignup() {
 	};
 
 	return (
-		<>
+		<div className="signupOptionsContainer">
 			{openModal ? (
 				<SignModal
 					closeModal={setOpenModal}
@@ -90,7 +90,7 @@ function FirstSignup() {
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	);
 }
 

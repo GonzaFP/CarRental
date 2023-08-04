@@ -170,3 +170,18 @@ export const sharingData = [
 		type: "Get paid via direct deposit within three days after each trip. You’ll earn 65% or 75% of the trip price, based on the level of protection you choose. You'll also get reimbursed for things like fuel and any mileage beyond your limit.",
 	},
 ];
+
+export const protectedData = [
+	{
+		title: "Physical damage protection",
+		type: "Choose from three protection plans — Premier, Standard, or Minimum — to get the level of protection that’s right for you. Spring for Premier for peace of mind, or pay less for lighter protection with higher out-of-pocket costs for vehicle damage or theft.",
+	},
+	{
+		title: "Liability insurance included",
+		type: "All trips are covered by third-party auto liability insurance provided by Aioi Nissay Dowa Insurance.",
+	},
+	{
+		title: "24/7 support & roadside assistance",
+		type: "24/7 roadside assistance is just a call away to keep you safe and on the road.",
+	},
+];

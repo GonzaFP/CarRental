@@ -1,9 +1,66 @@
+.WorksSection {
+	margin-bottom: 5%;
+	margin-top: 15%;
+}
+
+.WorksItem {
+	margin-left: 10%;
+	border-bottom: 1px solid lightgray;
+}
+.WorksItem h2 {
+	font-size: clamp(2rem, 6vw, 3rem);
+	font-weight: 600;
+}
+
+.WorksItem h5 {
+	color: goldenrod;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 15px 0px 20px;
+}
+
+.WorksData h3 {
+	color: goldenrod;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.WorksData {
+	display: flex;
+	gap: 20px;
+	margin-top: 25px;
+	margin-left: 10%;
+	font-size: 18px;
+}
+
 .workContainer .workBanner {
-	margin-top: 50px;
 	width: 100%;
-	height: 400px;
 }
 .workBanner img {
 	width: 100%;
-	height: 100%;
+	height: 70vh;
+}
+
+@media screen and (max-width: 767px) {
+	.WorksSection {
+		margin-top: 40%;
+		margin-left: -8%;
+	}
+
+	.WorksData {
+		flex-direction: column;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.WorksSection {
+		margin-left: -6%;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.WorksSection {
+		margin-left: 0%;
+	}
 }

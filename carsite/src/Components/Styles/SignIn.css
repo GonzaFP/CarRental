@@ -1,5 +1,7 @@
-.signin {
-	margin-top: 50px;
+.signin,
+.signupOptionsContainer {
+	margin-top: 10%;
+	margin-bottom: 5%;
 }
 .signin > h1 {
 	text-align: center;
@@ -19,10 +21,6 @@
 }
 
 .signinForm > button {
-	background-color: blueviolet;
-	color: white;
-	font-weight: bold;
-	border: 1px solid white;
 	border-radius: 2px;
 	padding: 10px;
 	width: 400px;
@@ -67,7 +65,6 @@
 	flex-direction: column;
 	text-align: center;
 	justify-content: center;
-	margin-top: 50px;
 }
 .other > div > button {
 	background-color: white;
@@ -92,4 +89,22 @@
 	font-size: 20px;
 	margin-right: 10px;
 	vertical-align: bottom;
+}
+
+@media screen and (max-width: 767px) {
+	.signinForm input,
+	.signinForm button,
+	.other > div > button {
+		width: 80vw;
+	}
+	.pwd .forgotPwd {
+		left: 60%;
+	}
+	.signin,
+	.signupOptionsContainer {
+		margin-top: 20%;
+	}
+	.other > div > button {
+		width: 80vw;
+	}
 }

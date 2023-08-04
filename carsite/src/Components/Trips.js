@@ -4,7 +4,7 @@ import "./Styles/Trips.css";
 
 function Trips() {
 	return (
-		<nav className="bar">
+		<nav className="TripsContainer">
 			<NavLink
 				className={({ isActive }) =>
 					isActive ? "linkTrip activeTrip" : "linkTrip"

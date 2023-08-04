@@ -4,22 +4,22 @@ import HowCarRentalWorks from "./HowCarRentalWorks";
 import Endless from "./Endless";
 import BrowseMake from "./BrowseMake";
 import BrowseCategory from "./Category";
-import Insurance from "./insurance";
+import Protected from "./Protected";
 import FAQ from "./FAQs";
 import Questions from "./Questions";
 import Banner from "./Banner";
+import Images from "./Images";
 
 function HowWorks() {
 	return (
 		<div className="workContainer">
 			<div className="workBanner">
-				<img src="works.jpg" alt="" />
+				<HowCarRentalWorks />
 			</div>
-			<HowCarRentalWorks />
-			<Endless />
+			<Images />
+			<Banner item={{ image: "how2.jpg" }} />
 			<BrowseMake />
-			<BrowseCategory />
-			<Insurance />
+			<Protected />
 			<Questions />
 		</div>
 	);

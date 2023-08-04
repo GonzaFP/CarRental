@@ -65,7 +65,6 @@
 		min-width: 100vw;
 		height: 100vh;
 		left: 0;
-		top: 0;
 	}
 	.priceSlider,
 	.slider p {
@@ -104,20 +103,19 @@
 }
 @media screen and (min-width: 768px) {
 	.filterModal {
-		top: 5%;
 		left: 5%;
+		top: 20%;
 		padding: 10px 30px;
 	}
 }
 @media screen and (min-width: 1024px) {
 	.filterModal {
-		top: 10%;
 		left: 10%;
 		padding: 10px 30px;
 	}
 	.sortby,
 	#viewResults,
 	.slider {
-		margin-left: 10%;
+		margin-left: 5%;
 	}
 }

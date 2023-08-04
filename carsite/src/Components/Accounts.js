@@ -33,24 +33,29 @@ function Accounts() {
 							<span className="verified">
 								<BsCheckCircle className="icon" /> verified{" "}
 							</span>
+
 							<h5>Password</h5>
 							<button
 								className="updateBtns"
 								onClick={() => navigate("/changepassword")}>
 								Update
 							</button>
+
 							<h5>Mobile Phone</h5>
 							<button
 								className="updateBtns"
 								onClick={() => navigate("/mobilephone")}>
 								Update
 							</button>
+
 							<h5>Mobile Notifications</h5>
 							<input type="checkbox" className="checkbox" />
 							<span>Enable text message notifications</span>
+
 							<h5>Email Notifications</h5>
 							<input type="checkbox" className="checkbox" />
 							<span>Promotions and announcements</span>
+
 							<div>
 								<button className="purpleBtn">
 									Save changes

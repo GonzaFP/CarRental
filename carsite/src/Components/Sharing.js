@@ -3,7 +3,7 @@ import "./Styles/Sharing.css";
 import { sharingData } from "../Data/FAQData";
 
 function Sharing() {
-	let data = sharingData.map((item, index) => {
+	let data = sharingData.map((item) => {
 		return (
 			<>
 				<h3>{item.title}</h3>

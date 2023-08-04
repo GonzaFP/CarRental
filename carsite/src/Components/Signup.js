@@ -102,10 +102,9 @@ function SignUp() {
 
 				<div className="checker">
 					<div className="check">
-						<input type="checkbox" {...register("terms")} />
-
+						<input type="checkbox" {...register("terms")} /> &nbsp;
 						<span>
-							I agree to the{" "}
+							I agree to the
 							<span
 								className={
 									errors.password ? "redterms" : "terms"
@@ -123,8 +122,11 @@ function SignUp() {
 					</div>
 					<span className="error">{errors.terms?.message}</span>
 					<div className="check">
-						<input type="checkbox" {...register("notify")} />
-						<span>Yes, send me deals, discounts, and updates!</span>
+						<input type="checkbox" {...register("notify")} /> &nbsp;
+						<span>
+							{" "}
+							Yes, send me deals, discounts, and updates!
+						</span>
 					</div>
 				</div>
 

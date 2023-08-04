@@ -7,8 +7,6 @@ function ListCar() {
 	const navigate = useNavigate();
 	return (
 		<section className="listCarSection">
-			{/* <img src="banner.jpg" alt="" /> */}
-
 			<div className="ListContainer">
 				<div className="type">
 					<h1>

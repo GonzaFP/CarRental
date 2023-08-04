@@ -1,12 +1,12 @@
 .AccountContainer {
-	margin: 5% 10%;
+	margin: 10% 10%;
 }
 .AccountContainer p {
 	font-size: 18px;
 	font-weight: 100px;
 }
 .accountLeft > h1 {
-	font-size: 40px;
+	font-size: clamp(2rem, 6vw, 3rem);
 	margin-bottom: 20px;
 }
 
@@ -28,7 +28,7 @@
 	border: 1px solid lightgray;
 	outline-color: blueviolet;
 	padding: 10px;
-	width: 250px;
+	/* width: 250px; */
 }
 .contactinfo .verified {
 	color: blueviolet;
@@ -110,8 +110,21 @@
 	width: 350px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
 	.Account {
 		margin: 20px;
+	}
+
+	.AccountContainer {
+		margin: 20% 5%;
+		width: 95vw;
+	}
+
+	.contactOptions .input {
+		width: 90%;
+	}
+
+	.contactOptions .verified {
+		display: block;
 	}
 }

@@ -8,7 +8,7 @@
 	padding: 20px;
 	box-shadow: 1px 1px 0.1px 0.1px #b8b3b3;
 	z-index: 3;
-	top: 10%;
+	top: 20%;
 }
 .sortModal .close {
 	position: absolute;
@@ -55,7 +55,7 @@
 	padding: 20px;
 	box-shadow: 1px 1px 0.1px 0.1px #b8b3b3;
 	z-index: 3;
-	top: 10%;
+	top: 20%;
 }
 .priceSort .close {
 	position: absolute;

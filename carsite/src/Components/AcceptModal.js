@@ -23,7 +23,7 @@ function AcceptModal({ closeModal }) {
 
 	console.log("updated user is", User);
 	return (
-		<>
+		<div className="AllModalContainer">
 			{nextModal ? (
 				<SentEmailModal closeModal={closeModal} message={message} />
 			) : (
@@ -32,7 +32,7 @@ function AcceptModal({ closeModal }) {
 						onClick={() => {
 							setNextModal(true);
 						}}
-						className="close"
+						className="closeAccept"
 					/>
 					<div className="title">
 						<h1>Send me deals, discounts and updates?</h1>
@@ -58,7 +58,7 @@ function AcceptModal({ closeModal }) {
 					</div>
 				</div>
 			)}
-		</>
+		</div>
 	);
 }
 

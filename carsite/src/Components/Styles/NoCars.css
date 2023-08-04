@@ -1,27 +1,23 @@
 .noCars {
 	margin: 50px;
+	text-align: center;
 }
 
 .body #road {
 	color: blueviolet;
 	font-size: 200px;
+	border-radius: 50%;
 }
 .subbody {
-	margin-top: -40px;
-	margin-left: 20px;
+	margin-top: -10px;
 }
 .subbody > h3 {
 	font-size: 26px;
 }
 
 .subbody > button {
-	background-color: blueviolet;
-	color: white;
 	font-weight: bold;
-	border: 1px solid blueviolet;
-	padding: 15px 10px;
-	width: 100px;
-	margin-left: 20px;
+	margin-top: 15px;
 }
 
 @media screen and (min-width: 900px) {
