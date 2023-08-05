@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import "./App.css";
 import Home from "./Components/Home";
 import BecomeHost from "./Components/BecomeHost";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { auth } from "./Firebase/Firebase";
+
 import Layout from "./Components/Layout";
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/Signup";
@@ -29,8 +32,33 @@ import CarDetails from "./Components/CarDetails";
 import CarInfo from "./Components/CarInfo";
 import BrowseCars from "./Components/BrowseCars";
 import "./Components/Styles/GlobalStyles.css";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import { useDispatch } from "react-redux";
+import { login, logout } from "./Store/ReducerFunction";
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((authuser) => {
+			if (authuser) {
+				dispatch(
+					login({
+						name: authuser.displayName,
+						email: authuser.email,
+						id: authuser.uid,
+						sendNotification: authuser.sendNotification,
+						agreedToTerms: authuser.agreedToTerms,
+						photo: authuser.photoURL,
+					})
+				);
+			} else {
+				dispatch(logout());
+			}
+		});
+		return () => unsubscribe();
+	}, []);
+
 	return (
 		<div>
 			<BrowserRouter>
@@ -43,12 +71,7 @@ function App() {
 						<Route path="firstsignup" element={<FirstSignup />} />
 						<Route path="forgotpwd" element={<ForgotPassword />} />
 						<Route path="howworks" element={<HowWorks />} />
-						<Route path="favourites" element={<Favourites />} />
-						<Route path="inbox" element={<Inbox />} />
-						<Route path="profile" element={<Profile />} />
-						<Route path="editprofile" element={<EditProfile />} />
-						<Route path="accounts" element={<Accounts />} />
-						<Route path="mobilephone" element={<MobilePhone />} />
+
 						<Route path="approved" element={<Approved />} />
 						<Route path="pricedetails" element={<PriceDetails />} />
 						<Route path="browsecars" element={<BrowseCars />} />
@@ -59,21 +82,31 @@ function App() {
 							element={<ChangePassword />}
 						/>
 
-						<Route path="booked" element={<SharedDropdowm />}>
-							<Route index element={<Booked />} />
+						<Route element={<ProtectedRoute />}>
+							<Route path="inbox" element={<Inbox />} />
+							<Route path="profile" element={<Profile />} />
 							<Route
-								exact
-								path="booked/history"
-								element={<History />}
+								path="editprofile"
+								element={<EditProfile />}
 							/>
-						</Route>
+							<Route path="favourites" element={<Favourites />} />
+							<Route path="accounts" element={<Accounts />} />
+							<Route path="booked" element={<SharedDropdowm />}>
+								<Route index element={<Booked />} />
+								<Route
+									exact
+									path="booked/history"
+									element={<History />}
+								/>
+							</Route>
 
-						<Route path="messages" element={<SharedInbox />}>
-							<Route index element={<Messages />} />
-							<Route
-								path="messages/notify"
-								element={<Notify />}
-							/>
+							<Route path="messages" element={<SharedInbox />}>
+								<Route index element={<Messages />} />
+								<Route
+									path="messages/notify"
+									element={<Notify />}
+								/>
+							</Route>
 						</Route>
 					</Route>
 				</Routes>

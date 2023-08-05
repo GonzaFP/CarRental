@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AcceptModal from "./AcceptModal";
 import "./Styles/Modal.css";
@@ -13,7 +13,7 @@ function SignModal({ closeModal, user }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { User } = useSelector((state) => state.mainReducer);
-	const [agree, setAgree] = useState("");
+	const agree = useRef(false);
 	const [open, setOpen] = useState(false);
 	const currentUser = auth.currentUser;
 	const actionCodeSettings = {
@@ -22,13 +22,15 @@ function SignModal({ closeModal, user }) {
 	};
 
 	const handleUser = () => {
-		if (user === true && agree === false) {
+		if (user === true && agree.current === false) {
 			deleteUser(currentUser).then(() => {
 				return;
 			});
-		} else {
+
+			console.log("user deleted");
+		} else if (user === true && agree.current === true) {
 			console.log("email verified", currentUser);
-			sendEmailVerification(currentUser, actionCodeSettings);
+			// sendEmailVerification(currentUser, actionCodeSettings);
 			dispatch(
 				login({
 					name: currentUser.displayName,
@@ -36,11 +38,27 @@ function SignModal({ closeModal, user }) {
 					id: currentUser.uid,
 					sendNotification: false,
 					agreedToTerms: true,
-					photo: currentUser.photoURL,
+					photo: `${currentUser.photoURL}`,
 				})
 			);
 			dispatch(getInitials(currentUser.displayName));
 			setOpen(true);
+			navigate(-1);
+		} else if (user === false) {
+			dispatch(
+				login({
+					name: currentUser.displayName,
+					email: currentUser.email,
+					id: currentUser.uid,
+					sendNotification: false,
+					agreedToTerms: true,
+					photo: `${currentUser.photoURL}`,
+				})
+			);
+			dispatch(getInitials(currentUser.displayName));
+			navigate(-1);
+		} else {
+			return;
 		}
 	};
 
@@ -54,15 +72,14 @@ function SignModal({ closeModal, user }) {
 						<ClearOutlinedIcon
 							onClick={() => {
 								closeModal(false);
-								setAgree(false);
 								handleUser();
 							}}
 							className="closeAccount"
 						/>
-						<div className="title">
+						<div className="closeTitle">
 							<h1>Create an account?</h1>
 						</div>
-						<div className="body">
+						<div className="closeBody">
 							<p>
 								To join the CarRental sharing community and book
 								cars from the marketplace, you must agree to the
@@ -71,16 +88,15 @@ function SignModal({ closeModal, user }) {
 							</p>
 						</div>
 
-						<div className="links">
+						<div className="closeLinks">
 							<p>Terms of service</p>
 							<p>Privacy policy</p>
 							<p>Nondiscrimination policy</p>
 						</div>
-						<div className="footerBtns">
+						<div className="closeFooterBtns">
 							<button
 								onClick={() => {
 									closeModal(false);
-									setAgree(false);
 									handleUser();
 								}}
 								id="decline">
@@ -90,7 +106,8 @@ function SignModal({ closeModal, user }) {
 							<button
 								id="agree"
 								onClick={() => {
-									setAgree(true);
+									agree.current = true;
+									setOpen(true);
 									handleUser();
 								}}>
 								Accept

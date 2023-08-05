@@ -56,7 +56,7 @@ function Header() {
 								<AccountCircleOutlinedIcon className="menuitem account" />
 							) : (
 								<div className=" profilename account">
-									{User.name || User.email[0].toUpperCase()}
+									{User?.name || User?.email[0].toUpperCase()}
 								</div>
 							)}
 						</div>

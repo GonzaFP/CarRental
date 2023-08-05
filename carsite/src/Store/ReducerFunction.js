@@ -19,9 +19,11 @@ export const ReducerFunction = createSlice({
 				User: action.payload,
 			};
 		},
+
 		logout: (state) => {
 			return {};
 		},
+
 		notify: (state, action) => {
 			return {
 				...state,
@@ -31,6 +33,7 @@ export const ReducerFunction = createSlice({
 				},
 			};
 		},
+
 		getInitials: (state, action) => {
 			const initialsArray = action.payload.split(" ");
 			const name = initialsArray[0][0] + initialsArray[1][0];
@@ -56,12 +59,23 @@ export const ReducerFunction = createSlice({
 				};
 			}
 		},
+
 		removeFavCar: (state, action) => {
 			return {
 				...state,
 				favCar: state.favCar.filter(
 					(item) => item.id !== action.payload
 				),
+			};
+		},
+
+		uploadProfilePhoto: (state, action) => {
+			return {
+				...state,
+				User: {
+					...state.User,
+					photo: action.payload,
+				},
 			};
 		},
 

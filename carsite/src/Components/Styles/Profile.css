@@ -96,7 +96,9 @@
 	margin-bottom: 15px;
 	text-transform: none;
 }
-
+#disableBtn {
+	border: 1px solid lightgray;
+}
 .gray {
 	color: gray;
 	margin-top: 10px;

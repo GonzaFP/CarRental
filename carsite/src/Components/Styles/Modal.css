@@ -22,46 +22,46 @@ a {
 	cursor: pointer;
 }
 
-.modalBg .title {
+.modalBg .closeTitle {
 	text-align: center;
 	margin-top: 15%;
 }
 
-.modalBg .body {
+.modalBg .closeBody {
 	font-size: 18px;
 	margin-top: 20px;
 	line-height: 2rem;
 }
-.modalBg .links {
+.modalBg .closeLinks {
 	color: goldenrod;
 	font-size: 18px;
 	font-weight: bold;
 	margin-top: 10px;
 }
 
-.modalBg .links > p:hover {
+.modalBg .closeLinks > p:hover {
 	text-decoration: underline;
 	cursor: pointer;
 }
 
-.footerBtns {
+.closeFooterBtns {
 	text-align: end;
 }
-.modalBg .footerBtns {
+.modalBg .closeFooterBtns {
 	margin-top: 10px;
 }
-.footerBtns #agree {
+.closeFooterBtns #agree {
 	margin-left: 10px;
 	padding: 10px;
 }
 
-.footerBtns #decline {
+.closeFooterBtns #decline {
 	background-color: white;
 	padding: 10px;
 	border: 1px solid black;
 	cursor: pointer;
 }
-.footerBtns #decline:hover {
+.closeFooterBtns #decline:hover {
 	background-color: rgb(226, 209, 243);
 	border: 1px solid blueviolet;
 }
@@ -81,15 +81,23 @@ a {
 	margin: 0 auto 50px auto;
 }
 
-.acceptBg .title > h1 {
+.acceptBg .acceptTitle > h1 {
 	font-size: 20px;
 	font-weight: 200;
 	margin-top: 30%;
 	align-self: center;
 }
-.acceptBg .footerBtns {
+
+.acceptBg .acceptFooterBtns {
 	margin-top: 100px;
+	text-align: end;
 }
+
+.acceptFooterBtns button {
+	padding: 10px;
+	margin-right: 5px;
+}
+
 .acceptBg .closeAccept {
 	position: absolute;
 }
@@ -175,7 +183,7 @@ a {
 		top: 2%;
 		right: 5%;
 	}
-	.modalBg .footerBtns {
+	.modalBg .closeFooterBtns {
 		margin-top: 50px;
 	}
 }

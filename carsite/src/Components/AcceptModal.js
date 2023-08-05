@@ -34,11 +34,11 @@ function AcceptModal({ closeModal }) {
 						}}
 						className="closeAccept"
 					/>
-					<div className="title">
+					<div className="acceptTitle">
 						<h1>Send me deals, discounts and updates?</h1>
 					</div>
 
-					<div className="footerBtns">
+					<div className="acceptFooterBtns">
 						<button
 							onClick={() => {
 								setNextModal(true);
@@ -51,7 +51,7 @@ function AcceptModal({ closeModal }) {
 							id="agree"
 							onClick={() => {
 								setNextModal(true);
-								sendNotification();
+								sendNotification(true);
 							}}>
 							Accept
 						</button>
