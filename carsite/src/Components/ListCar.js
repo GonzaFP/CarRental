@@ -36,9 +36,7 @@ function ListCar() {
 				</div>
 				<h5>Share your car.</h5>
 				<div className="started">
-					<button onClick={() => navigate("/signin")}>
-						Get started
-					</button>
+					<button>Get started</button>
 				</div>
 
 				<img src="safari.jpg" alt="" />

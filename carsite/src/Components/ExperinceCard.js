@@ -4,15 +4,7 @@ import { Link } from "react-router-dom";
 
 function ExperinceCard(props) {
 	const { image, name, icon } = props.item;
-	const [overlay, setOverLay] = useState(false);
 
-	const showOverLay = () => {
-		setOverLay(true);
-	};
-
-	const hideOverLay = () => {
-		setOverLay(false);
-	};
 	return (
 		<div className="Card">
 			<img src={image} />

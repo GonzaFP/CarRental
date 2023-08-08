@@ -13,6 +13,7 @@ function BrowseMake() {
 		errorMessage: "",
 		data: [],
 	});
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const modelData = await fetcher("model");

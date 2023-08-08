@@ -4,13 +4,14 @@ import fetcher from "../fetcher";
 import Cars from "./Cars";
 import { useDispatch, useSelector } from "react-redux";
 import { sortCars } from "../Store/ReducerFunction";
+import Spinner from "./Spinner";
 import NoCars from "./NoCars";
 import SortBtns from "./SortBtns";
 
 function BrowseCars() {
 	const { sortedCars } = useSelector((state) => state.mainReducer);
 	const dispatch = useDispatch();
-
+	const [isLoading, setIsLoading] = useState(true);
 	const [carData, setCarData] = useState({ errorMessage: "", data: [] });
 	const [unSortedCarData, setUnsortedCarData] = useState({
 		errorMessage: "",
@@ -18,17 +19,19 @@ function BrowseCars() {
 	});
 
 	useEffect(() => {
+		<Spinner />;
 		if (!sortedCars) {
 			const fetchCars = async () => {
 				const cars = await fetcher("cars");
+				setIsLoading(false);
 				setCarData(cars);
 				setUnsortedCarData(cars);
 			};
 			fetchCars();
-			return;
 		} else if (sortedCars?.data?.length === 0) {
 			const fetchCars = async () => {
 				const cars = await fetcher("cars");
+
 				dispatch(
 					sortCars({
 						errorMessage: cars.errorMessage,
@@ -38,12 +41,14 @@ function BrowseCars() {
 						BtnLabel: sortedCars?.BtnLabel,
 					})
 				);
+				setIsLoading(false);
 				setCarData(sortedCars);
 			};
 			fetchCars();
-			return;
+		} else {
+			setIsLoading(false);
+			setCarData(sortedCars);
 		}
-		setCarData(sortedCars);
 	}, [sortedCars]);
 
 	let data = carData?.errorMessage
@@ -57,7 +62,9 @@ function BrowseCars() {
 			<div>
 				<SortBtns unSortedCarData={unSortedCarData} carData={carData} />
 			</div>
-			{carData.data ? (
+			{isLoading ? (
+				<Spinner />
+			) : carData.data ? (
 				<>
 					<div className="carTitle">
 						<h2>{`${carData.data?.length} cars found`}</h2>

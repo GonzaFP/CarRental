@@ -5,6 +5,7 @@ import { sortCars } from "../Store/ReducerFunction";
 import SortBtns from "./SortBtns";
 import fetcher from "../fetcher";
 import Cars from "./Cars";
+import Spinner from "./Spinner";
 
 function CarModels() {
 	const { sortedCars } = useSelector((state) => state.mainReducer);
@@ -53,6 +54,7 @@ function CarModels() {
 		: modelCars.data.map((car, index) => {
 				return <Cars car={car} key={index} />;
 		  });
+
 	return (
 		<div className="allCars">
 			<div>
@@ -61,11 +63,17 @@ function CarModels() {
 					carData={modelCars}
 				/>
 			</div>
-			<div className="carTitle">
-				<h2>{`${modelCars.data.length} cars at or near LTN`}</h2>
-				<h5>These cars can be picked up at or near airport.</h5>
-			</div>
-			{modelData}
+			{loading ? (
+				<Spinner />
+			) : (
+				<div>
+					<div className="carTitle">
+						<h2>{`${modelCars?.data.length} cars at or near LTN`}</h2>
+						<h5>These cars can be picked up at or near airport.</h5>
+					</div>
+					<div>{modelData}</div>
+				</div>
+			)}
 		</div>
 	);
 }

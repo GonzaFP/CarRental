@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavCar } from "../Store/ReducerFunction";
 import { removeFavCar } from "../Store/ReducerFunction";
+import { useNavigate } from "react-router-dom";
+import { Avatar } from "@mui/material";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { responsiveCar } from "../Data/ResponsiveData";
+import "./Styles/carDetails.css";
+
 import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import { BsFillHeartFill, BsDot } from "react-icons/bs";
 import { MdSanitizer, MdLocationPin } from "react-icons/md";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import { responsiveCar } from "../Data/ResponsiveData";
-import "./Styles/carDetails.css";
+
 import StarRating from "./StarRating";
-import PriceDetails from "./PriceDetails";
-import { useNavigate } from "react-router-dom";
 
 function CarDetails(props) {
 	const navigate = useNavigate();
@@ -119,11 +121,16 @@ function CarDetails(props) {
 						</IconButton>
 					</Tooltip>
 				)}
-				<Carousel responsive={responsiveCar}>{imageItem}</Carousel>
+				<Carousel
+					responsive={responsiveCar}
+					removeArrowOnDeviceType={["mobile", "tablet"]}
+					swipeable={true}>
+					{imageItem}
+				</Carousel>
 			</div>
-			<div className="body">
-				<div className="leftside">
-					<div className="header">
+			<div className="detailsBody">
+				<div className="leftSide">
+					<div className="leftSideHeader">
 						<h1>{title}</h1>
 						<div className="specs">{specsData}</div>
 					</div>
@@ -134,7 +141,11 @@ function CarDetails(props) {
 						</div>
 						<div className="hostprofile">
 							<div className="hostpic">
-								<img src={photo} alt="" />
+								<Avatar
+									src={photo}
+									alt=""
+									sx={{ width: 90, height: 90 }}
+								/>
 							</div>
 							<div className="hostname">
 								<h4>{host}</h4>
@@ -156,26 +167,30 @@ function CarDetails(props) {
 						<span className="overviewIcon">
 							<MdSanitizer />
 						</span>
-						<span>
+						<p>
 							{`${host} has completed training on enhanced cleaning
 							and disinfection practices.`}
-						</span>
+						</p>
 					</div>
 
 					<div className="description">
 						<h4 className="subtitle">description</h4>
-						<span>
-							<MdLocationPin className="overviewIcon" />
-						</span>
-						<span>
-							Pick up from Temple Fortune, NW11. Close to North
-							Circular.
-						</span>
-						<p>
-							{showspecs
-								? description
-								: `${description.substring(0, 132)}`}
-						</p>
+						<div className="pickup">
+							<span>
+								<MdLocationPin className="overviewIcon" />
+							</span>
+							<p>
+								Pick up from Temple Fortune, NW11. Close to
+								North Circular.
+							</p>
+						</div>
+						<div className="moreDescription">
+							<p>
+								{showspecs
+									? description
+									: `${description.substring(0, 132)}`}
+							</p>
+						</div>
 						<div className="moreBtn">
 							<button onClick={handleSpecs}>
 								{specstoggle ? "Less" : "More"}
@@ -205,7 +220,11 @@ function CarDetails(props) {
 						<h4 className="subtitle">Ratings and Reviews</h4>
 						<div className="hostprofile">
 							<div className="hostpic">
-								<img src="/host5.jpg" alt="" />
+								<Avatar
+									src="/host5.jpg"
+									alt=""
+									sx={{ width: 50, height: 50 }}
+								/>
 							</div>
 							<div className="hostname">
 								<StarRating id="stars" value={rating} />
@@ -224,7 +243,11 @@ function CarDetails(props) {
 					<div className="ratings">
 						<div className="hostprofile">
 							<div className="hostpic">
-								<img src="/host10.jpg" alt="" />
+								<Avatar
+									src="/host10.jpg"
+									alt=""
+									sx={{ width: 50, height: 50 }}
+								/>
 							</div>
 							<div className="hostname">
 								<StarRating id="stars" value={rating} />
@@ -247,24 +270,23 @@ function CarDetails(props) {
 						<span id="cutprice">US$ 200</span>
 						<span id="unitprice">US$ {price}</span>
 						<span> / day</span>
-						{/* <button onClick={() => setShowPrice(true)}>
-							Price details
-						</button> */}
 					</div>
 
-					<div className="form">
+					<div className="rightSideForm">
 						<form>
 							<h3>Trip start</h3>
-							<input type="date" />
+							<input type="date" className="bookingInfo" />
+
 							<h3>Trip end</h3>
-							<input type="date" />
+							<input type="date" className="bookingInfo" />
 							<h4>Pickup & return location </h4>
-							<input type="text" />
+							<input type="text" className="bookingInfo" />
+
 							<p>
 								We’ll send you the exact address once your trip
 								is booked.
 							</p>
-							<button>Continue</button>
+							<button className="bookingInfo">Continue</button>
 						</form>
 					</div>
 
@@ -291,7 +313,7 @@ function CarDetails(props) {
 					</div>
 
 					<div className="addFac">
-						<button onClick={handleFavCars}>
+						<button onClick={handleFavCars} className="bookingInfo">
 							<span>
 								{liked ? (
 									<Tooltip title="Remove car from favourities.">
