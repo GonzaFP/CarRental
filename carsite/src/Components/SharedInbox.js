@@ -4,7 +4,7 @@ import Inbox from "./Inbox";
 
 function SharedInbox() {
 	return (
-		<div>
+		<div className="TripsInfoContainer">
 			<Inbox />
 			<Outlet />
 		</div>

@@ -1,6 +1,66 @@
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import { deleteObject, listAll, ref } from "firebase/storage";
+import { auth, db, storage } from "../Firebase/Firebase";
+import { useSelector } from "react-redux";
+import { deleteUser } from "firebase/auth";
+import {
+	collection,
+	deleteDoc,
+	getDocs,
+	query,
+	where,
+} from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function CloseModal({ closeModal }) {
+	const user = auth.currentUser;
+	const navigate = useNavigate();
+
+	const handleCloseAccount = () => {
+		if (user) {
+			// ! delete the user's profile photo from storage
+			const listRef = ref(storage, `profilePhotos/${user.uid}`);
+			listAll(listRef).then((response) => {
+				response.items.forEach((itemRef) => {
+					deleteObject(itemRef)
+						.then(() => {
+							console.log("picture deleted");
+						})
+						.catch((error) => {
+							console.log("delete error", error.code);
+						});
+				});
+			});
+
+			// ! delete the user
+			deleteUser(user)
+				.then(() => {
+					console.log("user auth deleted");
+				})
+				.catch((error) => {
+					console.log("sorry error", error.code);
+				});
+
+			// !delete user from database
+
+			const docQuery = query(
+				collection(db, "users"),
+				where("user.id", "==", user.uid)
+			);
+			getDocs(docQuery).then((querySnapshot) => {
+				querySnapshot.forEach((doc) => {
+					deleteDoc(doc.ref)
+						.then(() => {
+							console.log("user deleted from db");
+						})
+						.catch((error) => {
+							console.log("error occured", error.code);
+						});
+				});
+			});
+		}
+		closeModal(false);
+	};
 	return (
 		<div className="closeBg">
 			<div className="title">
@@ -45,7 +105,9 @@ function CloseModal({ closeModal }) {
 					onClick={() => closeModal(false)}>
 					Cancel
 				</button>
-				<button className="purpleBtn">Continue</button>
+				<button className="purpleBtn" onClick={handleCloseAccount}>
+					Continue
+				</button>
 			</div>
 		</div>
 	);

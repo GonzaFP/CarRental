@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./Components/Home";
 import BecomeHost from "./Components/BecomeHost";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { auth } from "./Firebase/Firebase";
+import { auth, db } from "./Firebase/Firebase";
 
 import Layout from "./Components/Layout";
 import SignIn from "./Components/SignIn";
@@ -34,24 +34,25 @@ import BrowseCars from "./Components/BrowseCars";
 import "./Components/Styles/GlobalStyles.css";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { useDispatch } from "react-redux";
-import { login, logout } from "./Store/ReducerFunction";
+import { getInitials, login, logout } from "./Store/ReducerFunction";
+import { PiSunThin } from "react-icons/pi";
+import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 
 function App() {
 	const dispatch = useDispatch();
-
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((authuser) => {
 			if (authuser) {
-				dispatch(
-					login({
-						name: authuser.displayName,
-						email: authuser.email,
-						id: authuser.uid,
-						sendNotification: authuser.sendNotification,
-						agreedToTerms: authuser.agreedToTerms,
-						photo: authuser.photoURL,
-					})
+				const profileQuery = query(
+					collection(db, "users"),
+					where("user.id", "==", authuser.uid)
 				);
+				getDocs(profileQuery).then((querySnapshot) => {
+					querySnapshot.forEach((doc) => {
+						dispatch(login(doc.data().user));
+					});
+				});
+				dispatch(getInitials(authuser.displayName));
 			} else {
 				dispatch(logout());
 			}
@@ -83,7 +84,15 @@ function App() {
 						/>
 
 						<Route element={<ProtectedRoute />}>
-							<Route path="inbox" element={<Inbox />} />
+							<Route path="messages" element={<SharedInbox />}>
+								<Route index element={<Messages />} />
+								<Route
+									exact
+									path="messages/notify"
+									element={<Notify />}
+								/>
+							</Route>
+
 							<Route path="profile" element={<Profile />} />
 							<Route
 								path="editprofile"

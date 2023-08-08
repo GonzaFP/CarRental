@@ -42,11 +42,7 @@ function Accounts() {
 							</button>
 
 							<h5>Mobile Phone</h5>
-							<button
-								className="updateBtns"
-								onClick={() => navigate("/mobilephone")}>
-								Update
-							</button>
+							<button className="updateBtns">Update</button>
 
 							<h5>Mobile Notifications</h5>
 							<input type="checkbox" className="checkbox" />

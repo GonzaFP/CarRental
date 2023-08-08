@@ -68,17 +68,8 @@
 }
 
 .signupForm > button {
-	background-color: blueviolet;
-	color: white;
-	font-weight: bold;
-	border: 1px solid white;
-	border-radius: 2px;
 	padding: 10px;
 	width: 400px;
-}
-
-.signupForm > button:hover {
-	background-color: purple;
 }
 
 .signupContainer .login {

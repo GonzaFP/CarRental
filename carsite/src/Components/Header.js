@@ -6,10 +6,13 @@ import "./Styles/HeaderStyles.css";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import Dropdown from "./dropdown";
 import { useSelector } from "react-redux";
+import { Avatar } from "@mui/material";
+import { deepPurple } from "@mui/material/colors";
 
 function Header() {
 	const navigate = useNavigate();
-	const { User } = useSelector((state) => state.mainReducer);
+	const { User, initials } = useSelector((state) => state.mainReducer);
+
 	const [className, setClassName] = useState("hide");
 	const [clearClass, setClearClass] = useState("clear");
 	const [profileClass, setProfileClass] = useState("display");
@@ -52,13 +55,29 @@ function Header() {
 
 						<div className={`${profileClass} menu`}>
 							<MenuIcon className="menuitem" />
-							{!User ? (
-								<AccountCircleOutlinedIcon className="menuitem account" />
-							) : (
-								<div className=" profilename account">
-									{User?.name || User?.email[0].toUpperCase()}
-								</div>
-							)}
+
+							<div className=" profilename account">
+								{User?.photo ? (
+									<Avatar
+										src={User?.photo}
+										alt={User?.photo}
+										sx={{
+											width: 24,
+											height: 24,
+										}}
+										className="HeaderProfilePic menuitem account"
+									/>
+								) : (
+									<Avatar
+										sx={{
+											bgcolor: deepPurple[500],
+											width: 24,
+											height: 24,
+										}}>
+										{initials && initials}
+									</Avatar>
+								)}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -68,27 +87,3 @@ function Header() {
 }
 
 export default Header;
-
-{
-	/* <div className="dropdown" onClick={handleDisplay}>
-						<ClearOutlinedIcon
-							className={`${clearClass} clearIcon`}
-						/>
-						<div className={`${profileClass} menu`}>
-							<MenuIcon className="menuitem" />
-							{!User ? (
-								<AccountCircleOutlinedIcon className="menuitem account" />
-							) : User?.photo ? (
-								<img src={User?.photo} alt="" id="profilepic" />
-							) : (
-								<div className=" profilename">
-									{User.name || User.email[0].toUpperCase()}
-								</div>
-							)}
-						</div>
-						<Dropdown className={className} />
-					</div>
-				</div>
-			</div>
-		</> */
-}

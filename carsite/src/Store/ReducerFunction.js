@@ -6,6 +6,7 @@ export const initialState = {
 	favCar: [],
 	initials: null,
 	sortedCars: "",
+	welcome: false,
 };
 
 export const ReducerFunction = createSlice({
@@ -24,6 +25,12 @@ export const ReducerFunction = createSlice({
 			return {};
 		},
 
+		updateUser: (state, action) => {
+			return {
+				...state,
+				User: action.payload,
+			};
+		},
 		notify: (state, action) => {
 			return {
 				...state,
@@ -33,7 +40,12 @@ export const ReducerFunction = createSlice({
 				},
 			};
 		},
-
+		welcome: (state, action) => {
+			return {
+				...state,
+				welcome: true,
+			};
+		},
 		getInitials: (state, action) => {
 			const initialsArray = action.payload.split(" ");
 			const name = initialsArray[0][0] + initialsArray[1][0];
@@ -89,7 +101,7 @@ export const ReducerFunction = createSlice({
 						item.features?.includes(feature)
 					);
 				});
-				console.log("feature", featureSort);
+
 				array = featureSort;
 			} else {
 				array = mainArray;
@@ -217,5 +229,7 @@ export const {
 	removeFavCar,
 	getInitials,
 	sortCars,
+	updateUser,
+	welcome,
 } = ReducerFunction.actions;
 export default ReducerFunction.reducer;

@@ -19,6 +19,7 @@
     "firebaseui": "^6.0.2",
     "react": "^18.2.0",
     "react-accessible-accordion": "^5.0.0",
+    "react-avatar-edit": "^1.2.0",
     "react-calendar": "^4.3.0",
     "react-contact-number-input": "^1.1.1",
     "react-datetime-picker": "^5.2.0",

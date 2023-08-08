@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import "./Styles/signup.css";
-import { auth } from "../Firebase/Firebase";
+import { auth, db } from "../Firebase/Firebase";
+import { collection, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { schema } from "../Features/Schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch, useSelector } from "react-redux";
-import { getInitials, login } from "../Store/ReducerFunction";
+import { getInitials, login, welcome } from "../Store/ReducerFunction";
 
 function SignUp() {
 	const dispatch = useDispatch();
 	// const { User } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
-	const { errorMessage, setErrorMessage } = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
 
 	const {
 		register,
@@ -32,26 +33,41 @@ function SignUp() {
 				password
 			);
 			updateProfile(user, { displayName: `${firstName} ${lastName}` });
-			dispatch(
-				login({
-					name: `${firstName} ${lastName}`,
-					email: user.email,
-					id: user.uid,
-					sendNotification: notify,
-					agreedToTerms: terms,
-					photo: null,
-				})
-			);
+
+			const profile = {
+				name: `${firstName} ${lastName}`,
+				id: user.uid,
+				email: user.email,
+				photo: user.photoURL,
+				agreedToTerms: terms,
+				sendNotification: notify,
+				location: "",
+				canDrive: false,
+				languages: "",
+				work: "",
+				about: "",
+			};
+
+			//! save user in a database and then update state.
+
+			await addDoc(collection(db, "users"), {
+				user: profile,
+			});
+
+			dispatch(login(profile));
 			dispatch(getInitials(`${firstName} ${lastName}`));
+			
 			navigate(-1);
 		} catch (error) {
 			setErrorMessage(error.message);
 		}
 	};
+
 	return (
 		<div className="signupContainer">
 			<h2>Create an account</h2>
 			{errorMessage && <p className="error">{errorMessage}</p>}
+
 			<form className="signupForm" onSubmit={handleSubmit(onSubmit)}>
 				<div className="name">
 					<div
@@ -104,7 +120,7 @@ function SignUp() {
 					<div className="check">
 						<input type="checkbox" {...register("terms")} /> &nbsp;
 						<span>
-							I agree to the
+							I agree to the &nbsp;
 							<span
 								className={
 									errors.password ? "redterms" : "terms"

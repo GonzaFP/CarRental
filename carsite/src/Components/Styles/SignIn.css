@@ -26,9 +26,6 @@
 	width: 400px;
 }
 
-.signinForm > button:hover {
-	background-color: purple;
-}
 .pwd {
 	position: relative;
 }

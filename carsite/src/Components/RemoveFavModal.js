@@ -18,10 +18,10 @@ function RemoveFavModal({ showModal, id }) {
 				className="closeFav"
 				onClick={() => showModal(false)}
 			/>
-			<div className="title">
+			<div className="removeTitle">
 				<h2>Remove from favourities?</h2>
 			</div>
-			<div className="body">
+			<div className="removeBody">
 				<p>
 					Are you sure you want to remove this Tesla Model 3 from your
 					favorites?

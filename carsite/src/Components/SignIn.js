@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Styles/SignIn.css";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { auth } from "../Firebase/Firebase";
+import { auth, db } from "../Firebase/Firebase";
 import {
 	signInWithEmailAndPassword,
 	GoogleAuthProvider,
@@ -23,6 +23,7 @@ function SignIn() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [openModal, setOpenModal] = useState(false);
+	const [notify, setNotify] = useState(false);
 	const [isNewUser, setNewUser] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
 
@@ -42,18 +43,19 @@ function SignIn() {
 				email,
 				password
 			);
+
+			//! Inside the database, create a document containing the user's profile.
+
 			dispatch(
 				login({
-					name: user.name,
+					name: user.displayName,
 					email: user.email,
 					id: user.uid,
-					// !get name, notify status from db
-					sendNotification: true,
-					agreedToTerms: true,
-					photo: null,
+					photo: user.photoURL,
 				})
 			);
-			dispatch(getInitials(user.name));
+
+			dispatch(getInitials(user.displayName));
 			navigate(-1);
 		} catch (error) {
 			setErrorMessage(error.code);
@@ -77,18 +79,16 @@ function SignIn() {
 							name: user.displayName,
 							email: user.email,
 							id: user.uid,
-							sendNotification: true,
-							agreedToTerms: true,
 							photo: user.photoURL,
 						})
 					);
 					dispatch(getInitials(user.displayName));
-					navigate(-1);
 				}
 			});
 		} catch (error) {
 			console.log("google", error);
 		}
+		navigate(-1);
 	};
 
 	return (

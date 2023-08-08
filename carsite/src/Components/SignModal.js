@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
+import { auth, db } from "../Firebase/Firebase";
+import { collection, addDoc } from "firebase/firestore";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AcceptModal from "./AcceptModal";
 import "./Styles/Modal.css";
 import { deleteUser } from "firebase/auth";
-import { auth } from "../Firebase/Firebase";
+
 import { useNavigate } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,8 +22,21 @@ function SignModal({ closeModal, user }) {
 		url: "http://localhost:3000",
 		handleCodeInApp: false,
 	};
+	const profile = {
+		name: currentUser.displayName,
+		email: currentUser.email,
+		id: currentUser.uid,
+		photo: currentUser.photoURL,
+		sendNotification: false,
+		agreedToTerms: true,
+		location: "",
+		canDrive: false,
+		languages: "",
+		work: "",
+		about: "",
+	};
 
-	const handleUser = () => {
+	const handleUser = async () => {
 		if (user === true && agree.current === false) {
 			deleteUser(currentUser).then(() => {
 				return;
@@ -30,31 +45,18 @@ function SignModal({ closeModal, user }) {
 			console.log("user deleted");
 		} else if (user === true && agree.current === true) {
 			console.log("email verified", currentUser);
-			// sendEmailVerification(currentUser, actionCodeSettings);
-			dispatch(
-				login({
-					name: currentUser.displayName,
-					email: currentUser.email,
-					id: currentUser.uid,
-					sendNotification: false,
-					agreedToTerms: true,
-					photo: `${currentUser.photoURL}`,
-				})
-			);
+
+			//! save user in a database and then update state.
+			await addDoc(collection(db, "users"), {
+				user: profile,
+			});
+
+			dispatch(login(profile));
 			dispatch(getInitials(currentUser.displayName));
 			setOpen(true);
 			navigate(-1);
 		} else if (user === false) {
-			dispatch(
-				login({
-					name: currentUser.displayName,
-					email: currentUser.email,
-					id: currentUser.uid,
-					sendNotification: false,
-					agreedToTerms: true,
-					photo: `${currentUser.photoURL}`,
-				})
-			);
+			dispatch(login(profile));
 			dispatch(getInitials(currentUser.displayName));
 			navigate(-1);
 		} else {

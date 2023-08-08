@@ -8,7 +8,7 @@
 	padding: 10px 30px;
 	box-shadow: 1px 1px 0.1px 0.1px #9e9e9e;
 	z-index: 3;
-	left: 10%;
+	left: 30%;
 }
 .removeFav .closeFav {
 	position: absolute;
@@ -16,12 +16,11 @@
 
 	cursor: pointer;
 }
-
-.removeFav .title {
+.removeTitle {
 	margin-top: 40px;
 }
 
-.removeFav .body {
+.removeBody {
 	font-size: 18px;
 	margin-top: 20px;
 }
@@ -33,25 +32,15 @@
 	justify-content: flex-end;
 }
 .remove > button {
-	background-color: blueviolet;
-	color: white;
-	border: 1px solid white;
 	margin-left: 10px;
 	padding: 10px;
 	cursor: pointer;
 }
-.reomve button:hover {
-	background-color: purple;
-}
+
 .decline button {
-	background-color: white;
 	padding: 10px;
 	border: 1px solid black;
 	cursor: pointer;
-}
-.decline button:hover {
-	background-color: rgb(226, 209, 243);
-	border: 1px solid blueviolet;
 }
 
 @media screen and (max-width: 767px) {

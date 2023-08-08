@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { Avatar } from "@mui/material";
+import { deepPurple } from "@mui/material/colors";
 import DirectionsCarOutlinedIcon from "@mui/icons-material/DirectionsCarOutlined";
 import VpnKeyOutlinedIcon from "@mui/icons-material/VpnKeyOutlined";
 import {
@@ -81,12 +82,25 @@ function Dropdown({ className }) {
 
 							<Link to="/profile">
 								<div className="flex ">
-									{!User ? (
-										<AccountCircleOutlinedIcon className="icon" />
+									{User?.photo ? (
+										<Avatar
+											src={User?.photo}
+											alt={User?.photo}
+											sx={{
+												width: 24,
+												height: 24,
+											}}
+											className="HeaderProfilePic"
+										/>
 									) : (
-										<div className="profiler">
+										<Avatar
+											sx={{
+												bgcolor: deepPurple[500],
+												width: 24,
+												height: 24,
+											}}>
 											{initials && initials}
-										</div>
+										</Avatar>
 									)}
 
 									<span>Profile</span>
