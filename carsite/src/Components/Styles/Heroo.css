@@ -1,0 +1,63 @@
+.HerContainer {
+	display: flex;
+	gap: 30px;
+	padding: 20px;
+}
+
+.query {
+	font-size: 20px;
+}
+
+.query > input {
+	background-color: transparent;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid lightgray;
+
+	font-size: 15px;
+}
+
+.query h3 {
+	color: blueviolet;
+	margin-right: 5px;
+}
+.hideQuery {
+	display: none;
+}
+@media screen and (max-width: 1023px) {
+	.HerContainer {
+		flex-direction: column;
+		background-color: white;
+
+		box-shadow: 0.5px 0.5px 0.5px 0.5px white;
+	}
+
+	.hideQuery {
+		display: block;
+	}
+
+	.query {
+		display: flex;
+	}
+
+	.query input {
+		width: 80vw;
+	}
+
+	.hideQuery button {
+		width: 80vw;
+		padding: 10px;
+	}
+}
+
+@media screen and (min-width: 767px) {
+	.HerContainer {
+		margin-top: 5%;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.HerContainer {
+		margin-top: 0%;
+	}
+}

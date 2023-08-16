@@ -7,9 +7,14 @@ import { sortCars } from "../Store/ReducerFunction";
 import Spinner from "./Spinner";
 import NoCars from "./NoCars";
 import SortBtns from "./SortBtns";
+import Hero from "./Hero";
+import Heroo from "./Heroo";
 
 function BrowseCars() {
-	const { sortedCars } = useSelector((state) => state.mainReducer);
+	const { sortedCars, searchQuery } = useSelector(
+		(state) => state.mainReducer
+	);
+
 	const dispatch = useDispatch();
 	const [isLoading, setIsLoading] = useState(true);
 	const [carData, setCarData] = useState({ errorMessage: "", data: [] });
@@ -19,7 +24,6 @@ function BrowseCars() {
 	});
 
 	useEffect(() => {
-		<Spinner />;
 		if (!sortedCars) {
 			const fetchCars = async () => {
 				const cars = await fetcher("cars");
@@ -49,7 +53,7 @@ function BrowseCars() {
 			setIsLoading(false);
 			setCarData(sortedCars);
 		}
-	}, [sortedCars]);
+	}, [sortedCars, searchQuery]);
 
 	let data = carData?.errorMessage
 		? `Error: ${carData.errorMessage}`
@@ -60,6 +64,9 @@ function BrowseCars() {
 	return (
 		<div className="allCars">
 			<div>
+				<Heroo setIsLoading={setIsLoading} />
+			</div>
+			<div>
 				<SortBtns unSortedCarData={unSortedCarData} carData={carData} />
 			</div>
 			{isLoading ? (
@@ -68,7 +75,12 @@ function BrowseCars() {
 				<>
 					<div className="carTitle">
 						<h2>{`${carData.data?.length} cars found`}</h2>
-						<h5>These cars can be picked up at or near airport.</h5>
+						<h5>
+							These cars can be picked up at or near
+							{searchQuery?.location
+								? ` ${searchQuery?.location}.`
+								: ` airport`}
+						</h5>
 					</div>
 					{data}
 				</>

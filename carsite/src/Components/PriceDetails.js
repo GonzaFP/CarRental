@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+
 import { AiOutlineCheck } from "react-icons/ai";
 import { MdClear } from "react-icons/md";
 import "./Styles/PriceDetails.css";
 
-function PriceDetails({ setClose, price }) {
+function PriceDetails({ setClose, price, totalPrice, numberofDays }) {
 	return (
 		<div className="priceDetailsContainer">
 			<div className="priceDetails">
@@ -13,13 +14,13 @@ function PriceDetails({ setClose, price }) {
 					<h4>Included</h4>
 					<div className="baseprice tripfee">
 						<AiOutlineCheck id="tick" />
-						<h5>US$ {price} &times; 3 days</h5>
-						<h5 id="total">US$ 285</h5>
+						<h5>{`	US$${price} x ${numberofDays} day(s)`}</h5>
+						<h5 id="total">{`US$${totalPrice}`}</h5>
 					</div>
 					<div className="tripprice tripfee">
 						<div className="totalprice">
 							<h5>Est. trip total</h5>
-							<h5 id="est">US$ 285</h5>
+							<h5 id="est">{`US$${totalPrice}`}</h5>
 						</div>
 						<h5>Not yet included (applied at checkout)</h5>
 					</div>

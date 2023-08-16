@@ -10,12 +10,9 @@ import {
 	listAll,
 	deleteObject,
 } from "firebase/storage";
-
-import { updateProfile } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-
-import { updateUser, uploadProfilePhoto } from "../Store/ReducerFunction";
-
+import { updateProfile } from "firebase/auth";
+import { updateUser } from "../Store/ReducerFunction";
 import { Link, useNavigate } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
 import "./Styles/Profile.css";
@@ -27,6 +24,7 @@ import {
 	updateDoc,
 	where,
 } from "firebase/firestore";
+import UpdateProfilePicture from "./UpdateProfilePicture";
 
 function EditProfile() {
 	const navigate = useNavigate();
@@ -66,15 +64,9 @@ function EditProfile() {
 	});
 
 	//!refs
-	const input = useRef(null);
 	const uploadedImg = useRef(null);
 
-	const UploadPhoto = () => {
-		input.current.click();
-	};
-
-	//!event hanlders
-
+	//!event handlers
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setUserProfile((profile) => {
@@ -85,114 +77,7 @@ function EditProfile() {
 		});
 	};
 
-	const handlePhotoChange = (event) => {
-		const photo = event.target.files[0];
-		setImageUpload(photo);
-
-		if (photo) {
-			const reader = new FileReader();
-			uploadedImg.current.file = photo;
-			reader.onload = (e) => {
-				uploadedImg.current.src = e.target.result;
-			};
-			reader.readAsDataURL(photo);
-
-			//!create a reference to the folder in firebase storage where the image will be stored.
-			const imageRef = ref(
-				storage,
-				`profilePhotos/${auth.currentUser.uid}/${photo.name}`
-			);
-
-			//! delete previous profile photo from storage.
-			const listRef = ref(
-				storage,
-				`profilePhotos/${auth.currentUser.uid}`
-			);
-			listAll(listRef).then((response) => {
-				response.items.forEach((itemRef) => {
-					deleteObject(itemRef)
-						.then(() => {
-							console.log("item deleted");
-						})
-						.catch((error) => {
-							console.log("delete error", error.code);
-						});
-				});
-			});
-
-			//!upload new photo to firebase storage.
-			const uploadTask = uploadBytesResumable(imageRef, photo);
-			uploadTask.on(
-				"state_changed",
-				(snapshot) => {
-					if (snapshot.state === "running") {
-						setSaving(true);
-					}
-				},
-				(error) => {
-					console.log("upload error", error.code);
-				},
-				//! get the url and update state. set loading to true
-				() => {
-					getDownloadURL(uploadTask.snapshot.ref)
-						.then((URL) => {
-							//! update userProfile local state
-							setUserProfile((profile) => {
-								return {
-									...profile,
-									photo: URL,
-								};
-							});
-
-							//! update the photoURL of auth user
-							updateProfile(auth.currentUser, {
-								photoURL: URL,
-							}).then(() => {
-								setSaving(false);
-							});
-						})
-						.catch((error) => {
-							switch (error.code) {
-								case "storage/object-not-found":
-									console.log("File doesn't exist");
-									break;
-
-								case "storage/unauthorized":
-									console.log(
-										"User doesn't have permission to access the object"
-									);
-									break;
-
-								case "storage/object-not-found":
-									console.log("User canceled the upload");
-									break;
-							}
-						});
-				}
-			);
-		}
-	};
-
 	const saveProfile = () => {
-		if (imageUpload === null) {
-			const profileQuery = query(
-				collection(db, "users"),
-				where("user.id", "==", id)
-			);
-			getDocs(profileQuery).then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					updateDoc(doc.ref, {
-						user: userProfile,
-					});
-					dispatch(updateUser(userProfile));
-					console.log("document updated.");
-				});
-			});
-
-			navigate("/profile");
-			return;
-		}
-
 		//! save data to database, then save it in global state.
 		const profileQuery = query(
 			collection(db, "users"),
@@ -223,45 +108,10 @@ function EditProfile() {
 			<div className="profile editprofile">
 				<div className="left">
 					<div className="mainProfile">
-						{userProfile?.photo !== null ? (
-							<Avatar
-								src={userProfile?.photo}
-								alt={userProfile?.name}
-								ref={uploadedImg}
-								sx={{
-									width: 100,
-									height: 100,
-								}}
-								className="avatar"
-							/>
-						) : (
-							<div className="profiler" ref={uploadedImg}>
-								<Avatar
-									sx={{
-										bgcolor: deepPurple[500],
-										width: 100,
-										height: 100,
-									}}
-									className="avatar"
-									ref={uploadedImg}>
-									{initials && initials}
-								</Avatar>
-							</div>
-						)}
-
-						<div className="profileBtn">
-							<button onClick={UploadPhoto} disabled={isSaving}>
-								{isSaving
-									? "Uploading"
-									: "Change profile photo"}
-							</button>
-							<input
-								type="file"
-								style={{ display: "none" }}
-								ref={input}
-								onChange={handlePhotoChange}
-							/>
-						</div>
+						<UpdateProfilePicture
+							setUserProfile={setUserProfile}
+							userProfile={userProfile}
+						/>
 
 						<div className="names">
 							<p className="gray">
@@ -278,7 +128,7 @@ function EditProfile() {
 						type="text"
 						placeholder="Paris, France"
 						name="location"
-						value={userProfile.location}
+						value={userProfile?.location}
 						onChange={handleChange}
 					/>
 
@@ -315,20 +165,20 @@ function EditProfile() {
 					<input
 						type="text"
 						name="languages"
-						value={userProfile.languages}
+						value={userProfile?.languages}
 						onChange={handleChange}
 					/>
 					<p className="verifyInfo">Works</p>
 					<input
 						type="text"
 						name="work"
-						value={userProfile.work}
+						value={userProfile?.work}
 						onChange={handleChange}
 					/>
 				</div>
 
 				<div className="right">
-					<p className="verifyInfo">About {User?.name}</p>
+					<p className="verifyInfo">{`About ${User?.name}`}</p>
 					<p className="textareaLabel">
 						Tell hosts and guests about yourself and why you’re a
 						responsible, trustworthy person. Share your favorite

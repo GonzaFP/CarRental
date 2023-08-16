@@ -17,17 +17,22 @@ import { BsFillHeartFill, BsDot } from "react-icons/bs";
 import { MdSanitizer, MdLocationPin } from "react-icons/md";
 
 import StarRating from "./StarRating";
+import SearchQuery from "./SearchQuery";
 
 function CarDetails(props) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const { User, favCar } = useSelector((state) => state.mainReducer);
+	const { User, favCar, searchQuery } = useSelector(
+		(state) => state.mainReducer
+	);
+
 	const [itemsToShow, setitemsToShow] = useState(4);
 	const [featuretoggle, setFeatureToggle] = useState(false);
 	const [showspecs, setShowSpecs] = useState(false);
 	const [specstoggle, setSpecsToggle] = useState(false);
 	const [showPrice, setShowPrice] = useState(false);
 	const [liked, setLiked] = useState(false);
+
 	const {
 		id,
 		title,
@@ -59,7 +64,7 @@ function CarDetails(props) {
 
 	useEffect(() => {
 		const handleLiked = (a) => {
-			favCar.map((item) => {
+			favCar?.map((item) => {
 				if (item.id === a) {
 					setLiked(true);
 					return;
@@ -68,6 +73,7 @@ function CarDetails(props) {
 		};
 		handleLiked(id);
 	}, []);
+
 	const imageItem = images?.map((item, index) => (
 		<img
 			src={`${baseUrl}${item}`}
@@ -79,7 +85,7 @@ function CarDetails(props) {
 
 	const handleFeatures = () => {
 		if (featuretoggle) {
-			setitemsToShow(features.length);
+			setitemsToShow(features?.length);
 			setFeatureToggle(!featuretoggle);
 			return;
 		}
@@ -96,9 +102,10 @@ function CarDetails(props) {
 		return <p key={index}>{item}</p>;
 	});
 
-	const featureData = features.slice(0, itemsToShow).map((item, index) => {
+	const featureData = features?.slice(0, itemsToShow).map((item, index) => {
 		return <p key={index}>{item}</p>;
 	});
+
 	return (
 		<div className="carDetails">
 			<div className="caroul">
@@ -273,21 +280,53 @@ function CarDetails(props) {
 					</div>
 
 					<div className="rightSideForm">
-						<form>
+						<SearchQuery
+							classNames={{
+								inputClass: "bookingInfo",
+								buttonClass: "continueBtn",
+								buttonType: "continueBtn",
+							}}
+							CarDetails={props.item}
+						/>
+						{/* <form>
 							<h3>Trip start</h3>
-							<input type="date" className="bookingInfo" />
+							<DateTimePicker
+								value={dayjs(searchQuery?.query.from)}
+								disablePast
+							/>
+							<input
+								type="date"
+								className="bookingInfo"
+								value={searchQuery?.from}
+							/>
 
 							<h3>Trip end</h3>
-							<input type="date" className="bookingInfo" />
+							<DateTimePicker
+								value={dayjs(searchQuery?.query.until)}
+								disablePast
+							/>
+							<input
+								type="date"
+								className="bookingInfo"
+								value={searchQuery?.until}
+							/>
 							<h4>Pickup & return location </h4>
-							<input type="text" className="bookingInfo" />
+							<input
+								type="text"
+								className="bookingInfo"
+								value={searchQuery?.query.where}
+							/>
 
 							<p>
 								We’ll send you the exact address once your trip
 								is booked.
 							</p>
-							<button className="bookingInfo">Continue</button>
-						</form>
+							<button
+								className="bookingInfo continueBtn"
+								onClick={handleCheckOut}>
+								Continue
+							</button>
+						</form> */}
 					</div>
 
 					<div className="cancel">

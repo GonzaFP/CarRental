@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import BookedCar from "../Components/BookedCar";
 
 export const initialState = {
 	User: null,
@@ -6,7 +7,9 @@ export const initialState = {
 	favCar: [],
 	initials: null,
 	sortedCars: "",
-	welcome: false,
+	searchQuery: null,
+	licenseInfo: null,
+	BookedCar: null,
 };
 
 export const ReducerFunction = createSlice({
@@ -25,6 +28,13 @@ export const ReducerFunction = createSlice({
 			return {};
 		},
 
+		setLicenseInfo: (state, action) => {
+			return {
+				...state,
+				licenseInfo: action.payload,
+			};
+		},
+
 		updateUser: (state, action) => {
 			return {
 				...state,
@@ -40,12 +50,20 @@ export const ReducerFunction = createSlice({
 				},
 			};
 		},
-		welcome: (state, action) => {
+		BookQuery: (state, action) => {
 			return {
 				...state,
-				welcome: true,
+				searchQuery: action.payload,
 			};
 		},
+
+		AddToBooked: (state, action) => {
+			return {
+				...state,
+				BookedCar: action.payload,
+			};
+		},
+
 		getInitials: (state, action) => {
 			const initialsArray = action.payload.split(" ");
 			const name = initialsArray[0][0] + initialsArray[1][0];
@@ -230,6 +248,8 @@ export const {
 	getInitials,
 	sortCars,
 	updateUser,
-	welcome,
+	BookQuery,
+	setLicenseInfo,
+	AddToBooked,
 } = ReducerFunction.actions;
 export default ReducerFunction.reducer;

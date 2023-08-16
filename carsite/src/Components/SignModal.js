@@ -34,6 +34,7 @@ function SignModal({ closeModal, user }) {
 		languages: "",
 		work: "",
 		about: "",
+		approvedToDrive: false,
 	};
 
 	const handleUser = async () => {

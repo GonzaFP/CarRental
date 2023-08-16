@@ -11,7 +11,6 @@
 	display: grid;
 
 	gap: 20px;
-	/* margin: 150px 100px 0px 150px; */
 }
 
 .caroul .likeicon {
@@ -192,17 +191,17 @@
 	color: blueviolet;
 	font-weight: 300;
 	font-size: 20px;
-	margin-bottom: -20px;
+	margin-bottom: 20px;
 	margin-top: 20px;
 }
 
 .rightSideForm h4 {
 	font-size: 20px;
 	margin-top: 20px;
-	margin-bottom: -10px;
+	margin-bottom: 20px;
 }
 
-.rightSideForm input {
+.bookingInfo {
 	outline-color: blueviolet;
 	border: 1px solid lightgray;
 	padding: 10px;
@@ -210,18 +209,17 @@
 	margin-top: 20px;
 }
 
-.rightSideForm button {
+.continueBtn {
 	background-color: blueviolet;
 	color: white;
 	padding: 10px;
-	border: 1px solid blueviolet;
-	/* width: 90vw; */
+
 	border-radius: 8px;
 	font-weight: bold;
 	margin-top: 20px;
 }
 
-.rightSideForm button:hover {
+.continueBtn:hover {
 	background-color: purple;
 	border: 1px solid purple;
 }
@@ -295,6 +293,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+	.carDetails {
+		margin-top: 15%;
+	}
+
 	.detailsBody {
 		grid-template-columns: 90vw;
 		margin: 5%;

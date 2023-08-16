@@ -1,0 +1,107 @@
+.approvedContainer {
+	margin: 5% 10%;
+}
+.approvedTitle {
+	font-size: clamp(1rem, 6vw, 1.5rem);
+}
+
+.approvedBody {
+	margin-top: 2%;
+}
+
+.approvedBody > div {
+	border-bottom: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+	padding: 15px;
+	font-size: 20px;
+}
+
+.approvedBody button {
+	padding: 10px;
+}
+
+.approvedBody > div h3 {
+	font-size: 23px;
+}
+
+.approvedClass {
+	display: flex;
+}
+
+.approveIcon {
+	margin-left: auto;
+	font-size: 40px;
+	color: blueviolet;
+	align-self: center;
+}
+
+.content {
+	display: none;
+}
+
+.profilePhoto div {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.profilePhoto div button {
+	margin-top: 5px;
+}
+
+.driverLicense div {
+	margin-top: 20px;
+}
+
+.driverLicense div p {
+	margin-top: 10px;
+}
+
+.driverLicense input {
+	width: 400px;
+	height: 40px;
+	border: 1px solid lightgray;
+	outline-color: blueviolet;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.countrySelect,
+.dates input {
+	width: 600px;
+	height: 40px;
+	border: 1px solid lightgray;
+	outline-color: blueviolet;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.driverNames {
+	display: flex;
+	gap: 20px;
+}
+
+.driverNames h3 {
+	font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+	.approvedContainer {
+		margin: 30% 1%;
+	}
+
+	.driverNames {
+		flex-direction: column;
+	}
+
+	.driverLicense input {
+		width: 90vw;
+	}
+
+	.countrySelect,
+	.dates input {
+		width: 90vw;
+	}
+
+	.updateProfile {
+		text-align: center;
+	}
+}

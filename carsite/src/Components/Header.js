@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -17,6 +17,7 @@ function Header() {
 	const [clearClass, setClearClass] = useState("clear");
 	const [profileClass, setProfileClass] = useState("display");
 	const [toggle, setToggle] = useState(false);
+	const menuRef = useRef(null);
 
 	const handleDisplay = () => {
 		setClassName(() => {
@@ -31,8 +32,16 @@ function Header() {
 		setToggle(!toggle);
 	};
 
+	useEffect(() => {
+		document.addEventListener("mousedown", (event) => {
+			if (!menuRef?.current?.contains(event.target)) {
+				setClassName("hide");
+			}
+		});
+	});
+
 	return (
-		<>
+		<div ref={menuRef}>
 			<Dropdown className={className} />
 			<div className="navibar">
 				<div className="navlogo">
@@ -82,7 +91,7 @@ function Header() {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

@@ -1,0 +1,41 @@
+.paymentForm {
+	margin: 10%;
+	width: 50vw;
+}
+
+.paymentForm > h2 {
+	font-size: clamp(1rem, 6vw, 2rem);
+	margin-bottom: 20px;
+}
+
+.formContainer > div {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.formContainer h3 {
+	margin-bottom: 20px;
+}
+
+.payment button {
+	padding: 10px 20px;
+	width: 150px;
+	margin-top: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+	.paymentForm {
+		margin: 25% 5%;
+		width: 90vw;
+	}
+
+	.formContainer > div {
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	.payment button {
+		margin-top: 0px;
+		width: 90vw;
+	}
+}

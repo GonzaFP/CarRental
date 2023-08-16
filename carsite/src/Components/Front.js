@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Styles/Front.css";
-import Carousel from "react-multi-carousel";
+
 import "react-multi-carousel/lib/styles.css";
-import { responsiveCar } from "../Data/ResponsiveData";
+
 import { headerImageData } from "../Data/CarData";
-import Header from "./Header";
+
 import Hero from "./Hero";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
@@ -41,7 +41,7 @@ function Front() {
 						<div className="heroSlide" key={index}>
 							{index === currentSlide && (
 								<div className="heroSlider">
-									<img src={item} alt="image of a car" />
+									<img src={item} alt="car" />
 									<div className="heroContent">
 										<h1>
 											The world's largest car sharing

@@ -46,12 +46,12 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 
 		if (
 			sortedCars &&
-			((sortedCars.carMake && sortedCars.carMake !== "select") ||
-				sortedCars.features?.length > 0)
+			((sortedCars?.carMake && sortedCars?.carMake !== "select") ||
+				sortedCars?.features?.length > 0)
 		) {
 			setLargeScreenFilter(true);
 		}
-		if (!sortedCars.features) {
+		if (!sortedCars?.features) {
 			setFeatures([]);
 		}
 	}, []);
@@ -79,7 +79,7 @@ function FilterModal({ Cars, openFilterModal, unSorted, showFilterBtn }) {
 	useEffect(() => {
 		if (sortedCars) {
 			if (sortedCars?.value?.length > 0) {
-				setValue([sortedCars.value[0], sortedCars.value[1]]);
+				setValue([sortedCars?.value[0], sortedCars?.value[1]]);
 				setItems(sortedCars);
 			} else {
 				setValue([10, 250]);

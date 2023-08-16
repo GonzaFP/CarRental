@@ -6,6 +6,7 @@ import SortBtns from "./SortBtns";
 import fetcher from "../fetcher";
 import Cars from "./Cars";
 import Spinner from "./Spinner";
+import Heroo from "./Heroo";
 
 function CarModels() {
 	const { sortedCars } = useSelector((state) => state.mainReducer);
@@ -16,7 +17,7 @@ function CarModels() {
 		data: [],
 	});
 	const { modelId } = useParams();
-	const [loading, setLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 	const [modelCars, setModelCars] = useState({
 		errorMessage: "",
 		data: [],
@@ -26,7 +27,7 @@ function CarModels() {
 		const fetchData = async () => {
 			const response = await fetcher(`cars?catId=${modelId}`);
 			setModelCars(response);
-			setLoading(false);
+			setIsLoading(false);
 		};
 		fetchData();
 	}, [modelId]);
@@ -57,13 +58,14 @@ function CarModels() {
 
 	return (
 		<div className="allCars">
+			<Heroo setIsLoading={setIsLoading} />
 			<div>
 				<SortBtns
 					unSortedCarData={unSortedCarData}
 					carData={modelCars}
 				/>
 			</div>
-			{loading ? (
+			{isLoading ? (
 				<Spinner />
 			) : (
 				<div>

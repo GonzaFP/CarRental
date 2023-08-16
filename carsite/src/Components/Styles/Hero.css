@@ -3,6 +3,7 @@
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	width: 100vw;
 	margin-top: 20px;
+	z-index: 8;
 }
 
 .box {
@@ -19,27 +20,31 @@
 	width: 200px;
 	color: white;
 }
-.search .searchIcon {
-	font-size: 20px;
-	margin-top: 18px;
-	background-color: #000d1a;
-	border-radius: 50%;
-	padding: 10px;
-	color: white;
-	width: 50px;
-	height: 50px;
-}
-.HideBtn {
-	display: none;
 
+.datepicker {
+	outline: none;
+	border: none;
+	border-bottom: 1px solid white;
+}
+
+.search button {
+	padding: 20px;
 	color: white;
+	margin-top: 50px;
+	margin-left: -15px;
+}
+
+.search button:hover {
+	background-color: transparent;
+	border: 1px solid goldenrod;
+}
+
+.errors {
+	color: red;
+	margin-top: 10px;
 	font-weight: bold;
 	font-size: 15px;
-
-	padding: 10px;
-	margin-top: 20px;
 }
-
 @media screen and (max-width: 900px) {
 	.heroContainer {
 		width: 220px;

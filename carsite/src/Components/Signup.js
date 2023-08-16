@@ -46,6 +46,7 @@ function SignUp() {
 				languages: "",
 				work: "",
 				about: "",
+				approvedToDrive: false,
 			};
 
 			//! save user in a database and then update state.
@@ -56,7 +57,7 @@ function SignUp() {
 
 			dispatch(login(profile));
 			dispatch(getInitials(`${firstName} ${lastName}`));
-			
+
 			navigate(-1);
 		} catch (error) {
 			setErrorMessage(error.message);

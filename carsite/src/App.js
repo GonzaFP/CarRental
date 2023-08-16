@@ -12,8 +12,6 @@ import FirstSignup from "./Components/FirstSignup";
 import ForgotPassword from "./Components/ForgotPassword";
 import HowWorks from "./Components/HowWorks";
 import Favourites from "./Components/Favourites";
-
-import Inbox from "./Components/Inbox";
 import Booked from "./Components/Booked";
 import History from "./Components/History";
 import SharedDropdowm from "./Components/SharedDropdown";
@@ -24,19 +22,22 @@ import Profile from "./Components/Profile";
 import EditProfile from "./Components/EditProfile";
 import Accounts from "./Components/Accounts";
 import ChangePassword from "./Components/ChangePassword";
-import MobilePhone from "./Components/MobilePhone";
-import Approved from "./Components/Approved";
+
 import CarModels from "./Components/CarModels";
 import PriceDetails from "./Components/PriceDetails";
-import CarDetails from "./Components/CarDetails";
+
 import CarInfo from "./Components/CarInfo";
 import BrowseCars from "./Components/BrowseCars";
 import "./Components/Styles/GlobalStyles.css";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { useDispatch } from "react-redux";
 import { getInitials, login, logout } from "./Store/ReducerFunction";
-import { PiSunThin } from "react-icons/pi";
+
 import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
+import GetApproved from "./Components/GetApproved";
+import Payment from "./Components/Payment";
+import BookedCar from "./Components/BookedCar";
+import ConfirmBooking from "./Components/ConfirmBooking";
 
 function App() {
 	const dispatch = useDispatch();
@@ -73,17 +74,19 @@ function App() {
 						<Route path="forgotpwd" element={<ForgotPassword />} />
 						<Route path="howworks" element={<HowWorks />} />
 
-						<Route path="approved" element={<Approved />} />
 						<Route path="pricedetails" element={<PriceDetails />} />
 						<Route path="browsecars" element={<BrowseCars />} />
 						<Route path="model/:modelId" element={<CarModels />} />
 						<Route path="cars/:carId" element={<CarInfo />} />
-						<Route
-							path="changepassword"
-							element={<ChangePassword />}
-						/>
 
 						<Route element={<ProtectedRoute />}>
+							<Route path="paymentform" element={<Payment />} />
+							<Route
+								path="confirmbooking"
+								element={<ConfirmBooking />}
+							/>
+							<Route path="approved" element={<GetApproved />} />
+							<Route path="bookedcar" element={<BookedCar />} />
 							<Route path="messages" element={<SharedInbox />}>
 								<Route index element={<Messages />} />
 								<Route
@@ -106,6 +109,10 @@ function App() {
 									exact
 									path="booked/history"
 									element={<History />}
+								/>
+								<Route
+									path="changepassword"
+									element={<ChangePassword />}
 								/>
 							</Route>
 

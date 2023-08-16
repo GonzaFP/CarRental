@@ -1,0 +1,104 @@
+.BookedCar {
+	margin: 5%;
+}
+
+.BookedCarContainer {
+	position: relative;
+	width: 80%;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	box-shadow: 0.5px 0.5px 0.5px 0.5px #ffff;
+	padding: 20px;
+	font-size: 20px;
+	margin-top: 40px;
+}
+
+.BookId {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+}
+
+.BookId p {
+	margin-bottom: 4px;
+}
+
+.BookingAddress h4 {
+	font-size: 30px;
+}
+
+.AddressDetails {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.AddressDetails p {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.BookedCarDetails h4 {
+	font-size: 30px;
+}
+
+.CarDetailsContainer {
+	display: flex;
+	gap: 20px;
+	margin-top: 20px;
+	width: 100%;
+}
+
+.CarImageDetails {
+	width: 60%;
+}
+
+.CarImageDetails img {
+	width: 60%;
+}
+
+.CarDetails {
+	margin-left: -20%;
+}
+
+#title {
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+.CarDetails p {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+	.BookedCarContainer {
+		width: 90vw;
+		position: static;
+	}
+
+	.BookId {
+		position: static;
+	}
+
+	.BookingDetails {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.CarDetailsContainer {
+		flex-direction: column;
+	}
+
+	.CarImageDetails {
+		width: 100%;
+	}
+
+	.CarImageDetails img {
+		width: 100%;
+	}
+
+	.CarDetails {
+		margin-left: 0px;
+	}
+}

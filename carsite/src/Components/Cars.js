@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Styles/Cars.css";
 import StarRating from "./StarRating";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
@@ -12,12 +12,17 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { removeFavCar } from "../Store/ReducerFunction";
 
 function Cars(props) {
-	const [showPrice, setShowPrice] = useState(false);
-	const { image, title, price, trips, rating, id } = props.car;
+	const { image, title, price, trips, rating, id } = props?.car;
 	const dispatch = useDispatch();
-	const { User, favCar } = useSelector((state) => state.mainReducer);
+	const { User, favCar, searchQuery } = useSelector(
+		(state) => state.mainReducer
+	);
+	const { numberofDays } = searchQuery || {};
 	const navigate = useNavigate();
+	const [showPrice, setShowPrice] = useState(false);
 	const [liked, setLiked] = useState(false);
+
+	const totalPrice = price * searchQuery?.numberofDays;
 
 	const removeCar = () => {
 		dispatch(removeFavCar(id));
@@ -32,11 +37,10 @@ function Cars(props) {
 			navigate("/signin");
 		}
 	};
-
 	useEffect(() => {
 		const handleLiked = (a) => {
 			favCar?.map((item) => {
-				if (item.id === a) {
+				if (item?.id === a) {
 					setLiked(true);
 					return;
 				}
@@ -48,10 +52,16 @@ function Cars(props) {
 	useEffect(() => {
 		document.body.style.overflow = showPrice ? "hidden" : "unset";
 	}, [showPrice]);
+
 	return (
 		<div className="carContainer">
 			{showPrice && (
-				<PriceDetails setClose={setShowPrice} price={price} />
+				<PriceDetails
+					setClose={setShowPrice}
+					price={price}
+					totalPrice={totalPrice}
+					numberofDays={numberofDays}
+				/>
 			)}
 			<div className="allCars">
 				<div className="card">

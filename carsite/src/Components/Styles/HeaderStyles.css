@@ -108,7 +108,7 @@
 	text-align: left;
 	padding: 10px 30px;
 	box-shadow: 2px 2px 0.5px 0.5px #000d1a;
-	z-index: 3;
+	z-index: 90;
 }
 .auth {
 	display: flex;
