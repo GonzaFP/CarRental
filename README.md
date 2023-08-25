@@ -1,7 +1,7 @@
 # CarRental
 A car renting website in which a user can do the following:
 * Search available cars and book them.
-* Cancel a trip for whatever reason
+* Cancel a trip for whatever reason.
 
 
 The site has an admin who can:
