@@ -8,7 +8,8 @@ The site has an admin who can:
 * Colect late fee for cars returned after due date.
 * Send a user a notification when reservation is approaching pick up date, when car is nearing due date or has not been returned within due date.
 All payments are collected using stripe API
-#Setup
+
+# Setup
 * git clone https://github.com/GonzaFP/CarRental
 * npm install
 * npm run dev
