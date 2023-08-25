@@ -1,7 +1,6 @@
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import { deleteObject, listAll, ref } from "firebase/storage";
 import { auth, db, storage } from "../Firebase/Firebase";
-import { useSelector } from "react-redux";
 import { deleteUser } from "firebase/auth";
 import {
 	collection,

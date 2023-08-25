@@ -1,0 +1,44 @@
+.userProfileContainer {
+	border: 1px solid lightgray;
+	padding: 50px;
+	width: fit-content;
+	margin-left: 5%;
+	display: flex;
+	gap: 100px;
+}
+
+.profileDiv {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.profileDiv p {
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+.profileDiv img {
+	width: 80%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.profileAvatar {
+	margin-top: 10px;
+}
+
+.userOrders {
+	border: 1px solid lightgray;
+	padding: 50px;
+	width: 80%;
+	margin-left: 5%;
+	margin-top: 1%;
+	display: flex;
+	gap: 100px;
+}
+
+.tripsBooked {
+	font-size: 30px;
+	margin-left: 6%;
+	margin-top: 5%;
+}

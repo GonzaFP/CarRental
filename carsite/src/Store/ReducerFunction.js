@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import BookedCar from "../Components/BookedCar";
 
 export const initialState = {
 	User: null,
@@ -10,6 +9,14 @@ export const initialState = {
 	searchQuery: null,
 	licenseInfo: null,
 	BookedCar: null,
+	BookedCars: null,
+	BookedTrips: null,
+	AllUsers: null,
+	Stats: {
+		userStats: null,
+		bookedCarStats: null,
+		earningStats: null,
+	},
 };
 
 export const ReducerFunction = createSlice({
@@ -28,6 +35,49 @@ export const ReducerFunction = createSlice({
 			return {};
 		},
 
+		AddAllUsers: (state, action) => {
+			return {
+				...state,
+				AllUsers: action.payload,
+			};
+		},
+
+		AddStats: (state, action) => {
+			const payload = action.payload;
+			switch (payload.type) {
+				case "userStats":
+					return {
+						...state,
+						Stats: {
+							...state.Stats,
+							userStats: payload.value,
+						},
+					};
+					break;
+
+				case "carStats":
+					return {
+						...state,
+						Stats: {
+							...state.Stats,
+							bookedCarStats: payload.value,
+						},
+					};
+					break;
+
+				case "earningStats":
+					return {
+						...state,
+						Stats: {
+							...state.Stats,
+							earningStats: payload.value,
+						},
+					};
+					break;
+				default:
+					return state;
+			}
+		},
 		setLicenseInfo: (state, action) => {
 			return {
 				...state,
@@ -57,13 +107,70 @@ export const ReducerFunction = createSlice({
 			};
 		},
 
+		AddToBookedCars: (state, action) => {
+			console.log("new", action.payload);
+			return {
+				...state,
+				BookedCars: action.payload,
+			};
+		},
+
 		AddToBooked: (state, action) => {
 			return {
 				...state,
 				BookedCar: action.payload,
 			};
 		},
+		AddToBookedTrips: (state, action) => {
+			return {
+				...state,
+				BookedTrips: action.payload,
+			};
+		},
+		updateBookedTrips: (state, action) => {
+			const { type, value } = action.payload;
 
+			let updatedBookedTrip;
+			updatedBookedTrip = state.BookedTrips.map((item) => {
+				if (item.car.id === value.id) {
+					switch (type) {
+						case "sessionID":
+							return {
+								...item,
+								sessionID: value.sessionID,
+							};
+							break;
+						case "status":
+							return {
+								...item,
+								AmountPaid: item.AmountPaid + value.amountPaid,
+								status: value.status,
+							};
+							break;
+					}
+				}
+
+				return item;
+			});
+
+			return {
+				...state,
+				BookedTrips: updatedBookedTrip,
+			};
+			// const updatedBookedTrips = state.BookedTrips.map((item) => {
+			// 	if (item.car.id === id) {
+			// 		return {
+			// 			...item,
+			// 			sessionID: sessionID,
+			// 		};
+			// 	}
+			// 	return item;
+			// });
+			// return {
+			// 	...state,
+			// 	BookedTrips: updatedBookedTrips,
+			// };
+		},
 		getInitials: (state, action) => {
 			const initialsArray = action.payload.split(" ");
 			const name = initialsArray[0][0] + initialsArray[1][0];
@@ -75,13 +182,13 @@ export const ReducerFunction = createSlice({
 		},
 
 		addFavCar: (state, action) => {
-			const foundItem = state.favCar.some(
+			const foundItem = state?.favCar?.some(
 				(item) => item.id === action.payload.id
 			);
 			if (!foundItem) {
 				return {
 					...state,
-					favCar: [...state.favCar, action.payload],
+					favCar: [...state?.favCar, action.payload],
 				};
 			} else {
 				return {
@@ -93,7 +200,7 @@ export const ReducerFunction = createSlice({
 		removeFavCar: (state, action) => {
 			return {
 				...state,
-				favCar: state.favCar.filter(
+				favCar: state?.favCar.filter(
 					(item) => item.id !== action.payload
 				),
 			};
@@ -103,7 +210,7 @@ export const ReducerFunction = createSlice({
 			return {
 				...state,
 				User: {
-					...state.User,
+					...state?.User,
 					photo: action.payload,
 				},
 			};
@@ -251,5 +358,10 @@ export const {
 	BookQuery,
 	setLicenseInfo,
 	AddToBooked,
+	AddToBookedCars,
+	AddToBookedTrips,
+	updateBookedTrips,
+	AddStats,
+	AddAllUsers,
 } = ReducerFunction.actions;
 export default ReducerFunction.reducer;

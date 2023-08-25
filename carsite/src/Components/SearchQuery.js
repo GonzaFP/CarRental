@@ -7,16 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import dayjs from "dayjs";
 
-function SearchQuery({ classNames, setIsLoading, CarDetails }) {
+function SearchQuery({ classNames, setIsLoading, CarDetails, isBooked }) {
 	const { searchQuery, User } = useSelector((state) => state.mainReducer);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+
 	const tomorrow = dayjs().add(1, "day");
 	const nextTomorrow = dayjs().add(2, "day");
 	const [query, setQuery] = useState(
 		searchQuery || {
 			startDate: tomorrow,
 			endDate: nextTomorrow,
+			numberofDays: 1,
 		}
 	);
 	const {
@@ -39,16 +41,35 @@ function SearchQuery({ classNames, setIsLoading, CarDetails }) {
 		const date2 = new Date(endDate);
 		const time = date2.getTime() - date1.getTime();
 		const numberofDays = Math.round(time / (1000 * 60 * 60 * 24)) + 1;
-
 		setQuery((prevQuery) => {
 			return {
 				...prevQuery,
 				numberofDays: numberofDays,
 			};
 		});
-		setIsLoading && setIsLoading(true);
-		dispatch(BookQuery(query));
-	}, [query?.startDate, query?.endDate, searchQuery]);
+	}, [query?.startDate, query?.endDate]);
+
+	const pressedEnterRef = useRef(false);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			// setIsLoading && setIsLoading(true);
+			dispatch(BookQuery(query));
+		}, 2000);
+		return () => clearTimeout(timeout);
+	}, [query?.numberofDays]);
+
+	const handleEnterKey = (event) => {
+		if (event.key === "Enter") {
+			if (pressedEnterRef.current) {
+				pressedEnterRef.current = false;
+				return;
+			}
+			setIsLoading && setIsLoading(true);
+			dispatch(BookQuery(query));
+			pressedEnterRef.current = true;
+		}
+	};
 
 	const compareDates = (date1, date2) => {
 		return date1 < date2;
@@ -106,17 +127,10 @@ function SearchQuery({ classNames, setIsLoading, CarDetails }) {
 		});
 	};
 
-	const handleEnterKey = (event) => {
-		if (event.key === "Enter") {
-			setIsLoading && setIsLoading(true);
-			dispatch(BookQuery(query));
-		}
-	};
-
 	const handleSearch = (e) => {
 		e.preventDefault();
 
-		const { location, startDate, endDate } = query;
+		const { location } = query;
 		if (!location) {
 			setError("This field cannot be empty");
 			return;
@@ -165,6 +179,7 @@ function SearchQuery({ classNames, setIsLoading, CarDetails }) {
 			navigate("/approved");
 		}
 	};
+
 	return (
 		<div className={hero}>
 			<form className={heroContainer}>
@@ -184,8 +199,9 @@ function SearchQuery({ classNames, setIsLoading, CarDetails }) {
 				</div>
 
 				<div className={box}>
-					<h3>Trip start</h3>
+					<h3>Trip starts</h3>
 					<DateTimePicker
+						sx={{ borderColor: "primary.main" }}
 						value={query?.startDate}
 						disablePast
 						slotProps={{
@@ -205,7 +221,7 @@ function SearchQuery({ classNames, setIsLoading, CarDetails }) {
 				</div>
 
 				<div className={box}>
-					<h3>Trip end</h3>
+					<h3>Trip ends</h3>
 					<DateTimePicker
 						value={query?.endDate}
 						disablePast
@@ -224,11 +240,22 @@ function SearchQuery({ classNames, setIsLoading, CarDetails }) {
 
 				<div className={search}>
 					{buttonType === "continueBtn" ? (
-						<button
-							onClick={handleContinue}
-							className={`${inputClass} ${buttonClass}`}>
-							Continue
-						</button>
+						<>
+							<button
+								onClick={handleContinue}
+								className={`${inputClass} ${buttonClass}`}
+								id={isBooked === true && "continueDisabledBtn"}
+								disabled={isBooked}>
+								Continue
+							</button>
+
+							{isBooked === true && (
+								<p className="errors">
+									{" "}
+									This car is already booked!
+								</p>
+							)}
+						</>
 					) : (
 						<button onClick={handleSearch}>Search cars</button>
 					)}

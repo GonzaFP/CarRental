@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Home from "./Components/Home";
 import BecomeHost from "./Components/BecomeHost";
@@ -31,29 +31,91 @@ import BrowseCars from "./Components/BrowseCars";
 import "./Components/Styles/GlobalStyles.css";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { useDispatch } from "react-redux";
-import { getInitials, login, logout } from "./Store/ReducerFunction";
+import {
+	AddAllUsers,
+	AddStats,
+	AddToBookedTrips,
+	getInitials,
+	login,
+	logout,
+	setUserStats,
+} from "./Store/ReducerFunction";
+import { serverFetcher, dates } from "./fetcher";
 
-import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 import GetApproved from "./Components/GetApproved";
 import Payment from "./Components/Payment";
 import BookedCar from "./Components/BookedCar";
 import ConfirmBooking from "./Components/ConfirmBooking";
+
+import CheckoutSuccess from "./Components/CheckoutSuccess";
+import PageNotFound from "./Components/PageNotFound";
+import ProtectAdmin from "./Components/ProtectAdmin";
+
+import DashBoard from "./Components/Admin/Dashboard";
+import Summary from "./Components/Admin/Summary";
+import SharedSideNav from "./Components/Admin/SharedSideNav";
+import AllBookedCars from "./Components/Admin/AllBookedCars";
+import Users from "./Components/Admin/Users";
+import TripDetails from "./Components/Admin/TripDetails";
+import UserProfile from "./Components/Admin/UserProfile";
+import EachUser from "./Components/Admin/EachUser";
 
 function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((authuser) => {
 			if (authuser) {
-				const profileQuery = query(
-					collection(db, "users"),
-					where("user.id", "==", authuser.uid)
-				);
-				getDocs(profileQuery).then((querySnapshot) => {
-					querySnapshot.forEach((doc) => {
-						dispatch(login(doc.data().user));
+				// ! get the user's profile
+
+				const fetchProfile = async () => {
+					const profile = await serverFetcher("auth-user", {
+						uid: authuser.uid,
+						dates: dates,
 					});
-				});
-				dispatch(getInitials(authuser.displayName));
+
+					dispatch(login(profile.Profile));
+					dispatch(getInitials(authuser.displayName));
+					if (profile?.userStats) {
+						dispatch(
+							AddStats({
+								type: "userStats",
+								value: profile.userStats,
+							})
+						);
+					}
+				};
+
+				fetchProfile();
+
+				//! get all users
+				const fetchAllUsers = async () => {
+					const data = await serverFetcher("get-all-users", {
+						uid: authuser.uid,
+					});
+					dispatch(AddAllUsers(data.users));
+				};
+
+				fetchAllUsers();
+
+				// ! get booked cars
+				const fetchCars = async () => {
+					const data = await serverFetcher("get-booked-cars", {
+						uid: authuser.uid,
+						dates: dates,
+					});
+
+					dispatch(AddToBookedTrips(data.bookedCars));
+					if (data?.carStats) {
+						dispatch(
+							AddStats({
+								type: "carStats",
+								value: data?.carStats,
+							})
+						);
+					}
+				};
+
+				fetchCars();
 			} else {
 				dispatch(logout());
 			}
@@ -73,14 +135,38 @@ function App() {
 						<Route path="firstsignup" element={<FirstSignup />} />
 						<Route path="forgotpwd" element={<ForgotPassword />} />
 						<Route path="howworks" element={<HowWorks />} />
-
 						<Route path="pricedetails" element={<PriceDetails />} />
 						<Route path="browsecars" element={<BrowseCars />} />
 						<Route path="model/:modelId" element={<CarModels />} />
 						<Route path="cars/:carId" element={<CarInfo />} />
+						<Route path="*" element={<PageNotFound />} />
+
+						<Route element={<ProtectAdmin />}>
+							<Route
+								path="tripdetails/:id"
+								element={<TripDetails />}
+							/>
+							<Route path="summary" element={<SharedSideNav />}>
+								<Route index element={<Summary />} />
+								<Route
+									path="allbookedcars"
+									element={<AllBookedCars />}
+								/>
+								<Route path="users" element={<Users />} />
+								<Route
+									path="userprofile/:uid"
+									element={<EachUser />}
+								/>
+							</Route>
+						</Route>
 
 						<Route element={<ProtectedRoute />}>
 							<Route path="paymentform" element={<Payment />} />
+
+							<Route
+								path="checkout-success"
+								element={<CheckoutSuccess />}
+							/>
 							<Route
 								path="confirmbooking"
 								element={<ConfirmBooking />}

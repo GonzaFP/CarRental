@@ -1,0 +1,24 @@
+.transContainer {
+	background-color: rgb(48, 51, 78);
+	color: rgba(234, 234, 255, 0.87);
+	padding: 1rem;
+	border-radius: 5px;
+}
+
+.recentTrans {
+	display: flex;
+
+	font-size: 14px;
+	margin-top: 1rem;
+	padding: 0.5rem;
+	border-radius: 0.3px;
+	background: rgba(38, 198, 249, 0.12);
+}
+
+.recentTrans p {
+	flex: 1;
+}
+
+#carName {
+	flex-grow: 2;
+}

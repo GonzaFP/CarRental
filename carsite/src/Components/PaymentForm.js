@@ -5,7 +5,15 @@ import {
 	useStripe,
 	useElements,
 } from "@stripe/react-stripe-js";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+	addDoc,
+	collection,
+	getDocs,
+	query,
+	serverTimestamp,
+	updateDoc,
+	where,
+} from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
 import "./Styles/Payment.css";
 import { useSelector } from "react-redux";
@@ -62,11 +70,23 @@ function PaymentForm() {
 
 		setLoading(true);
 
-		await addDoc(collection(db, "bookedCars"), {
+		const profileQuery = query(
+			collection(db, "users"),
+			where("Profile.id", "==", User?.id)
+		);
+
+		getDocs(profileQuery).then((response) => {
+			response.forEach((doc) => {
+				updateDoc(doc.ref, {
+					"Profile.billingAddress": billingAddress,
+				});
+			});
+		});
+
+		await addDoc(collection(db, "BookedVehicles"), {
 			car: BookedCar,
+			status: "booked",
 			uid: User?.id,
-			email: User?.email,
-			address: billingAddress,
 			created: Date.now(),
 			timestamp: serverTimestamp(),
 		});

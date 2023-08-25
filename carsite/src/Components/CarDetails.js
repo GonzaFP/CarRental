@@ -19,7 +19,7 @@ import { MdSanitizer, MdLocationPin } from "react-icons/md";
 import StarRating from "./StarRating";
 import SearchQuery from "./SearchQuery";
 
-function CarDetails(props) {
+function CarDetails({ item, isBooked }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { User, favCar, searchQuery } = useSelector(
@@ -30,7 +30,6 @@ function CarDetails(props) {
 	const [featuretoggle, setFeatureToggle] = useState(false);
 	const [showspecs, setShowSpecs] = useState(false);
 	const [specstoggle, setSpecsToggle] = useState(false);
-	const [showPrice, setShowPrice] = useState(false);
 	const [liked, setLiked] = useState(false);
 
 	const {
@@ -48,7 +47,7 @@ function CarDetails(props) {
 		trips,
 		joined,
 		rating,
-	} = props.item;
+	} = item;
 
 	const handleFavCars = () => {
 		if (User && !liked) {
@@ -134,6 +133,8 @@ function CarDetails(props) {
 					swipeable={true}>
 					{imageItem}
 				</Carousel>
+
+				{isBooked && <div className="isBooked">Booked</div>}
 			</div>
 			<div className="detailsBody">
 				<div className="leftSide">
@@ -286,7 +287,8 @@ function CarDetails(props) {
 								buttonClass: "continueBtn",
 								buttonType: "continueBtn",
 							}}
-							CarDetails={props.item}
+							CarDetails={item}
+							isBooked={isBooked}
 						/>
 						{/* <form>
 							<h3>Trip start</h3>

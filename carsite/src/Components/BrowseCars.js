@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import fetcher from "../fetcher";
-
 import Cars from "./Cars";
 import { useDispatch, useSelector } from "react-redux";
-import { sortCars } from "../Store/ReducerFunction";
+import { AddToBookedCars, sortCars } from "../Store/ReducerFunction";
 import Spinner from "./Spinner";
 import NoCars from "./NoCars";
 import SortBtns from "./SortBtns";
-import Hero from "./Hero";
 import Heroo from "./Heroo";
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../Firebase/Firebase";
 
 function BrowseCars() {
-	const { sortedCars, searchQuery } = useSelector(
+	const { sortedCars, searchQuery, BookedTrips } = useSelector(
 		(state) => state.mainReducer
 	);
 
@@ -22,6 +22,13 @@ function BrowseCars() {
 		errorMessage: "",
 		data: [],
 	});
+	const [bookedCars, setBookedCars] = useState([]);
+
+	useEffect(() => {
+		BookedTrips?.map((item) =>
+			setBookedCars((prev) => [...prev, item.car.id])
+		);
+	}, [BookedTrips]);
 
 	useEffect(() => {
 		if (!sortedCars) {
@@ -58,7 +65,10 @@ function BrowseCars() {
 	let data = carData?.errorMessage
 		? `Error: ${carData.errorMessage}`
 		: carData?.data?.map((item, index) => {
-				return <Cars car={item} key={index} />;
+				if (bookedCars.includes(item.id)) {
+					return <Cars car={item} key={index} isbooked={true} />;
+				}
+				return <Cars car={item} key={index} isbooked={false} />;
 		  });
 
 	return (

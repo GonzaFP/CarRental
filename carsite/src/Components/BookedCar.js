@@ -1,9 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Styles/BookedCar.css";
+import { useSelector } from "react-redux";
 
-function BookedCar({ booking }) {
+function BookedCar({
+	booking,
+	setShowCancel,
+	setCancelPrice,
+	setSessionID,
+	setCarID,
+	setCreated,
+}) {
 	const date = new Date(booking.created).toDateString();
+	const { User } = useSelector((state) => state.mainReducer);
+	const { billingAddress, email } = User || {};
 
+	const {
+		created,
+		status,
+		AmountPaid,
+		car: {
+			id,
+			date1,
+			date2,
+			host,
+			image,
+			location,
+			numberofDays,
+			price,
+			title,
+			totalPrice,
+		},
+	} = booking || {};
+	// const {
+	// 	name,
+	// 	phone,
+	// 	address: { city, country, line1 },
+	// } = billingAddress || {};
+
+	const handleCancelBooking = () => {
+		const totalCancelPrice = 0.2 * price;
+		setShowCancel(true);
+		setCancelPrice(totalCancelPrice);
+		setSessionID(booking.sessionID);
+		setCarID(id);
+		setCreated(created);
+	};
 	return (
 		<div className="BookedCarContainer">
 			<div className="BookingDetails">
@@ -15,7 +56,7 @@ function BookedCar({ booking }) {
 					<p>
 						Booking Id:{" "}
 						<strong>
-							<small>{booking.created}</small>
+							<small>{created}</small>
 						</strong>
 					</p>
 				</div>
@@ -23,12 +64,12 @@ function BookedCar({ booking }) {
 				<div className="BookingAddress">
 					<h4>Address</h4>
 					<div className="AddressDetails">
-						<p>Name: {booking.address.name}</p>
-						<p>Email: {booking.email}</p>
-						<p>Phone: {booking.address.phone}</p>
-						<p>Address: {booking.address.address.line1}</p>
-						<p>City: {booking.address.address.city}</p>
-						<p>Country: {booking.address.address.country}</p>
+						{/* <p>Name: {name}</p> */}
+						<p>Email: {email}</p>
+						{/* <p>Phone: {phone}</p> */}
+						{/* <p>Address: {line1}</p> */}
+						{/* <p>City: {city}</p> */}
+						{/* <p>Country: {country}</p> */}
 					</div>
 				</div>
 			</div>
@@ -37,17 +78,30 @@ function BookedCar({ booking }) {
 				<h4>Trip details</h4>
 				<div className="CarDetailsContainer">
 					<div className="CarImageDetails">
-						<img src={booking.car.image} />
+						<img src={image} />
 					</div>
 					<div className="CarDetails">
-						<h5 id="title">{booking.car.title}</h5>
-						<p>{`Pickup location: ${booking.car.location}`}</p>
-						<p>{`Start date: ${booking.car.date1}`}</p>
-						<p>{`End date: ${booking.car.date2}`}</p>
-						<p>{`Number of days: ${booking.car.numberofDays}`}</p>
-						<p>{`Price per day: $${booking.car.price}`}</p>
-						<p>{`Total: $${booking.car.totalPrice}`}</p>
-						<p>{`Host name: ${booking.car.host}`}</p>
+						<h5 id="title">{title}</h5>
+						<p className="overdue">{`Status: ${status}`}</p>
+						<p>{`Pickup location: ${location}`}</p>
+						<p>{`Start date: ${date1}`}</p>
+						<p>{`End date: ${date2}`}</p>
+						<p>{`Number of days: ${numberofDays}`}</p>
+						<p>{`Price per day: $${price}`}</p>
+						<p>{`Total: $${totalPrice}`}</p>
+						<p>{`Amount paid: $${AmountPaid}`}</p>
+						<p>{`Host name: ${host}`}</p>
+
+						<button
+							disabled={status === "cancelled"}
+							className={
+								status === "cancelled"
+									? `disabledBtn cancelBooking`
+									: "cancelBooking"
+							}
+							onClick={handleCancelBooking}>
+							Cancel Booking
+						</button>
 					</div>
 				</div>
 			</div>
@@ -56,3 +110,24 @@ function BookedCar({ booking }) {
 }
 
 export default BookedCar;
+
+/*
+	! After start date, charge cancellation fee.
+	!code for real life scenario where actual dates are used
+
+	*/
+// useEffect(() => {
+// 	const currentDate = new Date()
+// 	const startDate = booking.car.date1
+// 	const isAfter = startDate < currentDate
+// if (isCancel){
+// 	return
+// }else{
+// 	if (isAfter){
+// 		setChargeExtra(true);
+// 	}else{
+// 		setChargeExtra(false);
+// 	}
+// }
+// 	cancelBooking();
+// }, []);

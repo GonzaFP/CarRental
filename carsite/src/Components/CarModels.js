@@ -9,7 +9,9 @@ import Spinner from "./Spinner";
 import Heroo from "./Heroo";
 
 function CarModels() {
-	const { sortedCars } = useSelector((state) => state.mainReducer);
+	const { sortedCars, BookedTrips } = useSelector(
+		(state) => state.mainReducer
+	);
 	const dispatch = useDispatch();
 
 	const [unSortedCarData, setUnsortedCarData] = useState({
@@ -22,6 +24,14 @@ function CarModels() {
 		errorMessage: "",
 		data: [],
 	});
+	const [isBooked, setIsBooked] = useState(false);
+	const [bookedCars, setBookedCars] = useState([]);
+
+	useEffect(() => {
+		BookedTrips?.map((item) =>
+			setBookedCars((prev) => [...prev, item.car.id])
+		);
+	}, [BookedTrips]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -53,7 +63,10 @@ function CarModels() {
 	let modelData = modelCars.errorMessage
 		? `Error: ${modelCars.errorMessage}`
 		: modelCars.data.map((car, index) => {
-				return <Cars car={car} key={index} />;
+				if (bookedCars.includes(car.id)) {
+					return <Cars car={car} key={index} isbooked={true} />;
+				}
+				return <Cars car={car} key={index} isbooked={false} />;
 		  });
 
 	return (

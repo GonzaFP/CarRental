@@ -1,0 +1,35 @@
+.actionButtons button {
+	border: none;
+	outline: none;
+	padding: 15px;
+	border-radius: 3px;
+	text-transform: capitalize;
+}
+
+.Charge {
+	background-color: white;
+	border: 1px solid black;
+	outline: black;
+	margin-right: 10px;
+}
+
+.Delete {
+	background-color: rgb(245, 76, 76);
+}
+
+.View {
+	background-color: rgb(118, 255, 118);
+	margin-right: 10px;
+}
+
+.Progress {
+	color: green;
+}
+
+.pending {
+	color: blueviolet;
+}
+
+.overdue {
+	color: red;
+}

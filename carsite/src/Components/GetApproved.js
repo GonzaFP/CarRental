@@ -30,6 +30,7 @@ function GetApproved() {
 	const photoRef = useRef(null);
 	const driverRef = useRef(null);
 	const [photoSaved, setPhotoSaved] = useState(false);
+
 	const {
 		firstName,
 		lastName,
@@ -66,6 +67,7 @@ function GetApproved() {
 
 	// !event handlers
 
+	// ! collecting licence info
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setUserInfo((prev) => {
@@ -76,49 +78,35 @@ function GetApproved() {
 		});
 	};
 
-	const handleSaveLicense = async (e) => {
-		if (User?.approvedToDrive === false) {
-			await addDoc(collection(db, "DriverLicenses"), {
-				userInfo,
-			});
+	const saveProfile = () => {
+		if (userProfile?.photo === null) return;
+		//! save data to database, then save it in global state.
+		dispatch(updateUser(userProfile));
+		setPhotoSaved(true);
+		driverRef.current.style.display = "block";
+	};
 
+	const handleSaveLicense = async () => {
+		if (User?.approvedToDrive === false) {
 			const profileQuery = query(
 				collection(db, "users"),
-				where("user.id", "==", User?.id)
+				where("Profile.id", "==", User?.id)
 			);
 
 			getDocs(profileQuery).then((response) => {
 				response.forEach((doc) => {
+					console.log("doc", doc.data());
 					updateDoc(doc.ref, {
-						"user.approvedToDrive": true,
+						License: userInfo,
+						Profile: userProfile,
+						"Profile.approvedToDrive": true,
 					});
 				});
 			});
+			dispatch(setLicenseInfo(userInfo));
+			driverRef.current.style.display = "none";
+			navigate("/confirmbooking");
 		}
-
-		dispatch(setLicenseInfo(userInfo));
-		driverRef.current.style.display = "none";
-		navigate("/confirmbooking");
-	};
-
-	const saveProfile = () => {
-		if (userProfile?.photo === null) return;
-		//! save data to database, then save it in global state.
-		const profileQuery = query(
-			collection(db, "users"),
-			where("user.id", "==", User?.id)
-		);
-		getDocs(profileQuery).then((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				updateDoc(doc.ref, {
-					user: userProfile,
-				});
-				dispatch(updateUser(userProfile));
-				console.log("document updated.");
-			});
-			setPhotoSaved(true);
-			driverRef.current.style.display = "block";
-		});
 	};
 
 	// !end of event handlers

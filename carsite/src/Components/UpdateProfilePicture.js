@@ -11,13 +11,12 @@ import {
 	deleteObject,
 } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
-
 import { uploadProfilePhoto } from "../Store/ReducerFunction";
 import { useDispatch, useSelector } from "react-redux";
 
 function UpdateProfilePicture({ setUserProfile, userProfile }) {
 	const dispatch = useDispatch();
-	const { User, initials } = useSelector((state) => state.mainReducer);
+	const { initials } = useSelector((state) => state.mainReducer);
 	const [imageUpload, setImageUpload] = useState(null);
 	const [isSaving, setSaving] = useState(false);
 

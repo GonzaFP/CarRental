@@ -178,3 +178,12 @@
 		display: block;
 	}
 }
+
+.Admin {
+	border: 1px solid goldenrod;
+	padding: 10px 15px;
+}
+
+.Admin:hover {
+	border: none;
+}

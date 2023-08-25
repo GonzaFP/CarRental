@@ -1,0 +1,13 @@
+.CheckoutContainer,
+.CheckSuccessContainer {
+	margin: 10%;
+}
+
+.CheckSuccessContainer h1 {
+	color: rgb(0, 196, 0);
+}
+
+.CheckSuccessContainer p {
+	margin-top: 10px;
+	font-size: 25px;
+}

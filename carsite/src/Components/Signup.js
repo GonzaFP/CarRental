@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Styles/signup.css";
 import { auth, db } from "../Firebase/Firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -42,17 +42,19 @@ function SignUp() {
 				agreedToTerms: terms,
 				sendNotification: notify,
 				location: "",
-				canDrive: false,
 				languages: "",
 				work: "",
 				about: "",
 				approvedToDrive: false,
+				isAdmin: false,
 			};
 
 			//! save user in a database and then update state.
 
 			await addDoc(collection(db, "users"), {
-				user: profile,
+				Profile: profile,
+				License: null,
+				timestamp: serverTimestamp(),
 			});
 
 			dispatch(login(profile));

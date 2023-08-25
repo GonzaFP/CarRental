@@ -1,0 +1,24 @@
+.AllTimeContainer {
+	background-color: rgb(48, 51, 78);
+	color: rgba(234, 234, 255, 0.87);
+	padding: 1rem;
+	border-radius: 5px;
+	margin-top: 1.5rem;
+	font-size: 14px;
+}
+.Info {
+	display: flex;
+	margin-top: 1rem;
+	padding: 0.3rem;
+	border-radius: 3px;
+	background-color: rgba(38, 198, 249, 0.12);
+}
+
+.InfoTitle {
+	flex: 1;
+}
+
+.InfoData {
+	flex: 1;
+	font-weight: 700;
+}

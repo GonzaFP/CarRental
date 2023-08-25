@@ -16,6 +16,7 @@ import { schema } from "../Features/Schema";
 import SignModal from "./SignModal";
 import { getInitials, login } from "../Store/ReducerFunction";
 import { useDispatch } from "react-redux";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 function SignIn() {
 	const dispatch = useDispatch();
@@ -46,14 +47,15 @@ function SignIn() {
 
 			//! Inside the database, create a document containing the user's profile.
 
-			dispatch(
-				login({
-					name: user.displayName,
-					email: user.email,
-					id: user.uid,
-					photo: user.photoURL,
-				})
+			const profileQuery = query(
+				collection(db, "users"),
+				where("Profile.id", "==", user.uid)
 			);
+			getDocs(profileQuery).then((querySnapshot) => {
+				querySnapshot.forEach((doc) => {
+					dispatch(login(doc.data().Profile));
+				});
+			});
 
 			dispatch(getInitials(user.displayName));
 			navigate(-1);

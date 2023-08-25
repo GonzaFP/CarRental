@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Styles/Cars.css";
 import StarRating from "./StarRating";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
@@ -11,13 +11,14 @@ import { addFavCar } from "../Store/ReducerFunction";
 import { BsFillHeartFill } from "react-icons/bs";
 import { removeFavCar } from "../Store/ReducerFunction";
 
-function Cars(props) {
-	const { image, title, price, trips, rating, id } = props?.car;
+function Cars({ car, isbooked }) {
+	const { image, title, price, trips, rating, id } = car || {};
+
 	const dispatch = useDispatch();
 	const { User, favCar, searchQuery } = useSelector(
 		(state) => state.mainReducer
 	);
-	const { numberofDays } = searchQuery || {};
+	const { numberofDays } = searchQuery || 1;
 	const navigate = useNavigate();
 	const [showPrice, setShowPrice] = useState(false);
 	const [liked, setLiked] = useState(false);
@@ -69,6 +70,7 @@ function Cars(props) {
 						<Link to={`/cars/${id}`}>
 							<img src={image} alt="" />
 						</Link>
+						{isbooked && <div className="isBooked">Booked</div>}
 						<div className="rightCard">
 							{liked ? (
 								<Tooltip title="Remove car from favourities.">

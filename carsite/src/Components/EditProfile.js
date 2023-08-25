@@ -1,17 +1,7 @@
 import React, { useRef, useState } from "react";
-import { auth, db, storage } from "../Firebase/Firebase";
+import { db } from "../Firebase/Firebase";
 import { Avatar } from "@mui/material";
-import { deepPurple } from "@mui/material/colors";
-import {
-	getDownloadURL,
-	ref,
-	uploadBytes,
-	uploadBytesResumable,
-	listAll,
-	deleteObject,
-} from "firebase/storage";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "firebase/auth";
 import { updateUser } from "../Store/ReducerFunction";
 import { Link, useNavigate } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
@@ -29,7 +19,7 @@ import UpdateProfilePicture from "./UpdateProfilePicture";
 function EditProfile() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const { User, initials } = useSelector((state) => state.mainReducer);
+	const { User } = useSelector((state) => state.mainReducer);
 
 	const {
 		id,
@@ -40,13 +30,13 @@ function EditProfile() {
 		sendNotification,
 		location,
 		work,
-		school,
 		about,
 		languages,
+		approvedToDrive,
 	} = User;
 
 	//!state
-	const [imageUpload, setImageUpload] = useState(null);
+
 	const [isSaving, setSaving] = useState(false);
 	const [userProfile, setUserProfile] = useState({
 		id: id,
@@ -56,10 +46,9 @@ function EditProfile() {
 		agreedToTerms: agreedToTerms,
 		sendNotification: sendNotification,
 		location: location === undefined ? "" : location,
-		canDrive: false,
+		approvedToDrive: approvedToDrive,
 		languages: languages === undefined ? "" : languages,
 		work: work === undefined ? "" : work,
-		school: school === undefined ? "" : school,
 		about: about === undefined ? "" : about,
 	});
 
@@ -81,12 +70,12 @@ function EditProfile() {
 		//! save data to database, then save it in global state.
 		const profileQuery = query(
 			collection(db, "users"),
-			where("user.id", "==", id)
+			where("Profile.id", "==", id)
 		);
 		getDocs(profileQuery).then((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
 				updateDoc(doc.ref, {
-					user: userProfile,
+					Profile: userProfile,
 				});
 				dispatch(updateUser(userProfile));
 				console.log("document updated.");

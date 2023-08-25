@@ -1,0 +1,96 @@
+.dashboard {
+	margin-top: 5%;
+	display: flex;
+	padding: 30px;
+}
+
+.sideNav {
+	border-right: 1px solid lightgray;
+	padding-right: 30px;
+}
+
+.sideNav > h2 {
+	text-transform: uppercase;
+}
+
+.NavLinks {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.NavLinks a {
+	margin-top: 15px;
+	text-transform: capitalize;
+	font-size: 22px;
+	color: black;
+	font-weight: 400;
+	display: flex;
+}
+
+.NavLinks a:hover {
+	color: #4b70e2;
+}
+
+.NavLinks .activeTrip {
+	color: #4b70e2;
+	border-bottom: none;
+	border-left: 3px solid #4b70e2;
+	padding-left: 8px;
+	border-radius: 2px;
+}
+
+.sideIcons {
+	font-size: 25px;
+	margin-right: 10px;
+}
+
+#navIcon {
+	display: none;
+}
+
+@media screen and (max-width: 767px) {
+	.dashboard {
+		margin-top: 20%;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.dashboard {
+		flex-direction: column;
+		padding: 10px;
+	}
+
+	.menu {
+		display: flex;
+		cursor: pointer;
+		padding: 10px;
+		width: 200px;
+	}
+
+	.menu:hover {
+		border: 1px solid goldenrod;
+	}
+
+	.NavLinks {
+		display: none;
+	}
+
+	.hideNav {
+		display: none;
+	}
+
+	.showNav {
+		display: block;
+	}
+
+	#navIcon {
+		display: block;
+	}
+
+	.sideNav {
+		border-right: none;
+		border-bottom: 1px solid lightgray;
+		padding-right: 30px;
+	}
+}

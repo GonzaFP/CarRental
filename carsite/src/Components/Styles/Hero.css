@@ -76,3 +76,12 @@
 	filter: invert(1) brightness(50%) sepia(100%) saturate(10000%)
 		hue-rotate(180deg);
 }
+
+#continueDisabledBtn {
+	background-color: lightgray;
+}
+
+#continueDisabledBtn:hover {
+	background-color: lightgray;
+	border: none;
+}

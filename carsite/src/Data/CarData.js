@@ -92,10 +92,10 @@ export const categoryData = [
 ];
 
 export const headerImageData = [
+	"/image3.jpg",
 	"/image1.jpg",
 	"/image2.jpg",
 	"/image4.jpg",
-	"/image3.jpg",
 ];
 export const logoData = [
 	"teslalogo.jpg",

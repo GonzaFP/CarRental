@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { auth, db } from "../Firebase/Firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AcceptModal from "./AcceptModal";
 import "./Styles/Modal.css";
@@ -35,6 +35,7 @@ function SignModal({ closeModal, user }) {
 		work: "",
 		about: "",
 		approvedToDrive: false,
+		isAdmin: false,
 	};
 
 	const handleUser = async () => {
@@ -49,7 +50,9 @@ function SignModal({ closeModal, user }) {
 
 			//! save user in a database and then update state.
 			await addDoc(collection(db, "users"), {
-				user: profile,
+				Profile: profile,
+				License: null,
+				timestamp: serverTimestamp(),
 			});
 
 			dispatch(login(profile));

@@ -1,13 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import {
+	addDoc,
+	collection,
+	getDocs,
+	query,
+	serverTimestamp,
+	updateDoc,
+	where,
+} from "firebase/firestore";
+import { db } from "../Firebase/Firebase";
 import "./Styles/ConfirmBooking.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function BookedCar() {
 	const navigate = useNavigate();
-	const { searchQuery, BookedCar } = useSelector(
-		(state) => state.mainReducer
-	);
+	const { BookedCar, User } = useSelector((state) => state.mainReducer);
 
 	const {
 		image,
@@ -15,7 +23,6 @@ function BookedCar() {
 		price,
 		id,
 		host,
-
 		totalPrice,
 		date2,
 		date1,
@@ -26,10 +33,30 @@ function BookedCar() {
 	const startDate = new Date(date1).toDateString();
 	const endDate = new Date(date2).toDateString();
 
-	const handleProceed = () => {
-		navigate("/paymentform", { replace: true });
-	};
+	const handleCheckOut = () => {
+		addDoc(collection(db, "BookedVehicles"), {
+			car: BookedCar,
+			status: "booked",
+			uid: User?.id,
+			sessionID: null,
+			created: Date.now(),
+			timestamp: serverTimestamp(),
+			AmountPaid: 0,
+		});
 
+		fetch("http://localhost:4242/create-checkout-session", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ car: BookedCar, uid: User?.id }),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				if (data.url) {
+					window.location.href = data.url;
+				}
+			})
+			.catch((error) => console.log("checkout-error", error));
+	};
 	return (
 		<div className="ConfirmSection">
 			<div className="ConfirmContainer">
@@ -65,22 +92,11 @@ function BookedCar() {
 					<h4>{`Pickup location: ${location}`}</h4>
 				</div>
 
-				<div className="termsConditions">
-					<h3>Terms and conditions</h3>
+				<form
+					action="http://localhost:4242/create-checkout-session"
+					method="POST"></form>
 
-					<ul>
-						<li>{`If you return the car later than ${date1}, you will be charged $150 per day.`}</li>
-						<li>{`Our insurance policy does not cover accidents caused by reckless or drunken driving.`}</li>
-						<li>{`Clean the car before returning it.`}</li>
-						<li>{`You will get a full refund if you cancel your booking before ${date2}, otherwise you will be charged 10% of the daily price.`}</li>
-						<li>{`Some hosts will have guidelines to follow. Please follow them.`}</li>
-					</ul>
-					<p>
-						For more information, call our customer care line at
-						(000) 000 0000 0000
-					</p>
-				</div>
-				<button onClick={handleProceed}>Proceed to checkout</button>
+				<button onClick={handleCheckOut}>Check out</button>
 			</div>
 		</div>
 	);

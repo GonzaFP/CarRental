@@ -1,0 +1,11 @@
+.NotFoundContainer {
+	margin-top: 10%;
+	text-align: center;
+}
+.NotFoundContainer h1 {
+	font-size: 60px;
+}
+
+.NotFoundContainer p {
+	font-size: 30px;
+}

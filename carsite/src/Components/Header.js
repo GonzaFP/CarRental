@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Styles/HeaderStyles.css";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
@@ -51,44 +50,53 @@ function Header() {
 				</div>
 
 				<div className="menuIcons">
-					<div className="hostBtn">
-						<button onClick={() => navigate("/host")}>
-							Become a host
-						</button>
-					</div>
-
-					<div onClick={handleDisplay} className="dropdown">
-						<ClearOutlinedIcon
-							className={`${clearClass} clearIcon`}
-						/>
-
-						<div className={`${profileClass} menu`}>
-							<MenuIcon className="menuitem" />
-
-							<div className=" profilename account">
-								{User?.photo ? (
-									<Avatar
-										src={User?.photo}
-										alt={User?.photo}
-										sx={{
-											width: 24,
-											height: 24,
-										}}
-										className="HeaderProfilePic menuitem account"
-									/>
-								) : (
-									<Avatar
-										sx={{
-											bgcolor: deepPurple[500],
-											width: 24,
-											height: 24,
-										}}>
-										{initials && initials}
-									</Avatar>
-								)}
-							</div>
+					{User?.isAdmin ? (
+						<div
+							className="Admin"
+							onClick={() => navigate("/summary")}>
+							<h3>Admin</h3>
 						</div>
-					</div>
+					) : (
+						<>
+							<div className="hostBtn">
+								<button onClick={() => navigate("/host")}>
+									Become a host
+								</button>
+							</div>
+							<div onClick={handleDisplay} className="dropdown">
+								<ClearOutlinedIcon
+									className={`${clearClass} clearIcon`}
+								/>
+
+								<div className={`${profileClass} menu`}>
+									<MenuIcon className="menuitem" />
+
+									<div className=" profilename account">
+										{User?.photo ? (
+											<Avatar
+												src={User?.photo}
+												alt={User?.photo}
+												sx={{
+													width: 24,
+													height: 24,
+												}}
+												className="HeaderProfilePic menuitem account"
+											/>
+										) : (
+											<Avatar
+												sx={{
+													bgcolor: deepPurple[500],
+													width: 24,
+													height: 24,
+												}}>
+												{initials && initials}
+											</Avatar>
+										)}
+									</div>
+								</div>
+							</div>
+						</>
+					)}
 				</div>
 			</div>
 		</div>
